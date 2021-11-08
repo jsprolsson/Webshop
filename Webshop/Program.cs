@@ -13,8 +13,8 @@ namespace Webshop
     {
         public static void Main(string[] args)
         {
+            Data.ProductManager.APICall();
             CreateHostBuilder(args).Build().Run();
-
 
         }
 

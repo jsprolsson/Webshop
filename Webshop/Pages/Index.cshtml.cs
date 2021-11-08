@@ -10,11 +10,11 @@ namespace Webshop.Pages
 {
     public class IndexModel : PageModel
     {
-        public List<Models.Product> Products { get; set; }
+        public List<Models.Product> Products = Data.ProductManager.Products;
 
         public void OnGet()
         {
-            Products = Data.ProductManager.GetProducts();
+            
         }
     }
 }

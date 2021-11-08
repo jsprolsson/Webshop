@@ -1,0 +1,13 @@
+﻿@page
+@model Webshop.Pages.AddProductModel
+@{
+}
+
+<form method="post">
+    <input type="submit" name="Add Product"  />
+</form>
+
+@foreach (var item in Model.products)
+{
+    <p>@item.title</p>
+}

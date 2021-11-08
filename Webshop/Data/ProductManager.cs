@@ -9,17 +9,33 @@ namespace Webshop.Data
 {
     public class ProductManager
     {
+        
         public static List<Models.Product> Products = new List<Models.Product>();
 
-        public static List<Models.Product> GetProducts()
+        public static void APICall()
         {
-            List<Models.Product> products = new List<Models.Product>();
-
             var httpClient = new HttpClient();
             var response = httpClient.GetAsync("https://fakestoreapi.com/products").GetAwaiter().GetResult();
             var apiResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+            Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
+        }
 
-            return products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
+        //public static List<Models.Product> GetProducts()
+        //{
+        //    List<Models.Product> products = new List<Models.Product>();
+
+        //    var httpClient = new HttpClient();
+        //    var response = httpClient.GetAsync("https://fakestoreapi.com/products").GetAwaiter().GetResult();
+        //    var apiResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+        //    return products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
+        //}
+
+        public static void AddProduct()
+        {
+            //Id kanske inte nödvändigt. Kan använda list-index istället.
+
+            Products.Add(new Models.Product(Products.Count + 1, "Armani jeans", 299, "These jeans are amazing", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10));
         }
 
     }

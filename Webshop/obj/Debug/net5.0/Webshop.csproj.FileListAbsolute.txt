@@ -712,3 +712,5 @@ C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Webshop.dll
 C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\ref\Webshop.dll
 C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Webshop.pdb
 C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Webshop.genruntimeconfig.cache
+C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\AddProduct.cshtml.g.cs
+C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\Admin.cshtml.g.cs

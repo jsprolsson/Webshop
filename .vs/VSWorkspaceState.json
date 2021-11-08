@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\Webshop",
+    "\\Webshop\\Data",
     "\\Webshop\\Pages"
   ],
-  "SelectedNode": "\\Webshop.sln",
+  "SelectedNode": "\\Webshop\\Pages\\Admin.cshtml",
   "PreviewInSolutionExplorer": false
 }
