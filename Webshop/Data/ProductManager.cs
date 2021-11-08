@@ -11,6 +11,7 @@ namespace Webshop.Data
     {
         
         public static List<Models.Product> Products = new List<Models.Product>();
+        public static List<Models.Product> ChosenProducts = new List<Models.Product>();
 
         public static void APICall()
         {
@@ -37,6 +38,19 @@ namespace Webshop.Data
 
             Products.Add(new Models.Product(Products.Count + 1, "Armani jeans", 299, "These jeans are amazing", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10));
         }
+
+        public static List<Models.Product> ThreeChosen()
+        {
+            List<Models.Product> ChosenProducts = Products;
+
+            for (int i = 0; i < 3; i++)
+            {
+                ChosenProducts[i].chosen = true;
+            }
+
+            return ChosenProducts;
+        }
+
 
     }
 }

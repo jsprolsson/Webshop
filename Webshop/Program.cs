@@ -14,6 +14,7 @@ namespace Webshop
         public static void Main(string[] args)
         {
             Data.ProductManager.APICall();
+            Data.ProductManager.ThreeChosen();
             CreateHostBuilder(args).Build().Run();
 
         }
