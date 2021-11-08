@@ -3,8 +3,9 @@
     "",
     "\\Webshop",
     "\\Webshop\\Data",
+    "\\Webshop\\Models",
     "\\Webshop\\Pages"
   ],
-  "SelectedNode": "\\Webshop\\Pages\\Admin.cshtml",
+  "SelectedNode": "\\Webshop\\Models\\Product.cs",
   "PreviewInSolutionExplorer": false
 }
