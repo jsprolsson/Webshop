@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop\\Webshop.csproj": {}
+    "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop\\Webshop.csproj": {
+    "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop\\Webshop.csproj",
+        "projectUniqueName": "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop.csproj",
         "projectName": "Webshop",
-        "projectPath": "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop\\Webshop.csproj",
+        "projectPath": "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop.csproj",
         "packagesPath": "C:\\Users\\jespe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\Webshop\\obj\\",
+        "outputPath": "C:\\Users\\jespe\\source\\repos\\Projektarbete\\Webshop\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jespe\\AppData\\Roaming\\NuGet\\NuGet.Config",
