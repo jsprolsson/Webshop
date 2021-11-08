@@ -1071,7 +1071,16 @@ C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Webshop.dll
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\ref\Webshop.dll
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Webshop.pdb
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Webshop.genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Admin\Index.cshtml.g.cs
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Cart\Index.cshtml.g.cs
 C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\Admin\Index.cshtml.g.cs
 C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\Cart\Index.cshtml.g.cs
+=======
+C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Admin\AddProduct.cshtml.g.cs
+C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Cart.cshtml.g.cs
+C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Products.cshtml.g.cs
+>>>>>>> f8760f0aed9df1138bb4a5cd783366d12b60e3c2
+C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\Admin\AddProduct.cshtml.g.cs
+C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\Cart.cshtml.g.cs
+C:\Users\jespe\source\repos\Projektarbete\Webshop\obj\Debug\net5.0\Razor\Pages\Products.cshtml.g.cs
