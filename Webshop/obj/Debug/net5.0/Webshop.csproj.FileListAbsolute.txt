@@ -1072,5 +1072,6 @@ C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Webshop.dll
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\ref\Webshop.dll
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Webshop.pdb
 C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Webshop.genruntimeconfig.cache
-C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Admin\Index.cshtml.g.cs
-C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Cart\Index.cshtml.g.cs
+C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Admin\AddProduct.cshtml.g.cs
+C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Cart.cshtml.g.cs
+C:\Users\admin\Documents\GitHub\Webshop2\Webshop\obj\Debug\net5.0\Razor\Pages\Products.cshtml.g.cs

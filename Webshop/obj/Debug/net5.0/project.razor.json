@@ -15629,13 +15629,8 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\admin\\Documents\\GitHub\\Webshop2\\Webshop\\Pages\\Cart\\Index.cshtml",
-      "TargetPath": "Pages\\Cart\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\admin\\Documents\\GitHub\\Webshop2\\Webshop\\Pages\\Admin\\Index.cshtml",
-      "TargetPath": "Pages\\Admin\\Index.cshtml",
+      "FilePath": "c:\\Users\\admin\\Documents\\GitHub\\Webshop2\\Webshop\\Pages\\Admin\\AddProduct.cshtml",
+      "TargetPath": "Pages\\Admin\\AddProduct.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15664,8 +15659,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\admin\\Documents\\GitHub\\Webshop2\\Webshop\\Pages\\Products.cshtml",
+      "TargetPath": "Pages\\Products.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\admin\\Documents\\GitHub\\Webshop2\\Webshop\\Pages\\Shared\\_Layout.cshtml",
       "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\admin\\Documents\\GitHub\\Webshop2\\Webshop\\Pages\\Cart.cshtml",
+      "TargetPath": "Pages\\Cart.cshtml",
       "FileKind": "mvc"
     }
   ],

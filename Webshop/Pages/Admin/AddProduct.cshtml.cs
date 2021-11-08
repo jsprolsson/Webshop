@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Webshop.Pages.Cart
+namespace Webshop.Pages.Admin
 {
-    public class IndexModel : PageModel
+    public class AddProductModel : PageModel
     {
         public void OnGet()
         {
