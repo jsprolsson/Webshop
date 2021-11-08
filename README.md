@@ -49,3 +49,10 @@
 - [ ] Lagersaldo
 
 # Style
+
+# Class
+
+- [ ] Product
+- [ ] Customer
+- [ ] Order
+- [ ] Order item?
