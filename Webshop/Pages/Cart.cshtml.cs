@@ -14,8 +14,16 @@ namespace Webshop.Pages
 
         public void OnGet(int id)
         {
-            AllProducts = AllProducts.Where(product => product.id == id).ToList();
-            Data.CartManager.AddToCart(AllProducts[0]);
+            //If för att annars kraschar AddToCart-metoden för den inte får in något värde.
+            if (id != 0)
+            {
+                AllProducts = AllProducts.Where(product => product.id == id).ToList();
+                Data.CartManager.AddToCart(AllProducts[0]);
+            }
+
+            //GroupBy i listan för att sortera ut likadana produkter med samma id/namn och lägga på hög istället.
+            //RemoveFromCart- & AddToCart-funktion kan vara knutna till knappar på view-page? Klicka på + -> 1 skickas till addtocart.  
+            
 
         }
     }

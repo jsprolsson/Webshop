@@ -12,7 +12,6 @@ namespace Webshop.Pages
     public class ProductsModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
-        public Models.Product Product { get; set; }
 
         public string SearchMessage { get; set; }
 
@@ -45,7 +44,7 @@ namespace Webshop.Pages
             Products = Products.Where(product => product.category.Contains(search) || product.title.Contains(search) || product.description.Contains(search)).Select(product => product).ToList();
         }
 
-        public IActionResult OnPostSearch()
+        public IActionResult OnPost()
         {
             return RedirectToPage("/Products", new { SearchMessage });
         }

@@ -9,22 +9,16 @@
     }
 </style>
 
-<a asp-route-category="electronics" asp-page="/Products">Electronics</a>
-<a asp-route-category="jewelery" asp-page="/Products">Jewelery</a>
-<a asp-route-category="men's clothing" asp-page="/Products">Men's clothing</a>
-<a asp-route-category="women's clothing" asp-page="/Products">Women's clothing</a>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h3><u>Products</u></h3>
+<div class="container p-2">
+    <div class="row justify-content-center">
+        <div class="col col-lg-8">
+            <h2 class="display-4"><u>Products</u></h2>
         </div>
-        <div class="col">
-            <form method="post" asp-page-handler="Search">
-                <label for="fritext">Search:</label>
-                <input id="fritext" type="text" asp-for="@Model.SearchMessage" />
-                <input type="submit" value="Input text" />
+        <div class="col pt-4 pl-4">
+            <form class="d-flex" method="post">
+                <input class="form-control-lg" id="fritext" placeholder="Search items" type="text" asp-for="@Model.SearchMessage" />
+                <input type="submit" value="Search" />
             </form>
         </div>
         <div class="col">
@@ -33,18 +27,36 @@
     </div>
 </div>
 
-
+@{int i = 0; }
 @foreach (var item in Model.Products)
 {
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="@item.image" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">@item.title</h5>
-            <p class="card-text">@item.description</p>
+            @*<p class="card-text">@item.description</p>*@
             <p class="card-text text-right">Price: @item.price USD</p>
-            <a class="btn btn-primary" asp-page="/cart" asp-route-id="@item.id">Purchase</a>
-            
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-primary" asp-page="/cart" asp-route-id="@item.id">Purchase</a>
+                </div>
+                <div class="col">
+                    <p>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_@i" role="button">
+                            More Info
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="collapse" id="collapseExample_@i">
+                <div class="card card-body">
+                    <p>@item.description</p>
+                </div>
+            </div>
         </div>
     </div>
+
+    i++;
+    
 }
 
