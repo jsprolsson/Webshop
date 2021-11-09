@@ -2,7 +2,7 @@
 
 # TODO
 
-- [ ] 
+- [ ] Gör search till case insensitive
 
 # Startsida
 
