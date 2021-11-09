@@ -12,6 +12,10 @@
 <a asp-route-category="electronics" asp-page="/Products">Electronics</a>
 <a asp-route-category="jewelery" asp-page="/Products">Jewelery</a>
 <a asp-route-category="men's clothing" asp-page="/Products">Men's clothing</a>
+<a asp-route-category="women's clothing" asp-page="/Products">Women's clothing</a>
+
+
+<h3>@Model.SearchMessage</h3>
 
 <div class="container">
     <div class="row">
@@ -21,12 +25,12 @@
         <div class="col">
             <form method="post" asp-page-handler="Search">
                 <label for="fritext">Search:</label>
-                <input id="fritext" type="text" />
-                <input type="submit"  name="Input text" />
+                <input id="fritext" type="text" asp-for="@Model.SearchMessage" />
+                <input type="submit" value="Input text" />
             </form>
         </div>
         <div class="col">
-            
+
         </div>
     </div>
 </div>
@@ -38,7 +42,8 @@
         <img class="card-img-top" src="@item.image" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">@item.title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">@item.description</p>
+            <p class="card-text text-right">Price: @item.price USD</p>
             <a href="#" class="btn btn-primary">Purchase</a>
         </div>
     </div>
