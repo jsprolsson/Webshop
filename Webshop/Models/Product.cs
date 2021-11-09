@@ -21,7 +21,7 @@
             this.category = category;
             this.image = image;
             this.chosen = chosen;
-            this.stock = stock;
+            this.stock = 100;
         }
 
     }
