@@ -12,7 +12,10 @@ namespace Webshop.Pages
     public class ProductsModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
+        public Models.Product Product { get; set; }
+
         public string SearchMessage { get; set; }
+
         public void OnGet(string category, string searchMessage)
         {
             if (searchMessage != null) Search(searchMessage);
@@ -46,6 +49,7 @@ namespace Webshop.Pages
         {
             return RedirectToPage("/Products", new { SearchMessage });
         }
+
         
     }
 }

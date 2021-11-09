@@ -9,10 +9,13 @@ namespace Webshop.Pages
 {
     public class CartModel : PageModel
     {
-        public List<Models.OrderItem> Cart { get; set; }
+        public List<Models.Product> AllProducts = Data.ProductManager.Products;
+        public List<Models.OrderItem> Cart = Data.CartManager.Cart;
 
-        public void OnGet()
+        public void OnGet(int id)
         {
+            AllProducts = AllProducts.Where(product => product.id == id).ToList();
+            Data.CartManager.AddToCart(AllProducts[0]);
 
         }
     }

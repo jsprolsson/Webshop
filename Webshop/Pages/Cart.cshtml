@@ -2,3 +2,10 @@
 @model Webshop.Pages.CartModel
 @{
 }
+
+
+@foreach (var item in Model.Cart)
+{
+    <h2>@item.Product.title</h2>
+    <h3>@item.Amount</h3>
+}
