@@ -10,7 +10,6 @@
         public string image { get; set; }
         public bool chosen { get; set; }
         public int stock { get; set; }
-        public Rating rating { get; set; }
 
         public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
         {
@@ -24,12 +23,6 @@
             this.stock = 100;
         }
 
-    }
-
-    public class Rating
-    {
-        public float rate { get; set; }
-        public int count { get; set; }
     }
 
 }

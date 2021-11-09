@@ -9,8 +9,11 @@ namespace Webshop.Pages
 {
     public class CartModel : PageModel
     {
+        public List<Models.OrderItem> Cart { get; set; }
+
         public void OnGet()
         {
+
         }
     }
 }
