@@ -2,3 +2,45 @@
 @model Webshop.Pages.ProductsModel
 @{
 }
+
+<style>
+    .card {
+        display: inline-block;
+    }
+</style>
+
+<a asp-route-category="electronics" asp-page="/Products">Electronics</a>
+<a asp-route-category="jewelery" asp-page="/Products">Jewelery</a>
+<a asp-route-category="men's clothing" asp-page="/Products">Men's clothing</a>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3><u>Products</u></h3>
+        </div>
+        <div class="col">
+            <form method="post" asp-page-handler="Search">
+                <label for="fritext">Search:</label>
+                <input id="fritext" type="text" />
+                <input type="submit"  name="Input text" />
+            </form>
+        </div>
+        <div class="col">
+            
+        </div>
+    </div>
+</div>
+
+
+@foreach (var item in Model.Products)
+{
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@item.image" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">@item.title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Purchase</a>
+        </div>
+    </div>
+}
+
