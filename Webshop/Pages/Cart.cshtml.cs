@@ -11,13 +11,15 @@ namespace Webshop.Pages
     {
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        public Models.Product Product { get; set; }
 
         public void OnGet(int id)
         {
             //If för att annars kraschar AddToCart-metoden för den inte får in något värde.
             if (id != 0)
             {
-                AllProducts = AllProducts.Where(product => product.id == id).ToList();
+                //Tanken är här att man kan skicka in Index 0 i metoden för att det alltid bara köps en grej åt gången.
+               AllProducts = AllProducts.Where(product => product.id == id).ToList();
                 Data.CartManager.AddToCart(AllProducts[0]);
             }
 

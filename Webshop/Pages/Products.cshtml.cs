@@ -14,12 +14,13 @@ namespace Webshop.Pages
         public List<Models.Product> Products = Data.ProductManager.Products;
 
         public string SearchMessage { get; set; }
+        public string Category { get; set; }
 
         public void OnGet(string category, string searchMessage)
         {
             if (searchMessage != null) Search(searchMessage);
 
-
+            Category = category;
 
             if (category == "electronics")
             {
