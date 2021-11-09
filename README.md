@@ -6,14 +6,14 @@
 
 # Startsida
 
-- [ ] Välkomst-text
+- [x] Välkomst-text
 - [ ] Bild
-- [ ] Tre **utvalda** produkter
+- [x] Tre **utvalda** produkter
 
 # Shopsida
 
-- [ ] Minst tre kategorier
-- [ ] Fritextsöka
+- [x] Minst tre kategorier
+- [x] Fritextsöka
 - [ ] Klickbara produkter för mer info
 - [ ] Addera till **varukorg**
 - [ ] Kort text om produkten, pris och bild
