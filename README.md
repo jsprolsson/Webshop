@@ -3,6 +3,7 @@
 # TODO
 
 - [ ] Gör search till case insensitive
+- [ ] **Try-catch** istället för **!= null**
 
 # Startsida
 
