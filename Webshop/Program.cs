@@ -15,6 +15,7 @@ namespace Webshop
         {
             Data.ProductManager.APICall();
             Data.ProductManager.ThreeChosen();
+            Data.ProductManager.TestGroupBuy();
             CreateHostBuilder(args).Build().Run();
 
         }
