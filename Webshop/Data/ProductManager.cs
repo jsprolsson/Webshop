@@ -12,6 +12,7 @@ namespace Webshop.Data
         
         public static List<Models.Product> Products = new List<Models.Product>();
         public static List<Models.Product> ChosenProducts = new List<Models.Product>();
+        //public static List<Models.SalesItem> SalesItems = new List<Models.SalesItem>();
 
         public static void APICall()
         {
@@ -20,7 +21,6 @@ namespace Webshop.Data
             var apiResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
             Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
         }
-
 
         public static void AddProduct()
         {
@@ -40,6 +40,12 @@ namespace Webshop.Data
 
             return ChosenProducts;
         }
+
+        //public static void CreateSalesItems()
+        //{
+        //    List<Models.Product> sales = new List<Models.Product>();
+
+        //}
 
 
     }

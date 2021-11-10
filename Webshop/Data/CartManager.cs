@@ -14,6 +14,11 @@ namespace Webshop.Data
             Cart.Add(new Models.OrderItem(product, 1));
         }
 
+        public static void RemoveFromCart(Models.Product product)
+        {
+            Cart.Remove(Cart[product.id]);
+        }
+
 
     }
 }

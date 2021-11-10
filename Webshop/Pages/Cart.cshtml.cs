@@ -25,8 +25,16 @@ namespace Webshop.Pages
 
             //GroupBy i listan för att sortera ut likadana produkter med samma id/namn och lägga på hög istället.
             //RemoveFromCart- & AddToCart-funktion kan vara knutna till knappar på view-page? Klicka på + -> 1 skickas till addtocart.  
-            
-
         }
+
+        //public void OnPostAdd()
+        //{
+        //    Data.CartManager.AddToCart();
+        //}
+
+        //public void OnPostRemove(int id)
+        //{
+        //    Data.CartManager.RemoveFromCart();
+        //}
     }
 }
