@@ -2,3 +2,16 @@
 @model Webshop.Pages.CartModel
 @{
 }
+
+
+@foreach (var item in Model.Cart)
+{
+    <h2>@item.Product.title</h2>
+    <h3>@item.Amount</h3>
+    <form method="post" asp-page-handler="Add">
+        <input type="submit" class="btn btn-danger" name="+" />
+    </form>
+    <form method="post" asp-page-handler="Remove">
+        <input type="submit" class="btn btn-danger" />
+    </form>
+}

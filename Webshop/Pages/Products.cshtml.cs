@@ -12,12 +12,15 @@ namespace Webshop.Pages
     public class ProductsModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
+
         public string SearchMessage { get; set; }
+        public string Category { get; set; }
+
         public void OnGet(string category, string searchMessage)
         {
             if (searchMessage != null) Search(searchMessage);
 
-
+            Category = category;
 
             if (category == "electronics")
             {
@@ -42,10 +45,11 @@ namespace Webshop.Pages
             Products = Products.Where(product => product.category.Contains(search) || product.title.Contains(search) || product.description.Contains(search)).Select(product => product).ToList();
         }
 
-        public IActionResult OnPostSearch()
+        public IActionResult OnPost()
         {
             return RedirectToPage("/Products", new { SearchMessage });
         }
+
         
     }
 }
