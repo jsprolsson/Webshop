@@ -4,6 +4,7 @@
 
 - [ ] Gör search till case insensitive
 - [ ] **Try-catch** istället för **!= null**
+- [ ] Inheritance - kanske Sales product med EndDate som prop och metod?
 
 # Startsida
 
