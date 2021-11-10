@@ -1,11 +1,16 @@
 # Webshop
 
+# Frågor
+
+- [ ] Kan Admin Ändra/Lägg till vara på två olika sidor eller måste dom vara på samma sida?
+
 # TODO
 
 - [ ] Gör search till case insensitive - tex ToLower
 - [ ] **Try-catch** istället för **!= null**
 - [ ] Inheritance - kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris
 - [ ] Söka inom en kategori
+- [ ] Admin Ändra - antingen ta bort + lägg till eller leta efter någon form av replace metod
 
 # Startsida
 
