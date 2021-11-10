@@ -2,3 +2,35 @@
 @model Webshop.Pages.Admin.AddProductModel
 @{
 }
+<form method="post">
+    <input type="text" asp-for="@Model.Product.id" placeholder="id" />
+    <input type="text" asp-for="@Model.Product.title" placeholder="title" />
+    <input type="text" asp-for="@Model.Product.price" placeholder="price" />
+    <input type="text" asp-for="@Model.Product.description" placeholder="description" />
+    <input type="text" asp-for="@Model.Product.category" placeholder="category" />
+    <input type="text" asp-for="@Model.Product.image" placeholder="image" />
+    <input type="text" asp-for="@Model.Product.chosen" placeholder="chosen" />
+    <input type="text" asp-for="@Model.Product.stock" placeholder="stock" />
+    <button type="submit">Submit</button>
+</form>
+
+this.id = id;
+            this.title = title;
+            this.price = price;
+            this.description = description;
+            this.category = category;
+            this.image = image;
+            this.chosen = chosen;
+            this.stock = 100;
+
+@foreach (var product in Model.Products)
+{
+    <p>@product.id</p>
+    <p>@product.title</p>
+    <p>@product.price</p>
+    <p>@product.description</p>
+    <p>@product.category</p>
+    <p>@product.image</p>
+    <p>@product.chosen</p>
+    <p>@product.stock</p>
+}
