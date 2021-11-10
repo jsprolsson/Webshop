@@ -4,7 +4,7 @@
 
 - [ ] Gör search till case insensitive
 - [ ] **Try-catch** istället för **!= null**
-- [ ] Inheritance - kanske Sales product med EndDate som prop och metod?
+- [ ] Inheritance - kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris
 
 # Startsida
 
