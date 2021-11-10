@@ -51,14 +51,8 @@
 
 # Admin
 
-## **Lägga till nya** och **ändra**
-
-- [ ] Namn
-- [ ] Text
-- [ ] Bild
-- [ ] Pris
-- [ ] Utvald
-- [ ] Lagersaldo
+- [ ] Ändra produkter
+- [ ] Lägg till nya produkter
 
 # Style
 
