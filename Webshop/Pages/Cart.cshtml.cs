@@ -11,8 +11,8 @@ namespace Webshop.Pages
     {
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups { get; set; }
         public double TotalSum { get; set; }
-        public Models.Product Product { get; set; }
 
         public void OnGet(int id)
         {
@@ -20,9 +20,11 @@ namespace Webshop.Pages
             if (id != 0)
             {
                 //Tanken är här att man kan skicka in Index 0 i metoden för att det alltid bara köps en grej åt gången.
-               AllProducts = AllProducts.Where(product => product.id == id).ToList();
+                AllProducts = AllProducts.Where(product => product.id == id).ToList();
                 Data.CartManager.AddToCart(AllProducts[0]);
             }
+
+            CartGroups = Cart.GroupBy(product => product.Product.title);
 
             //GroupBy i listan för att sortera ut likadana produkter med samma id/namn och lägga på hög istället.
             //RemoveFromCart- & AddToCart-funktion kan vara knutna till knappar på view-page? Klicka på + -> 1 skickas till addtocart.  
