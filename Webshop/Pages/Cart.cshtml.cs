@@ -13,6 +13,8 @@ namespace Webshop.Pages
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
         public Models.Product Product { get; set; }
 
+
+
         public void OnGet(int id)
         {
             //If för att annars kraschar AddToCart-metoden för den inte får in något värde.

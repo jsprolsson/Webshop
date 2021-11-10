@@ -1,0 +1,19 @@
+﻿@page
+@model Webshop.Pages.AddCustomerModel
+@{
+}
+
+<form method="post">
+    <input type="text" asp-for="Customer.name" placeholder="Customer name" />
+    <input type="text" asp-for="Customer.email" placeholder="Customer email" />
+    <input type="text" asp-for="Customer.address" placeholder="Customer address" />
+    <button type="submit">Submit</button>
+</form>
+
+
+@if (Model.Customer.name != null)
+{
+    <p>@Model.Customer.name</p>
+    <p>@Model.Customer.email</p>
+    <p>@Model.Customer.address</p>
+}

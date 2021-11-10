@@ -1,19 +1,24 @@
 # Webshop
 
+# Frågor
+
 # TODO
 
-- [ ] 
+- [ ] Gör search till case insensitive - tex ToLower
+- [ ] **Try-catch** istället för **!= null**
+- [ ] Inheritance - kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris
+- [ ] Söka inom en kategori
 
 # Startsida
 
-- [ ] Välkomst-text
+- [x] Välkomst-text
 - [ ] Bild
-- [ ] Tre **utvalda** produkter
+- [x] Tre **utvalda** produkter
 
 # Shopsida
 
-- [ ] Minst tre kategorier
-- [ ] Fritextsöka
+- [x] Minst tre kategorier
+- [x] Fritextsöka
 - [ ] Klickbara produkter för mer info
 - [ ] Addera till **varukorg**
 - [ ] Kort text om produkten, pris och bild
