@@ -11,6 +11,7 @@ namespace Webshop.Pages
     {
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        public double TotalSum { get; set; }
         public Models.Product Product { get; set; }
 
         public void OnGet(int id)

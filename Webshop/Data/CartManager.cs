@@ -19,6 +19,17 @@ namespace Webshop.Data
             Cart.Remove(Cart[product.id]);
         }
 
+        //public static int CartSum(List<Models.OrderItem> orders)
+        //{
+        //    int sum = 0;
+
+        //    for (int i = 0; i < orders.Count(); i++)
+        //    {
+        //        orders[i] += CartManager.Cart.
+        //    }
+
+        //    return sum;
+        //}
 
     }
 }
