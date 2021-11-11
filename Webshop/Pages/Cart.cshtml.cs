@@ -52,7 +52,8 @@ namespace Webshop.Pages
 
         public IActionResult OnPostUser()
         {
-            return RedirectToPage("/OrderComplete", new { Customer.name });
+            Models.Customer.customers.Add(Customer);
+            return RedirectToPage("/OrderComplete");
         }
     }
 }

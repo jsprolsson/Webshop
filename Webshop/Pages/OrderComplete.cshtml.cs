@@ -9,8 +9,7 @@ namespace Webshop.Pages
 {
     public class OrderCompleteModel : PageModel
     {
-        [BindProperty(SupportsGet = true)]
-        public Models.Customer Customer { get; set; }
+        public Models.Customer Customer = Models.Customer.customers[0];
 
         public IEnumerable<IGrouping<string, Models.OrderItem>> SummaryCart = Data.CartManager.GroupCartByProducts();
 
