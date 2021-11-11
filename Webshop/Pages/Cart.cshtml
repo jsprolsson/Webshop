@@ -16,17 +16,15 @@
         <h3>@item.Amount</h3>
 
         <form method="post" asp-page-handler="Add">
-            <input type="submit" class="btn btn-danger" name="+" />
+            <input type="submit" class="btn btn-danger" value="+" />
         </form>
         <form method="post" asp-page-handler="Remove">
-            <input type="submit" class="btn btn-danger" />
+            <input type="submit" class="btn btn-danger" value="-" />
         </form>
-        <!--------Denna ska inte synas på view-pagen---------->
-        @(Model.TotalSum += item.Product.price);
     }
 }
 
 
 
-<h3>Moms: @(Model.TotalSum * 0.25)) USD</h3>
+<h3>VAT: @(Model.VAT) USD</h3>
 <h2>Total sum: @Model.TotalSum USD</h2>
