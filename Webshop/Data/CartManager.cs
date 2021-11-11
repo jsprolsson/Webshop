@@ -32,5 +32,21 @@ namespace Webshop.Data
             return Math.Round(sum, 2);
         }
 
+        public static int GetShippingCost(Models.Customer customer)
+        {
+            int shipping = 0;
+
+            if (customer.country == "Sweden")
+            {
+                shipping = 49;
+            }
+            else 
+            {
+                shipping = 99;
+            }
+
+            return shipping;
+        }
+
     }
 }
