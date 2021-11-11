@@ -19,7 +19,7 @@ namespace Webshop.Pages
 
         public void OnGet(string category, string searchMessage)
         {
-            if (searchMessage != null) Search(searchMessage);
+           if (searchMessage != null) Search(searchMessage);
 
             Category = category;
 
@@ -50,5 +50,11 @@ namespace Webshop.Pages
         {
             return RedirectToPage("/Products", new { SearchMessage });
         }
+
+        //public IActionResult OnPostSearch()
+        //{
+        //   Products=  Data.ProductManager.Search(SearchMessage);
+        //    return RedirectToPage("/Products");
+        //}
     }
 }

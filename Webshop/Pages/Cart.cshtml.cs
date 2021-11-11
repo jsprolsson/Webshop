@@ -52,7 +52,7 @@ namespace Webshop.Pages
 
         public IActionResult OnPostUser()
         {
-            return RedirectToPage("/OrderComplete", new { Customer });
+            return RedirectToPage("/OrderComplete", new { Customer.name });
         }
     }
 }

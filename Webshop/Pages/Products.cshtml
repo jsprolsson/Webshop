@@ -16,7 +16,7 @@
             <h2 class="display-4"><u>Products</u></h2>
         </div>
         <div class="col pt-4 pl-4">
-            <form class="d-flex" method="post">
+            <form class="d-flex" method="post" asp-page-handler="Search">
                 <input class="form-control-lg" id="fritext" placeholder="Search items" type="text" asp-for="@Model.SearchMessage" />
                 <input type="submit" value="Search" />
             </form>
@@ -37,7 +37,7 @@
             <p class="card-text text-right">Price: @item.price USD</p>
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary" asp-page="/cart" asp-route-id="@item.id" placeholder="Purchase"></a>
+                    <a class="btn btn-primary" asp-page="/cart" asp-route-id="@item.id">Purchase</a>
                 </div>
                 <div class="col">
                     <p>
