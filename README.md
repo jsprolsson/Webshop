@@ -13,6 +13,7 @@
 - [ ] Admin Ändra - antingen ta bort + lägg till eller leta efter någon form av replace metod
 - [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
 - [ ] Få in metoder i **Manager.x**
+- [ ] Kan Product.id vara lika med List<Index>?
 
 # Startsida
 
