@@ -7,8 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Webshop.Pages.Admin
 {
-    public class AddProductModel : PageModel
+    public class ChangeProductModel : PageModel
     {
+
         // listan som ska visas på view
         public List<Models.Product> Products = Data.ProductManager.Products;
 
@@ -26,9 +27,14 @@ namespace Webshop.Pages.Admin
                 return Page();
             }
 
-            // Customer kommer från prop
+            
+
+                int index = Products.FindIndex(product => product.id == Product.id);
+                Products.RemoveAt(index);
+            
             Products.Add(Product);
-            return RedirectToPage("/Admin/AddProduct");
+
+            return RedirectToPage("/Admin/ChangeProduct");
         }
     }
 }

@@ -7,14 +7,14 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Webshop.Pages.Admin
 {
-    public class AddProductModel : PageModel
+    public class AddGroupBuyModel : PageModel
     {
         // listan som ska visas på view
         public List<Models.Product> Products = Data.ProductManager.Products;
 
         // prop som får data från OnPost
         [BindProperty]
-        public Models.Product Product { get; set; }
+        public Models.GroupBuy Product { get; set; }
         public void OnGet()
         {
         }
@@ -28,7 +28,7 @@ namespace Webshop.Pages.Admin
 
             // Customer kommer från prop
             Products.Add(Product);
-            return RedirectToPage("/Admin/AddProduct");
+            return RedirectToPage("/Admin/AddGroupBuy");
         }
     }
 }

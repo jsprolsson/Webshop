@@ -11,19 +11,28 @@
         public bool chosen { get; set; }
         public int stock { get; set; }
 
-        public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
-        {
-            this.id = id;
-            this.title = title;
-            this.price = price;
-            this.description = description;
-            this.category = category;
-            this.image = image;
-            this.chosen = chosen;
-            this.stock = 100;
-        }
+        //public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
+        //{
+        //    this.id = id;
+        //    this.title = title;
+        //    this.price = price;
+        //    this.description = description;
+        //    this.category = category;
+        //    this.image = image;
+        //    this.chosen = chosen;
+        //    this.stock = 100;
+        //}
+
+        
 
     }
+    public class GroupBuy : Product
+    {
+        public int combined { get; set; }
+        public string groupPrice { get; set; }
 
+
+        // lägg till metod för att räkna ut pris. 
+    }
 
 }

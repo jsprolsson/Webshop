@@ -2,6 +2,7 @@
 
 # Frågor
 
+
 - [x] ~~Kan Admin Ändra/Lägg till vara på två olika sidor eller måste dom vara på samma sida?~~ Kan vara på flera sidor om det behövs
 
 # TODO
@@ -14,6 +15,7 @@
 - [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
 - [ ] Få in metoder i **Manager.x**
 - [ ] Kan Product.id vara lika med List<Index>?
+
 
 # Startsida
 

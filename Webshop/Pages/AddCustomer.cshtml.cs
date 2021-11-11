@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Webshop.Pages.Admin
+namespace Webshop.Pages
 {
-    public class AddProductModel : PageModel
+    public class AddCustomerModel : PageModel
     {
         // listan som ska visas på view
-        public List<Models.Product> Products = Data.ProductManager.Products;
+        public List<Models.Customer> Customers = Models.Customer.customers;
 
         // prop som får data från OnPost
         [BindProperty]
-        public Models.Product Product { get; set; }
+        public Models.Customer Customer { get; set; }
         public void OnGet()
         {
         }
@@ -25,10 +25,10 @@ namespace Webshop.Pages.Admin
             {
                 return Page();
             }
-
+            
             // Customer kommer från prop
-            Products.Add(Product);
-            return RedirectToPage("/Admin/AddProduct");
+            Customers.Add(Customer);
+            return RedirectToPage("/AddCustomer");
         }
     }
 }

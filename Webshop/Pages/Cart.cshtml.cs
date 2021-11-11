@@ -11,21 +11,25 @@ namespace Webshop.Pages
     {
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+
         public double TotalSum { get; set; }
+
         public Models.Product Product { get; set; }
+
+
 
         public void OnGet(int id)
         {
-            //If för att annars kraschar AddToCart-metoden för den inte får in något värde.
+            //If fÃ¶r att annars kraschar AddToCart-metoden fÃ¶r den inte fÃ¥r in nÃ¥got vÃ¤rde.
             if (id != 0)
             {
-                //Tanken är här att man kan skicka in Index 0 i metoden för att det alltid bara köps en grej åt gången.
+                //Tanken Ã¤r hÃ¤r att man kan skicka in Index 0 i metoden fÃ¶r att det alltid bara kÃ¶ps en grej Ã¥t gÃ¥ngen.
                AllProducts = AllProducts.Where(product => product.id == id).ToList();
                 Data.CartManager.AddToCart(AllProducts[0]);
             }
 
-            //GroupBy i listan för att sortera ut likadana produkter med samma id/namn och lägga på hög istället.
-            //RemoveFromCart- & AddToCart-funktion kan vara knutna till knappar på view-page? Klicka på + -> 1 skickas till addtocart.  
+            //GroupBy i listan fÃ¶r att sortera ut likadana produkter med samma id/namn och lÃ¤gga pÃ¥ hÃ¶g istÃ¤llet.
+            //RemoveFromCart- & AddToCart-funktion kan vara knutna till knappar pÃ¥ view-page? Klicka pÃ¥ + -> 1 skickas till addtocart.  
         }
 
         //public void OnPostAdd()

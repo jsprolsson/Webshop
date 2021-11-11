@@ -26,7 +26,7 @@ namespace Webshop.Data
         {
             //Id kanske inte nödvändigt. Kan använda list-index istället.
 
-            Products.Add(new Models.Product(Products.Count + 1, "Armani jeans", 299, "These jeans are amazing", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10));
+            //Products.Add(new Models.Product(Products.Count + 1, "Armani jeans", 299, "These jeans are amazing", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10));
         }
 
         public static List<Models.Product> ThreeChosen()
@@ -41,11 +41,18 @@ namespace Webshop.Data
             return ChosenProducts;
         }
 
+
+        public static void TestGroupBuy() //enbart för test
+        {
+            //Products.Add(new Models.GroupBuy(Products.Count + 1, "GroupBuy", 299, "3 groups", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10, 3));
+        }
+
         //public static void CreateSalesItems()
         //{
         //    List<Models.Product> sales = new List<Models.Product>();
 
         //}
+
 
 
     }
