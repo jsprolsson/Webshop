@@ -10,13 +10,29 @@
     <h3>Amount: @group.Count()</h3>
 
     <form method="post" asp-page-handler="Add">
-        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey"  />
+        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
     </form>
     <form method="post" asp-page-handler="Remove">
         <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
     </form>
-    
 }
+
+<form method="post" asp-page-handler="User">
+    <label for="name">Name: </label>
+    <input id="name" type="text" asp-for="@Model.Customer.name" />
+    <label for="email">Email: </label>
+    <input id="email" type="text" asp-for="@Model.Customer.email" />
+    <label for="address">Address: </label>
+    <input id="address" type="text" asp-for="@Model.Customer.address" />
+
+    <input type="radio" id="html" name="fav_language" value="HTML">
+    <label for="html" asp-for="@Model.Customer.shippingCompany">@Data.ShippingAlternatives.DHL</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS">
+    <label for="css" asp-for="@Model.Customer.shippingCompany">@Data.ShippingAlternatives.Postnord</label><br>
+
+    <button type="submit">Finalize order</button>
+</form>
+
 
 
 

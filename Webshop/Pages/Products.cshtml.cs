@@ -16,6 +16,7 @@ namespace Webshop.Pages
         public string SearchMessage { get; set; }
         public string Category { get; set; }
 
+
         public void OnGet(string category, string searchMessage)
         {
             if (searchMessage != null) Search(searchMessage);
@@ -49,7 +50,5 @@ namespace Webshop.Pages
         {
             return RedirectToPage("/Products", new { SearchMessage });
         }
-
-        
     }
 }

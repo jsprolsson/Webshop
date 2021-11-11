@@ -48,5 +48,19 @@ namespace Webshop.Data
             return shipping;
         }
 
+        public static IEnumerable<IGrouping<string, Models.OrderItem>> GroupCartByProducts()
+        {
+            IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups;
+
+            CartGroups = Cart.GroupBy(product => product.Product.title).OrderBy(product => product.Key);
+
+            return CartGroups;
+        }
+
+    }
+    public enum ShippingAlternatives
+    {
+        Postnord,
+        DHL
     }
 }

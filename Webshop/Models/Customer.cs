@@ -13,11 +13,17 @@ namespace Webshop.Models
         public string address { get; set; }
         public string country { get; set; }
 
-        //public Customer(string name, string email, string address)
-        //{
-        //    this.name = name;
-        //    this.email = email;
-        //    this.address = address;
-        //}
+        public Data.ShippingAlternatives shippingCompany { get; set; }
+
+        public Customer(string name, string email, string address)
+        {
+            this.name = name;
+            this.email = email;
+            this.address = address;
+        }
+
+        public Customer()
+        {
+        }
     }
 }

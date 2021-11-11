@@ -12,13 +12,15 @@ namespace Webshop.Pages
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
 
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
-        public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups { get; set; }
+
+        public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
+
+        [BindProperty]
+        public Models.Customer Customer { get; set; }
         public double TotalSum { get; set; }
         public double VAT { get; set; }
         [BindProperty]
         public string GroupKey { get; set; }
-
-
 
         public void OnGet(int id)
         {
@@ -28,7 +30,6 @@ namespace Webshop.Pages
                 var purchasedProduct = AllProducts.Where(product => product.id == id).ToList();
                 Data.CartManager.AddToCart(purchasedProduct[0]);
             }
-            CartGroups = Cart.GroupBy(product => product.Product.title).OrderBy(product => product.Key);
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
@@ -47,6 +48,11 @@ namespace Webshop.Pages
             var removeProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
             Data.CartManager.RemoveFromCart(removeProduct[0].Product);
             return RedirectToPage("/Cart");
+        }
+
+        public IActionResult OnPostUser()
+        {
+            return RedirectToPage("/OrderComplete", new { Customer });
         }
     }
 }
