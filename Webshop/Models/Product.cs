@@ -34,4 +34,5 @@
 
         // lägg till metod för att räkna ut pris. 
     }
+
 }
