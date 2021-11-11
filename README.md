@@ -2,7 +2,7 @@
 
 # Frågor
 
-- [ ] Kan Admin Ändra/Lägg till vara på två olika sidor eller måste dom vara på samma sida?
+- [x] ~~Kan Admin Ändra/Lägg till vara på två olika sidor eller måste dom vara på samma sida?~~ OK enligt Micke
 
 # TODO
 
