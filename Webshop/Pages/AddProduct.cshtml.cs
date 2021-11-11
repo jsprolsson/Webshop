@@ -16,10 +16,6 @@ namespace Webshop.Pages
             
         }
 
-        public void OnPost()
-        {
-            Data.ProductManager.AddProduct();
-        }
 
     }
 }

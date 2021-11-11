@@ -16,20 +16,21 @@ namespace Webshop.Data
 
         public static void RemoveFromCart(Models.Product product)
         {
-            Cart.Remove(Cart[product.id]);
+            int index = Cart.FindIndex(Product => Product.Product.id == product.id);
+            Cart.RemoveAt(index);
         }
 
-        //public static int CartSum(List<Models.OrderItem> orders)
-        //{
-        //    int sum = 0;
+        public static double GetCartSum()
+        {
+            double sum = 0;
 
-        //    for (int i = 0; i < orders.Count(); i++)
-        //    {
-        //        orders[i] += CartManager.Cart.
-        //    }
+            foreach (var product in Cart)
+            {
+                sum += product.Product.price;
+            }
 
-        //    return sum;
-        //}
+            return Math.Round(sum, 2);
+        }
 
     }
 }
