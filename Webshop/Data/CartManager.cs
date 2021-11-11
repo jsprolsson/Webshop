@@ -16,7 +16,7 @@ namespace Webshop.Data
 
         public static void RemoveFromCart(Models.Product product)
         {
-            int index = Cart.FindIndex(product => product.Product.id == product.Product.id);
+            int index = Cart.FindIndex(Product => Product.Product.id == product.id);
             Cart.RemoveAt(index);
         }
 
