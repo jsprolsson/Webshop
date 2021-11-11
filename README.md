@@ -11,6 +11,7 @@
 - [ ] Inheritance - kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris
 - [ ] Söka inom en kategori
 - [ ] Admin Ändra - antingen ta bort + lägg till eller leta efter någon form av replace metod
+- [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
 
 # Startsida
 
