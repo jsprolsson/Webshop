@@ -4,6 +4,8 @@
 
 
 - [x] ~~Kan Admin Ändra/Lägg till vara på två olika sidor eller måste dom vara på samma sida?~~ Kan vara på flera sidor om det behövs
+- [ ] Har vi möjlighet att få G eller VG om vi får ordning på nuvarande logik? Eller är vi tvugna att göra om logiken så att ProductManager innehåller alla metoder?
+- [ ] Har du tips på var vi kan läsa om persistence? Är det detta vi ska göra: https://www.learnrazorpages.com/razor-pages/cookies
 
 # TODO
 
