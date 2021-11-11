@@ -16,6 +16,8 @@ namespace Webshop.Pages
         public double TotalSum { get; set; }
         public double VAT { get; set; }
 
+        public int AmountOfProducts { get; set; }
+
         public void OnGet(int id)
         {
             if (id != 0)
@@ -24,7 +26,7 @@ namespace Webshop.Pages
                 var purchasedProduct = AllProducts.Where(product => product.id == id).ToList();
                 Data.CartManager.AddToCart(purchasedProduct[0]);
             }
-            CartGroups = Cart.GroupBy(product => product.Product.title);
+            CartGroups = Cart.GroupBy(product => product.Product.title).OrderBy(product => product.Key);
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);

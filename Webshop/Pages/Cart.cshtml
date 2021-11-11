@@ -7,14 +7,12 @@
 @foreach (var group in Model.CartGroups)
 {
     <h2>Item: @group.Key</h2>
-    <h3>Number: @group.Key.Count()</h3>
+    <h3>Amount: @group.Count()</h3>
+    
     
 
     foreach (var item in group)
     {
-        <h2>@item.Product.title</h2>
-        <h3>@item.Amount</h3>
-
         <form method="post" asp-page-handler="Add">
             <input type="submit" class="btn btn-danger" value="+" />
         </form>
