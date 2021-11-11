@@ -16,7 +16,8 @@ namespace Webshop.Data
 
         public static void RemoveFromCart(Models.Product product)
         {
-            Cart.Remove(Cart[product.id]);
+            int index = Cart.FindIndex(product => product.Product.id == product.Product.id);
+            Cart.RemoveAt(index);
         }
 
         public static double GetCartSum()

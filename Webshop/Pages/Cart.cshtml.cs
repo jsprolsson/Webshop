@@ -15,8 +15,8 @@ namespace Webshop.Pages
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups { get; set; }
         public double TotalSum { get; set; }
         public double VAT { get; set; }
-
-        public int AmountOfProducts { get; set; }
+        [BindProperty]
+        public string GroupKey { get; set; }
 
         public void OnGet(int id)
         {
@@ -33,14 +33,18 @@ namespace Webshop.Pages
             
         }
 
-        //public void OnPostAdd()
-        //{
-        //    Data.CartManager.AddToCart();
-        //}
+        public IActionResult OnPostAdd()
+        {
+            var addProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
+            Data.CartManager.AddToCart(addProduct[0].Product);
+            return RedirectToPage("/Cart");
+        }
 
-        //public void OnPostRemove(int id)
-        //{
-        //    Data.CartManager.RemoveFromCart();
-        //}
+        public IActionResult OnPostRemove()
+        {
+            var removeProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
+            Data.CartManager.RemoveFromCart(removeProduct[0].Product);
+            return RedirectToPage("/Cart");
+        }
     }
 }

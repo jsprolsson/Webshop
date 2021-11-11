@@ -8,18 +8,14 @@
 {
     <h2>Item: @group.Key</h2>
     <h3>Amount: @group.Count()</h3>
-    
-    
 
-    foreach (var item in group)
-    {
-        <form method="post" asp-page-handler="Add">
-            <input type="submit" class="btn btn-danger" value="+" />
-        </form>
-        <form method="post" asp-page-handler="Remove">
-            <input type="submit" class="btn btn-danger" value="-" />
-        </form>
-    }
+    <form method="post" asp-page-handler="Add">
+        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey"  />
+    </form>
+    <form method="post" asp-page-handler="Remove">
+        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
+    </form>
+    
 }
 
 
