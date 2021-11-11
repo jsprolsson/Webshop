@@ -27,10 +27,13 @@ namespace Webshop.Pages.Admin
                 return Page();
             }
 
-            int index = Products.FindIndex(product => product.id == Product.id);
+            
 
-            Products.RemoveAt(index);
+                int index = Products.FindIndex(product => product.id == Product.id);
+                Products.RemoveAt(index);
+            
             Products.Add(Product);
+
             return RedirectToPage("/Admin/ChangeProduct");
         }
     }

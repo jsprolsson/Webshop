@@ -11,6 +11,8 @@ namespace Webshop.Pages
     {
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+
+        
         public Models.Product Product { get; set; }
 
 
