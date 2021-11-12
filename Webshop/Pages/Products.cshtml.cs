@@ -12,7 +12,6 @@ namespace Webshop.Pages
     public class ProductsModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
-
         public string SearchMessage { get; set; }
         public string Category { get; set; }
 
@@ -51,10 +50,5 @@ namespace Webshop.Pages
             return RedirectToPage("/Products", new { SearchMessage });
         }
 
-        //public IActionResult OnPostSearch()
-        //{
-        //   Products=  Data.ProductManager.Search(SearchMessage);
-        //    return RedirectToPage("/Products");
-        //}
     }
 }

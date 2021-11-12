@@ -10,11 +10,11 @@ namespace Webshop.Pages
     public class AddCustomerModel : PageModel
     {
         // listan som ska visas på view
-        public List<Models.Customer> Customers = Models.Customer.customers;
+        public List<Models.Order> Orders = Models.Order.orders;
 
         // prop som får data från OnPost
         [BindProperty]
-        public Models.Customer Customer { get; set; }
+        public Models.Order Order { get; set; }
         public void OnGet()
         {
         }
@@ -27,7 +27,7 @@ namespace Webshop.Pages
             }
             
             // Customer kommer från prop
-            Customers.Add(Customer);
+            Orders.Add(Order);
             return RedirectToPage("/AddCustomer");
         }
     }

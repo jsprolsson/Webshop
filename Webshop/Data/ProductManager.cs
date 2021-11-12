@@ -34,13 +34,6 @@ namespace Webshop.Data
             return ChosenProducts;
         }
 
-        //public static List<Models.Product> Search(string search)
-        //{
-        //   var searchedList = Products.Where(product => product.category.Contains(search) || product.title.Contains(search) || product.description.Contains(search)).Select(product => product).ToList();
-        //   return searchedList;
-        //}
-
-
         public static void TestGroupBuy() //enbart för test
         {
             //Products.Add(new Models.GroupBuy(Products.Count + 1, "GroupBuy", 299, "3 groups", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10, 3));

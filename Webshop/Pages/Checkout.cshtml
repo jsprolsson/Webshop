@@ -1,0 +1,25 @@
+﻿@page
+@model Webshop.Pages.CheckoutModel
+@{
+}
+
+<h2>Order Summary</h2>
+
+@foreach (var order in Model.orders)
+{
+    <h3>Name: @order.name</h3>
+    <h3>Address: @order.address</h3>
+    <h3>Email: @order.email</h3>
+    <h3>Payment method: @order.paymentMethod</h3>
+    <h3>Postage: @order.postage kr</h3>
+}
+
+@foreach (var item in Model.Cart)
+{
+    
+}
+
+<form  method="post">
+    <input type="submit" value="Finalize order" />
+</form>
+

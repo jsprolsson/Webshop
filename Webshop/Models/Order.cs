@@ -5,24 +5,23 @@ using System.Threading.Tasks;
 
 namespace Webshop.Models
 {
-    public class Customer
+    public class Order
     {
-        public static List<Customer> customers = new List<Customer>();
+        public static List<Order> orders = new List<Order>();
         public string name { get; set; }
         public string email { get; set; }
         public string address { get; set; }
-        public string country { get; set; }
+        public int postage { get; set; }
+        public string paymentMethod { get; set; }
 
-        public Data.ShippingAlternatives shippingCompany { get; set; }
-
-        public Customer(string name, string email, string address)
+        public Order(string name, string email, string address)
         {
             this.name = name;
             this.email = email;
             this.address = address;
         }
 
-        public Customer()
+        public Order()
         {
         }
     }

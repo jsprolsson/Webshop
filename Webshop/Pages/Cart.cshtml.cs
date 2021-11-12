@@ -16,7 +16,7 @@ namespace Webshop.Pages
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
 
         [BindProperty]
-        public Models.Customer Customer { get; set; }
+        public Models.Order Order { get; set; }
         public double TotalSum { get; set; }
         public double VAT { get; set; }
         [BindProperty]
@@ -33,7 +33,8 @@ namespace Webshop.Pages
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
-            
+
+
         }
 
         public IActionResult OnPostAdd()
@@ -50,10 +51,12 @@ namespace Webshop.Pages
             return RedirectToPage("/Cart");
         }
 
+
+
         public IActionResult OnPostUser()
         {
-            Models.Customer.customers.Add(Customer);
-            return RedirectToPage("/OrderComplete");
+            Models.Order.orders.Add(Order);
+            return RedirectToPage("/Checkout");
         }
     }
 }

@@ -32,22 +32,6 @@ namespace Webshop.Data
             return Math.Round(sum, 2);
         }
 
-        public static int GetShippingCost(Models.Customer customer)
-        {
-            int shipping = 0;
-
-            if (customer.country == "Sweden")
-            {
-                shipping = 49;
-            }
-            else 
-            {
-                shipping = 99;
-            }
-
-            return shipping;
-        }
-
         public static IEnumerable<IGrouping<string, Models.OrderItem>> GroupCartByProducts()
         {
             IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups;
@@ -60,7 +44,7 @@ namespace Webshop.Data
     }
     public enum ShippingAlternatives
     {
-        Postnord,
-        DHL
+        Postnord = 69,
+        DHL = 99
     }
 }
