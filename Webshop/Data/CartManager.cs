@@ -41,9 +41,11 @@ namespace Webshop.Data
             return CartGroups;
         }
 
-        public static void EmptyCart()
+        public static string EmptyCart()
         {
             Cart.Clear();
+            Models.Order.orders.Clear();
+            return "Thank you for the order!";
         }
 
     }

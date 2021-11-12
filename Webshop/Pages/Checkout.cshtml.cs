@@ -14,6 +14,7 @@ namespace Webshop.Pages
         public double Sum { get; set; }
         public double VAT { get; set; }
         public int Postage { get; set; }
+        public string Message { get; set; }
 
         public void OnGet()
         {
@@ -26,10 +27,10 @@ namespace Webshop.Pages
             VAT = Math.Round(Sum * 0.25, 2);
         }
 
-        public IActionResult OnPostFinalize()
+        public void OnPostFinalize()
         {
-            Data.CartManager.EmptyCart();
-            return RedirectToPage("/Checkout");
+            string message = Data.CartManager.EmptyCart();
+            Message = message;
         }
     }
 }
