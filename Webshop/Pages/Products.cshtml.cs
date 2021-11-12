@@ -42,7 +42,8 @@ namespace Webshop.Pages
 
         public void Search(string search)
         {
-            Products = Products.Where(product => product.category.Contains(search) || product.title.Contains(search) || product.description.Contains(search)).Select(product => product).ToList();
+            search = search.ToLower();
+            Products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
         }
 
         public IActionResult OnPost()

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,6 +18,11 @@ namespace Webshop.Pages
         public Models.Customer Customer { get; set; }
         public void OnGet()
         {
+            
+            var cookieValue1 = Request.Cookies["name"];
+            var cookieValue2 = Request.Cookies["email"];
+            var cookieValue3 = Request.Cookies["address"];
+
         }
 
         public IActionResult OnPost()
@@ -25,7 +31,14 @@ namespace Webshop.Pages
             {
                 return Page();
             }
-            
+
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddDays(2);
+            Response.Cookies.Append("name", Customer.name, options);
+            Response.Cookies.Append("email", Customer.email, options);
+            Response.Cookies.Append("address", Customer.address, options);
+
+
             // Customer kommer från prop
             Customers.Add(Customer);
             return RedirectToPage("/AddCustomer");
