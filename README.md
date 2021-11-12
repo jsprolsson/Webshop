@@ -42,20 +42,20 @@
 
 - [x] Ändra antal
 - [x] Ta bort
-- [ ] Pris per produkt
+- [x] Pris per produkt
 - [x] Summa
 
 ## Frakt
 
-- [ ] Formulär med namn, adress osv
-- [ ] Val av frakt, minst två med olika pris
+- [x] Formulär med namn, adress osv
+- [x] Val av frakt, minst två med olika pris
 
 ## Betala
 
-- [ ] Visa produkter med pris
+- [x] Visa produkter med pris
 - [ ] Pris med frakt
 - [x] Moms
-- [ ] Betalningsmetod, minst två
+- [x] Betalningsmetod, minst två
 - [ ] När varan är betald så töms varukorgen
 
 # Admin
@@ -64,4 +64,3 @@
 - [x] Lägg till nya produkter
 
 # Style
-
