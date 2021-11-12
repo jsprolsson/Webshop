@@ -11,10 +11,25 @@ namespace Webshop.Pages
     {
         public List<Models.Order> orders = Models.Order.orders;
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
+        public double Sum { get; set; }
+        public double VAT { get; set; }
+        public int Postage { get; set; }
 
         public void OnGet()
         {
+            foreach (var item in orders)
+            {
+                Postage = item.postage;
+            }
 
+            Sum = Data.CartManager.GetCartSum();
+            VAT = Math.Round(Sum * 0.25, 2);
+        }
+
+        public IActionResult OnPostFinalize()
+        {
+            Data.CartManager.EmptyCart();
+            return RedirectToPage("/Checkout");
         }
     }
 }

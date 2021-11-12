@@ -26,7 +26,6 @@
 }
 
 
-<h4>Select Postage:</h4>
 <form method="post" asp-page-handler="User">
     <label for="name">Name: </label>
     <input id="name" type="text" asp-for="Order.name" />
@@ -45,8 +44,4 @@
     <input type="submit" name="name" value="Submit info" />
 </form>
 
-
-
-
-@*<h3>VAT: @(Model.VAT) USD</h3>*@
 <h2>Total sum: @Model.TotalSum USD</h2>

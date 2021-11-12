@@ -41,6 +41,11 @@ namespace Webshop.Data
             return CartGroups;
         }
 
+        public static void EmptyCart()
+        {
+            Cart.Clear();
+        }
+
     }
     public enum ShippingAlternatives
     {
