@@ -16,6 +16,7 @@ namespace Webshop
             Data.ProductManager.APICall();
             Data.ProductManager.ThreeChosen();
             Data.ProductManager.TestGroupBuy();  //enbart för test
+            //Data.CartManager.RequestCookie();
             CreateHostBuilder(args).Build().Run();
 
         }

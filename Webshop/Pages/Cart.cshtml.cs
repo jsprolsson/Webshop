@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -12,6 +14,7 @@ namespace Webshop.Pages
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
 
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        //public List<Models.OrderItem> Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(Cookie).ToList();
 
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
 
@@ -21,6 +24,7 @@ namespace Webshop.Pages
         public double VAT { get; set; }
         [BindProperty]
         public string GroupKey { get; set; }
+        //public static string Cookie { get; set; }
 
         public void OnGet(int id)
         {
@@ -33,8 +37,21 @@ namespace Webshop.Pages
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
+            
+            // Läser in cookie
+            Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(Request.Cookies["cart"]).ToList();
+            CartGroups = JsonSerializer.Deserialize<IGrouping<string, Models.OrderItem>>(Request.Cookies["cartGroups"]).ToList();
 
-
+            // Skapar cookie
+            string fullCart = JsonSerializer.Serialize(Cart);
+            string fullCartGroups = JsonSerializer.Serialize(CartGroups);
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddDays(2);
+            Response.Cookies.Append("cart", fullCart, options);
+            Response.Cookies.Append("cartGroups", fullCartGroups, options);
+            //var cart = Request.Cookies["cart"];
+            //Cookie = Request.Cookies["cart"];
+            //Data.CartManager.MakeCookie(cart);
         }
 
         public IActionResult OnPostAdd()

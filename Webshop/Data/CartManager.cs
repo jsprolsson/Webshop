@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Webshop.Data
@@ -8,6 +10,8 @@ namespace Webshop.Data
     public class CartManager
     {
         public static List<Models.OrderItem> Cart = new List<Models.OrderItem>();
+
+        public static string CartCookie { get; set; }
 
         public static void AddToCart(Models.Product product)
         {
@@ -40,6 +44,17 @@ namespace Webshop.Data
 
             return CartGroups;
         }
+
+        public static void MakeCookie(string cookie)
+        {
+            CartCookie = cookie;
+        }
+
+        public static void RequestCookie()
+        {
+            Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(CartCookie).ToList();
+        }
+
 
     }
     public enum ShippingAlternatives
