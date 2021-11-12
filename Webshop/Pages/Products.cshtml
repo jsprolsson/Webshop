@@ -50,7 +50,7 @@
             <div class="collapse" id="collapseExample_@i">
                 <div class="card card-body">
                     <p>@item.description</p>
-                    <p><b>Lagersaldo: @item.stock</b></p>
+                    <p><b>Lagersaldo: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
                 </div>
             </div>
         </div>

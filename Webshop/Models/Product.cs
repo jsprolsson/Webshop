@@ -23,7 +23,24 @@
         //    this.stock = 100;
         //}
 
-        
+        //public int Stock
+        //{
+        //    get { return stock; }
+
+        //    set
+        //    {
+        //        if (stock < 0)
+        //        {
+        //            stock = 0;
+        //        }
+        //        else
+        //        {
+        //            stock = value;
+        //        }
+        //    }
+
+        //}
+
 
     }
     public class GroupBuy : Product

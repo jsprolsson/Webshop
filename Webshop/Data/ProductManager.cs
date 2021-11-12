@@ -42,10 +42,11 @@ namespace Webshop.Data
             {
                 foreach (var item in group)
                 {
-                    item.Product.stock -= 1;
+                        item.Product.stock -= 1;
                 }
             }
         }
+
 
         public static void TestGroupBuy() //enbart för test
         {
