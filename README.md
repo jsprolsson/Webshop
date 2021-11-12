@@ -9,7 +9,8 @@
 
 # TODO
 
-- [ ] Gör search till case insensitive - tex ToLower
+- [ ] Räkna ut korrekt pris för GroupBuy i Product klassen
+- [x] Gör search till case insensitive - tex ToLower
 - [ ] **Try-catch** istället för **!= null**
 - [ ] Inheritance - ~~kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris~~ - Fråga Albin om vi behöver mer arv?
 - [ ] Söka inom en kategori
