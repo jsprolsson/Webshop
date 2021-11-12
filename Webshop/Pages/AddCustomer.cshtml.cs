@@ -34,9 +34,9 @@ namespace Webshop.Pages
 
             CookieOptions options = new CookieOptions();
             options.Expires = DateTime.Now.AddDays(2);
-            Response.Cookies.Append("name", Customer.name, options);
-            Response.Cookies.Append("email", Customer.email, options);
-            Response.Cookies.Append("address", Customer.address, options);
+            Response.Cookies.Append("name", Order.name, options);
+            Response.Cookies.Append("email", Order.email, options);
+            Response.Cookies.Append("address", Order.address, options);
 
 
             // Customer kommer från prop
