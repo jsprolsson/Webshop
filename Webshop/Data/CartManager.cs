@@ -11,8 +11,6 @@ namespace Webshop.Data
     {
         public static List<Models.OrderItem> Cart = new List<Models.OrderItem>();
 
-        public static string CartCookie { get; set; }
-
         public static void AddToCart(Models.Product product)
         {
             Cart.Add(new Models.OrderItem(product, 1));
@@ -47,12 +45,16 @@ namespace Webshop.Data
 
         public static void MakeCookie(string cookie)
         {
-            CartCookie = cookie;
+            
         }
 
-        public static void RequestCookie()
+        public static void RequestCookie(string cookie)
         {
-            Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(CartCookie).ToList();
+            if (cookie != null)
+            {
+                Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(cookie).ToList();
+            }
+            
         }
 
 
