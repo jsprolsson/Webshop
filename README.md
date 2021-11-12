@@ -9,7 +9,8 @@
 
 # TODO
 
-- [ ] Gör search till case insensitive - tex ToLower
+- [ ] Räkna ut korrekt pris för GroupBuy i Product klassen
+- [x] Gör search till case insensitive - tex ToLower
 - [ ] **Try-catch** istället för **!= null**
 - [ ] Inheritance - ~~kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris~~ - Fråga Albin om vi behöver mer arv?
 - [ ] Söka inom en kategori
@@ -42,21 +43,21 @@
 
 - [x] Ändra antal
 - [x] Ta bort
-- [ ] Pris per produkt
+- [x] Pris per produkt
 - [x] Summa
 
 ## Frakt
 
-- [ ] Formulär med namn, adress osv
-- [ ] Val av frakt, minst två med olika pris
+- [x] Formulär med namn, adress osv
+- [x] Val av frakt, minst två med olika pris
 
 ## Betala
 
-- [ ] Visa produkter med pris
-- [ ] Pris med frakt
+- [x] Visa produkter med pris
+- [x] Pris med frakt
 - [x] Moms
-- [ ] Betalningsmetod, minst två
-- [ ] När varan är betald så töms varukorgen
+- [x] Betalningsmetod, minst två
+- [x] När varan är betald så töms varukorgen
 
 # Admin
 
@@ -64,4 +65,3 @@
 - [x] Lägg till nya produkter
 
 # Style
-
