@@ -10,7 +10,7 @@ namespace Webshop.Pages
     public class CheckoutModel : PageModel
     {
         public List<Models.Order> orders = Models.Order.orders;
-        public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
 
         public void OnGet()
         {
