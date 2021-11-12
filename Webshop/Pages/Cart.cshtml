@@ -1,24 +1,52 @@
 ﻿@page
 @model Webshop.Pages.CartModel
 @{
+    double priceOfOne = 0;
 }
 
 
 @foreach (var group in Model.CartGroups)
 {
+    foreach (var item in group)
+    {
+        priceOfOne = item.Product.price;
+    }
+
     <h2>Item: @group.Key</h2>
     <h3>Amount: @group.Count()</h3>
+    <h3>Price for one:@priceOfOne</h3>
 
     <form method="post" asp-page-handler="Add">
-        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey"  />
+        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
     </form>
     <form method="post" asp-page-handler="Remove">
         <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
     </form>
-    
+
 }
 
 
+<h4>Select Postage:</h4>
+<form method="post" asp-page-handler="User">
+    <label for="name">Name: </label>
+    <input id="name" type="text" asp-for="Order.name" />
+    <label for="email">Email: </label>
+    <input id="email" type="text" asp-for="Order.email" />
+    <label for="address">Address: </label>
+    <input id="address" type="text" asp-for="Order.address" />
 
-<h3>VAT: @(Model.VAT) USD</h3>
+    <p>Select postage: </p>
+    <label><input asp-for="@Model.Order.postage" type="radio" value=69 checked="checked" />Postnord 69kr</label>
+    <label><input asp-for="@Model.Order.postage" type="radio" value=99 checked="checked" />DHL 99kr</label>
+
+    <p>Select (optional) Payment method: </p>
+    <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna" checked="checked" />Klarna</label>
+    <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" checked="checked" />Creditcard</label>
+    <input type="submit" name="name" value="Submit info" />
+</form>
+
+
+
+
+@*<h3>VAT: @(Model.VAT) USD</h3>*@
 <h2>Total sum: @Model.TotalSum USD</h2>

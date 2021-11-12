@@ -4,14 +4,14 @@
 }
 
 <form method="post">
-    <input type="text" asp-for="@Model.Customer.name" placeholder="Customer name" />
-    <input type="text" asp-for="@Model.Customer.email" placeholder="Customer email" />
-    <input type="text" asp-for="@Model.Customer.address" placeholder="Customer address" />
+    <input type="text" asp-for="@Model.Order.name" placeholder="Customer name" />
+    <input type="text" asp-for="@Model.Order.email" placeholder="Customer email" />
+    <input type="text" asp-for="@Model.Order.address" placeholder="Customer address" />
     <button type="submit">Submit</button>
 </form>
 
 
-@foreach (var customer in Model.Customers)
+@foreach (var customer in Model.Orders)
 {
     <p>@customer.name</p>
     <p>@customer.email</p>

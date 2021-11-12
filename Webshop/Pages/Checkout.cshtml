@@ -1,0 +1,32 @@
+﻿@page
+@model Webshop.Pages.CheckoutModel
+@{
+    double priceOfOne = 0;
+}
+
+<h1>Order Summary</h1>
+
+@foreach (var order in Model.orders)
+{
+    <h3>Name: @order.name</h3>
+    <h3>Address: @order.address</h3>
+    <h3>Email: @order.email</h3>
+    <h3>Payment method: @order.paymentMethod</h3>
+    <h3>Postage: @order.postage kr</h3>
+}
+
+@foreach (var group in Model.CartGroups)
+{
+    foreach (var item in group)
+    {
+        priceOfOne = item.Product.price;
+    }
+    <h4>Item: @group.Key</h4>
+    <h4>Amount: @group.Count()</h4>
+    <h4>Price for one:@priceOfOne</h4>
+}
+
+<form method="post">
+    <input type="submit" value="Finalize order" />
+</form>
+
