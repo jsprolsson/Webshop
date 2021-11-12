@@ -18,6 +18,7 @@
 - [ ] Få in metoder i **Manager.x**
 - [ ] Kan Product.id vara lika med List<Index>?
 - [ ] Göra så att GroupBuy inte går att göra mnauellt - utvalda produkter som görs till en GroupBuy
+- [ ] Se till så att det bara kan ligga 1 order i orders listan
 
 
 # Startsida
