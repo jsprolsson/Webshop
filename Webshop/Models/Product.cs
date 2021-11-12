@@ -9,7 +9,7 @@
         public string category { get; set; }
         public string image { get; set; }
         public bool chosen { get; set; }
-        public int stock { get; set; }
+        public int stock = 100;
 
         //public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
         //{

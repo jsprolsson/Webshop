@@ -34,6 +34,19 @@ namespace Webshop.Data
             return ChosenProducts;
         }
 
+        public static void RemoveFromStock()
+        {
+            IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = CartManager.GroupCartByProducts();
+
+            foreach (var group in CartGroups)
+            {
+                foreach (var item in group)
+                {
+                    item.Product.stock -= 1;
+                }
+            }
+        }
+
         public static void TestGroupBuy() //enbart för test
         {
             //Products.Add(new Models.GroupBuy(Products.Count + 1, "GroupBuy", 299, "3 groups", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10, 3));

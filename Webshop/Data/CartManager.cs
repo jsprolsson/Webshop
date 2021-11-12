@@ -43,6 +43,7 @@ namespace Webshop.Data
 
         public static string EmptyCart()
         {
+            ProductManager.RemoveFromStock();
             Cart.Clear();
             Models.Order.orders.Clear();
             return "Thank you for the order!";
