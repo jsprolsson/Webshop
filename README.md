@@ -11,37 +11,38 @@
 
 - [ ] Gör search till case insensitive - tex ToLower
 - [ ] **Try-catch** istället för **!= null**
-- [ ] Inheritance - kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris
+- [ ] Inheritance - ~~kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris~~ - Fråga Albin om vi behöver mer arv?
 - [ ] Söka inom en kategori
-- [ ] Admin Ändra - antingen ta bort + lägg till eller leta efter någon form av replace metod
+- [ ] Admin Ändra/Lägg till - Funktion för att ej skapa dubbletter
 - [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
 - [ ] Få in metoder i **Manager.x**
 - [ ] Kan Product.id vara lika med List<Index>?
+- [ ] Göra så att GroupBuy inte går att göra mnauellt - utvalda produkter som görs till en GroupBuy
 
 
 # Startsida
 
 - [x] Välkomst-text
-- [ ] Bild
+- [x] Bild
 - [x] Tre **utvalda** produkter
 
 # Shopsida
 
 - [x] Minst tre kategorier
 - [x] Fritextsöka
-- [ ] Klickbara produkter för mer info
-- [ ] Addera till **varukorg**
-- [ ] Kort text om produkten, pris och bild
-- [ ] Lagersaldo
+- [x] Klickbara produkter för mer info
+- [x] Addera till **varukorg**
+- [x] Kort text om produkten, pris och bild
+- [ ] Lagersaldo (som räknas ner när varan köps)
 
 # Varukorg
 
 ## Valda produkter visas i lista
 
-- [ ] Ändra antal
-- [ ] Ta bort
+- [x] Ändra antal
+- [x] Ta bort
 - [ ] Pris per produkt
-- [ ] Summa
+- [x] Summa
 
 ## Frakt
 
@@ -52,20 +53,14 @@
 
 - [ ] Visa produkter med pris
 - [ ] Pris med frakt
-- [ ] Moms
+- [x] Moms
 - [ ] Betalningsmetod, minst två
 - [ ] När varan är betald så töms varukorgen
 
 # Admin
 
-- [ ] Ändra produkter
-- [ ] Lägg till nya produkter
+- [x] Ändra produkter
+- [x] Lägg till nya produkter
 
 # Style
 
-# Class
-
-- [ ] Product
-- [ ] Customer
-- [ ] Order
-- [ ] Order item?
