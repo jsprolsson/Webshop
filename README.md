@@ -54,10 +54,10 @@
 ## Betala
 
 - [x] Visa produkter med pris
-- [ ] Pris med frakt
+- [x] Pris med frakt
 - [x] Moms
 - [x] Betalningsmetod, minst två
-- [ ] När varan är betald så töms varukorgen
+- [x] När varan är betald så töms varukorgen
 
 # Admin
 
