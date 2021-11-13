@@ -16,9 +16,8 @@ namespace Webshop.Pages
         public string Category { get; set; }
 
 
-        public void OnGet(string category, string searchMessage)
+        public void OnGet(string category)
         {
-           if (searchMessage != null) Search(searchMessage);
 
             Category = category;
 
@@ -40,15 +39,10 @@ namespace Webshop.Pages
             }
         }
 
-        public void Search(string search)
-        {
-            search = search.ToLower();
-            Products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
-        }
 
-        public IActionResult OnPost()
+        public void OnPostSearch()
         {
-            return RedirectToPage("/Products", new { SearchMessage });
+            Products = Data.ProductManager.SearchForProduct(SearchMessage);
         }
 
     }

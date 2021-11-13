@@ -16,7 +16,7 @@
             <h2 class="display-4"><u>Products</u></h2>
         </div>
         <div class="col pt-4 pl-4">
-            <form class="d-flex" method="post" >
+            <form class="d-flex" method="post" asp-page-handler="Search" >
                 <input class="form-control-lg" id="fritext" placeholder="Search items" type="text" asp-for="@Model.SearchMessage" />
                 <input type="submit" value="Search" />
             </form>

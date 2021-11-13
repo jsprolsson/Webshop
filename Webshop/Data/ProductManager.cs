@@ -47,6 +47,14 @@ namespace Webshop.Data
             }
         }
 
+        public static List<Models.Product> SearchForProduct(string search)
+        {
+            List<Models.Product> products = new List<Models.Product>();
+
+            search = search.ToLower();
+            return products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+        }
+
 
         public static void TestGroupBuy() //enbart för test
         {
