@@ -14,6 +14,8 @@ namespace Webshop.Pages
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
 
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
+        [BindProperty(SupportsGet = true)]
+        public int ItemID { get; set; }
 
         [BindProperty]
         public Models.Order Order { get; set; }
@@ -22,19 +24,21 @@ namespace Webshop.Pages
         [BindProperty]
         public string GroupKey { get; set; }
 
-        public void OnGet(int id)
+        public void OnGet()
         {
-            if (id != 0)
-            {
-                //Tanken �r h�r att man kan skicka in Index 0 i metoden f�r att det alltid bara k�ps en grej �t g�ngen.
-                var purchasedProduct = AllProducts.Where(product => product.id == id).ToList();
-                Data.CartManager.AddToCart(purchasedProduct[0]);
-            }
+            if (ItemID != 0) AddToCart();
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
 
 
+        }
+
+        public void AddToCart()
+        {
+            //Tanken �r h�r att man kan skicka in Index 0 i metoden f�r att det alltid bara k�ps en grej �t g�ngen.
+            var purchasedProduct = AllProducts.Where(product => product.id == ItemID).ToList();
+            Data.CartManager.AddToCart(purchasedProduct[0]);
         }
 
         public IActionResult OnPostAdd()
@@ -50,8 +54,6 @@ namespace Webshop.Pages
             Data.CartManager.RemoveFromCart(removeProduct[0].Product);
             return RedirectToPage("/Cart");
         }
-
-
 
         public IActionResult OnPostUser()
         {

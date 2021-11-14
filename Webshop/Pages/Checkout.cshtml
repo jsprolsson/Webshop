@@ -27,7 +27,7 @@
 
 <h3>Postage: @Model.Postage</h3>
 <h3>VAT: @Model.VAT</h3>
-<h1>Total Order Cost: @(Model.Sum + Model.Postage)</h1>
+<h1>Total Order Cost: @(Math.Round(Model.Sum + Model.Postage, 2))</h1>
 
 <form method="post" asp-page-handler="Finalize">
     <input type="submit" value="Finalize order" />
