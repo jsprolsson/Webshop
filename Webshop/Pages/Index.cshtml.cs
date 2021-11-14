@@ -11,14 +11,14 @@ namespace Webshop.Pages
 
     public class IndexModel : PageModel
     {
-        public List<Models.Product> Products = Data.ProductManager.Products;
-
+        
+        public List<Models.Product> Products = Data.ProductManager.Products
+            .Where(product => product.chosen).ToList();
 
         public void OnGet()
         {
-            Products = Products.Where(product => product.chosen).ToList();
+           
         }
-
 
     }
 }

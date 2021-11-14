@@ -22,7 +22,7 @@ namespace Webshop.Data
             Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
         }
 
-        public static List<Models.Product> ThreeChosen()
+        public static void ThreeChosen()
         {
             List<Models.Product> ChosenProducts = Products;
 
@@ -31,7 +31,6 @@ namespace Webshop.Data
                 ChosenProducts[i].chosen = true;
             }
 
-            return ChosenProducts;
         }
 
         public static void RemoveFromStock()
@@ -53,6 +52,13 @@ namespace Webshop.Data
 
             search = search.ToLower();
             return products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+        }
+
+        public static List<Models.Product> Categories(string category)
+        {
+            List<Models.Product> products = new List<Models.Product>();
+            return products = Products.Where(product => product.category == category).ToList();
+            
         }
 
 

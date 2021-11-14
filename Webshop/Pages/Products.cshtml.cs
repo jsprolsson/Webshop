@@ -20,24 +20,12 @@ namespace Webshop.Pages
 
         public void OnGet()
         {
+            //Displays category from navbar.
+            if (Category != null)
+            {
+                Products = Data.ProductManager.Categories(Category);
+            }
 
-
-            if (Category == "electronics")
-            {
-                Products = Products.Where(product => product.category == "electronics").ToList();
-            }
-            else if (Category == "jewelery")
-            {
-                Products = Products.Where(product => product.category == "jewelery").ToList();
-            }
-            else if (Category == "men's clothing")
-            {
-                Products = Products.Where(product => product.category == "men's clothing").ToList();
-            }
-            else if (Category == "women's clothing")
-            {
-                Products = Products.Where(product => product.category == "women's clothing").ToList();
-            }
         }
 
 
