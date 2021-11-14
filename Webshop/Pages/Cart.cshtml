@@ -48,12 +48,12 @@
         <input id="address" type="text" asp-for="Order.address" />
 
         <p>Select postage: </p>
-        <label><input asp-for="@Model.Order.postage" type="radio" value=69 checked="checked" />Postnord 69kr</label>
-        <label><input asp-for="@Model.Order.postage" type="radio" value=99 checked="checked" />DHL 99kr</label>
+        <label><input asp-for="@Model.Order.postage" type="radio" value=@Convert.ToInt32(Data.ShippingAlternatives.Postnord) checked="checked" />@Data.ShippingAlternatives.Postnord</label>
+        <label><input asp-for="@Model.Order.postage" type="radio" value=@Convert.ToInt32(Data.ShippingAlternatives.DHL) />@Data.ShippingAlternatives.DHL</label>
 
         <p>Select Payment method: </p>
         <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna" checked="checked" />Klarna</label>
-        <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" checked="checked" />Creditcard</label>
+        <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" />Creditcard</label>
         <input type="submit" name="name" value="Submit info" />
     </form>
 </div>
