@@ -36,7 +36,7 @@ namespace Webshop.Data
         {
             IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups;
 
-            CartGroups = Cart.GroupBy(product => product.Product.title).OrderBy(product => product.Key);
+            CartGroups = Cart.GroupBy(product => product.Product.title);
 
             return CartGroups;
         }
