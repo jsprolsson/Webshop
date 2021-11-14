@@ -21,12 +21,13 @@ namespace Webshop.Pages
         public Models.Order Order { get; set; }
         public double TotalSum { get; set; }
         public double VAT { get; set; }
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public string GroupKey { get; set; }
 
         public void OnGet()
         {
             if (ItemID != 0) AddToCart();
+            
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
@@ -40,6 +41,7 @@ namespace Webshop.Pages
             var purchasedProduct = AllProducts.Where(product => product.id == ItemID).ToList();
             Data.CartManager.AddToCart(purchasedProduct[0]);
         }
+
 
         public IActionResult OnPostAdd()
         {

@@ -16,11 +16,11 @@
     <h3>Amount: @group.Count()</h3>
     <h3>Price for one:@priceOfOne</h3>
 
-    <form method="post" asp-page-handler="Add">
-        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
+    <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Add">
+        <input type="submit" class="btn btn-danger" value="+"/>
     </form>
-    <form method="post" asp-page-handler="Remove">
-        <input type="submit" class="btn btn-danger" value="@group.Key" asp-for="@Model.GroupKey" />
+    <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Remove">
+        <input type="submit" class="btn btn-danger" value="-"/>
     </form>
 
 }
