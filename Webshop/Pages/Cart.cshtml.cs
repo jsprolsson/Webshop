@@ -23,6 +23,8 @@ namespace Webshop.Pages
         public double VAT { get; set; }
         [BindProperty(SupportsGet = true)]
         public string GroupKey { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string UserMessage { get; set; }
 
         public void OnGet()
         {
@@ -48,6 +50,7 @@ namespace Webshop.Pages
             var addProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
             Data.CartManager.AddToCart(addProduct[0].Product);
             return RedirectToPage("/Cart");
+            
         }
 
         public IActionResult OnPostRemove()
@@ -59,8 +62,17 @@ namespace Webshop.Pages
 
         public IActionResult OnPostUser()
         {
-            Models.Order.orders.Add(Order);
-            return RedirectToPage("/Checkout");
+            if (ModelState.IsValid)
+            {
+                Models.Order.orders.Add(Order);
+                return RedirectToPage("/Checkout");
+            }
+            else
+            {
+                UserMessage = "Please fill in your information correctly.";
+                return RedirectToPage("/Cart", new { UserMessage });
+            }
+            
         }
     }
 }

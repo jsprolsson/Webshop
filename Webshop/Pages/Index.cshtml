@@ -50,7 +50,7 @@
                 <div class="col-md-7">
                     <div class="card-body">
                         <h5 class="card-title">@item.title</h5>
-                        @if (item.stock < 0)
+                        @if (item.stock <= 0)
                         {
                             <a class="btn btn-danger">SOLD OUT</a>
                         }

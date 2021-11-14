@@ -38,7 +38,7 @@
             <p class="card-text text-right">Price: @item.price USD</p>
             <div class="row">
                 <div class="col">
-                    @if (item.stock < 0)
+                    @if (item.stock <= 0)
                     {
                         <a class="btn btn-danger">SOLD OUT</a>
                     }

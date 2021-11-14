@@ -2,6 +2,7 @@
 @model Webshop.Pages.CartModel
 @{
     double priceOfOne = 0;
+    int inStock = 0;
 }
 
 
@@ -10,21 +11,32 @@
     foreach (var item in group)
     {
         priceOfOne = item.Product.price;
+        inStock = item.Product.stock;
     }
 
     <h2>Item: @group.Key</h2>
     <h3>Amount: @group.Count()</h3>
     <h3>Price for one:@priceOfOne</h3>
 
-    <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Add">
-        <input type="submit" class="btn btn-danger" value="+"/>
-    </form>
+    @if (group.Count() >= inStock)
+     {
+        <button class="btn btn-danger">+</button>
+     }
+     else
+     {
+        <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Add">
+        <input type="submit" class="btn btn-danger" value="+" />
+        </form>
+     }
+
     <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Remove">
         <input type="submit" class="btn btn-danger" value="-"/>
     </form>
 
+
 }
 
+<h2 class="display-4">@Model.UserMessage</h2>
 
 <form method="post" asp-page-handler="User">
     <label for="name">Name: </label>
