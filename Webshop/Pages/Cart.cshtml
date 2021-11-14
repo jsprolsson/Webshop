@@ -38,22 +38,26 @@
 
 <h2 class="display-4">@Model.UserMessage</h2>
 
-<form method="post" asp-page-handler="User">
-    <label for="name">Name: </label>
-    <input id="name" type="text" asp-for="Order.name" />
-    <label for="email">Email: </label>
-    <input id="email" type="text" asp-for="Order.email" />
-    <label for="address">Address: </label>
-    <input id="address" type="text" asp-for="Order.address" />
+<div class="container">
+    <form method="post" asp-page-handler="User">
+        <label for="name">Name: </label>
+        <input id="name" type="text" asp-for="Order.name" />
+        <label for="email">Email: </label>
+        <input id="email" type="text" asp-for="Order.email" />
+        <label for="address">Address: </label>
+        <input id="address" type="text" asp-for="Order.address" />
 
-    <p>Select postage: </p>
-    <label><input asp-for="@Model.Order.postage" type="radio" value=69 checked="checked" />Postnord 69kr</label>
-    <label><input asp-for="@Model.Order.postage" type="radio" value=99 checked="checked" />DHL 99kr</label>
+        <p>Select postage: </p>
+        <label><input asp-for="@Model.Order.postage" type="radio" value=69 checked="checked" />Postnord 69kr</label>
+        <label><input asp-for="@Model.Order.postage" type="radio" value=99 checked="checked" />DHL 99kr</label>
 
-    <p>Select (optional) Payment method: </p>
-    <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna" checked="checked" />Klarna</label>
-    <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" checked="checked" />Creditcard</label>
-    <input type="submit" name="name" value="Submit info" />
-</form>
+        <p>Select Payment method: </p>
+        <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna" checked="checked" />Klarna</label>
+        <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" checked="checked" />Creditcard</label>
+        <input type="submit" name="name" value="Submit info" />
+    </form>
+</div>
+
+
 
 <h2>Total sum: @Model.TotalSum USD</h2>
