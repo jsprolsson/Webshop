@@ -13,27 +13,28 @@ namespace Webshop.Pages
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
         public string SearchMessage { get; set; }
+
+        [BindProperty(SupportsGet = true)]
         public string Category { get; set; }
 
 
-        public void OnGet(string category)
+        public void OnGet()
         {
 
-            Category = category;
 
-            if (category == "electronics")
+            if (Category == "electronics")
             {
                 Products = Products.Where(product => product.category == "electronics").ToList();
             }
-            else if (category == "jewelery")
+            else if (Category == "jewelery")
             {
                 Products = Products.Where(product => product.category == "jewelery").ToList();
             }
-            else if (category == "men's clothing")
+            else if (Category == "men's clothing")
             {
                 Products = Products.Where(product => product.category == "men's clothing").ToList();
             }
-            else if (category == "women's clothing")
+            else if (Category == "women's clothing")
             {
                 Products = Products.Where(product => product.category == "women's clothing").ToList();
             }
