@@ -29,7 +29,7 @@
 </div>
 
 @{int i = 0; }
-@foreach (var item in Model.Products.Where(product => product.stock !>= 0))
+@foreach (var item in Model.Products)
 {
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="@item.image" alt="Card image cap">
@@ -38,7 +38,14 @@
             <p class="card-text text-right">Price: @item.price USD</p>
             <div class="row">
                 <div class="col">
-                    <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                    @if (item.stock < 0)
+                    {
+                        <a class="btn btn-danger">SOLD OUT</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                    }
                 </div>
                 <div class="col">
                     <p>
