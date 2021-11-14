@@ -32,6 +32,11 @@ namespace Webshop.Data
             }
 
         }
+        public static int GetRandomStock()
+        {
+            Random rand = new Random();
+           return rand.Next(1, 100);
+        }
 
         public static void RemoveFromStock()
         {
