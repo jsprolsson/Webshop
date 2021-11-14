@@ -50,6 +50,18 @@ namespace Webshop.Models
             }
 
         }
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                //if (true)
+                //{
+                //    //if value already exists within Products-list.item.id = Set first available id-number or default.
+                //}
+                id = value;
+            }
+        }
 
 
     }
