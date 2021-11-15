@@ -12,6 +12,7 @@ namespace Webshop.Pages
     public class ProductsModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
+        public List<Models.GroupBuy> GroupSale = Data.ProductManager.GroupBuyItems;
         public string SearchMessage { get; set; }
 
         [BindProperty(SupportsGet = true)]

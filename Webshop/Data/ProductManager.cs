@@ -12,7 +12,7 @@ namespace Webshop.Data
         
         public static List<Models.Product> Products = new List<Models.Product>();
         public static List<Models.Product> ChosenProducts = new List<Models.Product>();
-        //public static List<Models.SalesItem> SalesItems = new List<Models.SalesItem>();
+        public static List<Models.GroupBuy> GroupBuyItems = new List<Models.GroupBuy>();
 
         public static void APICall()
         {
@@ -67,9 +67,12 @@ namespace Webshop.Data
         }
 
 
-        public static void ProductToGroup(int itemID)
+        public static void ProductToGroup(int productID, int groupSize)
         {
-            Products.Add(new Models.GroupBuy());
+            int nextId = Products.Count + 1;
+            List<Models.Product> products = Products.Where(product => product.id == productID).ToList();
+           GroupBuyItems.Add(new Models.GroupBuy(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
+            Products.AddRange(GroupBuyItems);
         }
 
         

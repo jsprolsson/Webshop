@@ -53,11 +53,12 @@
                 <td>@product.stock</td>
                 @if (product is Models.GroupBuy)
                 {
-                    <td>@(((Models.GroupBuy)product).combined)</td>
+                    <td>@(((Models.GroupBuy)product).groupSize)</td>
                 }
             </tr>
         }
         </tbody>
     </table>
+    <input type="number" min="2" max="5" asp-for="GroupSize"/>
   <input type="submit" value="Submit product" />
  </form>

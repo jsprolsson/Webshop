@@ -58,11 +58,28 @@ namespace Webshop.Models
     }
     public class GroupBuy : Product
     {
-        public int combined { get; set; }
-        public string groupPrice { get; set; }
+        public int groupSize { get; set; }
+        public double groupPrice { get; set; }
+        public double originalPriceForGroup { get; set; }
+        public double salePercentage = 0.75;
 
+        public GroupBuy(int id, string title, double price, string description, string category, string image, bool chosen, int stock, int groupSize)
+        {
 
-        // lägg till metod för att räkna ut pris. 
+            this.id = id;
+            this.title = title;
+            this.price = (price * groupSize) * salePercentage;
+            this.description = description;
+            this.category = category;
+            this.image = image;
+            this.chosen = chosen;
+            this.stock = stock / 5;
+            this.groupSize = groupSize;
+            originalPriceForGroup = price * groupSize;
+            // groupPrice = (price * groupSize) * salePercentage;
+
+        }
+
     }
 
 }
