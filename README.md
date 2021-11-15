@@ -1,5 +1,9 @@
 # Webshop
 
+# Förklaringar
+
+- [ ] Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
+
 # Frågor
 
 
@@ -9,18 +13,19 @@
 
 # TODO
 
+- [ ] Göra README läsbar för lärare
 - [ ] Räkna ut korrekt pris för GroupBuy i Product klassen
 - [x] Gör search till case insensitive - tex ToLower
 - [ ] **Try-catch** istället för **!= null**
 - [ ] Inheritance - ~~kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris~~ - Fråga Albin om vi behöver mer arv?
-- [ ] Söka inom en kategori
+- [ ] ~~Söka inom en kategori~~
 - [ ] Admin Ändra/Lägg till - Funktion för att ej skapa dubbletter
-- [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
-- [ ] Få in metoder i **Manager.x**
 - [ ] Kan Product.id vara lika med List<Index>?
+- [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
+- [x] Få in metoder i **Manager.x**
 - [ ] Göra så att GroupBuy inte går att göra mnauellt - utvalda produkter som görs till en GroupBuy
-- [ ] Se till så att det bara kan ligga 1 order i orders listan
-
+- [x] Se till så att det bara kan ligga 1 order i orders listan
+- [ ] Ändra OrderItem till Product?
 
 # Startsida
 
