@@ -16,22 +16,22 @@ namespace Webshop.Pages
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
 
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
+        [BindProperty(SupportsGet = true)]
+        public int ItemID { get; set; }
 
         [BindProperty]
         public Models.Order Order { get; set; }
         public double TotalSum { get; set; }
         public double VAT { get; set; }
-        [BindProperty]
+        [BindProperty(SupportsGet = true)]
         public string GroupKey { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string UserMessage { get; set; }
 
-        public void OnGet(int id)
+        public void OnGet()
         {
-            if (id != 0)
-            {
-                //Tanken �r h�r att man kan skicka in Index 0 i metoden f�r att det alltid bara k�ps en grej �t g�ngen.
-                var purchasedProduct = AllProducts.Where(product => product.id == id).ToList();
-                Data.CartManager.AddToCart(purchasedProduct[0]);
-            }
+            if (ItemID != 0) AddToCart();
+            
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
@@ -44,11 +44,20 @@ namespace Webshop.Pages
             var cart = Request.Cookies["cart"];
         }
 
+        public void AddToCart()
+        {
+            //Tanken �r h�r att man kan skicka in Index 0 i metoden f�r att det alltid bara k�ps en grej �t g�ngen.
+            var purchasedProduct = AllProducts.Where(product => product.id == ItemID).ToList();
+            Data.CartManager.AddToCart(purchasedProduct[0]);
+        }
+
+
         public IActionResult OnPostAdd()
         {
             var addProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
             Data.CartManager.AddToCart(addProduct[0].Product);
             return RedirectToPage("/Cart");
+            
         }
 
         public IActionResult OnPostRemove()
@@ -58,12 +67,19 @@ namespace Webshop.Pages
             return RedirectToPage("/Cart");
         }
 
-
-
         public IActionResult OnPostUser()
         {
-            Models.Order.orders.Add(Order);
-            return RedirectToPage("/Checkout");
+            if (ModelState.IsValid)
+            {
+                Models.Order.orders.Add(Order);
+                return RedirectToPage("/Checkout");
+            }
+            else
+            {
+                UserMessage = "Please fill in your information correctly.";
+                return RedirectToPage("/Cart", new { UserMessage });
+            }
+            
         }
     }
 }

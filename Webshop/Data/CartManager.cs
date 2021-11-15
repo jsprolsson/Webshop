@@ -38,10 +38,11 @@ namespace Webshop.Data
         {
             IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups;
 
-            CartGroups = Cart.GroupBy(product => product.Product.title).OrderBy(product => product.Key);
+            CartGroups = Cart.GroupBy(product => product.Product.title);
 
             return CartGroups;
         }
+
 
         public static void RequestCookie(string cookie)
         {
@@ -51,6 +52,14 @@ namespace Webshop.Data
             }
         }
 
+
+        public static string EmptyCart()
+        {
+            ProductManager.RemoveFromStock();
+            Cart.Clear();
+            Models.Order.orders.Clear();
+            return "Thank you for the order!";
+        }
 
     }
     public enum ShippingAlternatives

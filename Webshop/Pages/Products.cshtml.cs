@@ -13,42 +13,25 @@ namespace Webshop.Pages
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
         public string SearchMessage { get; set; }
+
+        [BindProperty(SupportsGet = true)]
         public string Category { get; set; }
 
 
-        public void OnGet(string category, string searchMessage)
+        public void OnGet()
         {
-           if (searchMessage != null) Search(searchMessage);
+            //Displays category from navbar.
+            if (Category != null)
+            {
+                Products = Data.ProductManager.Categories(Category);
+            }
 
-            Category = category;
-
-            if (category == "electronics")
-            {
-                Products = Products.Where(product => product.category == "electronics").ToList();
-            }
-            else if (category == "jewelery")
-            {
-                Products = Products.Where(product => product.category == "jewelery").ToList();
-            }
-            else if (category == "men's clothing")
-            {
-                Products = Products.Where(product => product.category == "men's clothing").ToList();
-            }
-            else if (category == "women's clothing")
-            {
-                Products = Products.Where(product => product.category == "women's clothing").ToList();
-            }
         }
 
-        public void Search(string search)
-        {
-            search = search.ToLower();
-            Products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
-        }
 
-        public IActionResult OnPost()
+        public void OnPostSearch()
         {
-            return RedirectToPage("/Products", new { SearchMessage });
+            Products = Data.ProductManager.SearchForProduct(SearchMessage);
         }
 
     }

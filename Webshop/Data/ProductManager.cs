@@ -22,7 +22,7 @@ namespace Webshop.Data
             Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
         }
 
-        public static List<Models.Product> ThreeChosen()
+        public static void ThreeChosen()
         {
             List<Models.Product> ChosenProducts = Products;
 
@@ -31,8 +31,41 @@ namespace Webshop.Data
                 ChosenProducts[i].chosen = true;
             }
 
-            return ChosenProducts;
         }
+        public static int GetRandomStock()
+        {
+            Random rand = new Random();
+           return rand.Next(1, 100);
+        }
+
+        public static void RemoveFromStock()
+        {
+            IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = CartManager.GroupCartByProducts();
+
+            foreach (var group in CartGroups)
+            {
+                foreach (var item in group)
+                {
+                        item.Product.stock -= 1;
+                }
+            }
+        }
+
+        public static List<Models.Product> SearchForProduct(string search)
+        {
+            List<Models.Product> products = new List<Models.Product>();
+
+            search = search.ToLower();
+            return products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+        }
+
+        public static List<Models.Product> Categories(string category)
+        {
+            List<Models.Product> products = new List<Models.Product>();
+            return products = Products.Where(product => product.category == category).ToList();
+            
+        }
+
 
         public static void TestGroupBuy() //enbart för test
         {
