@@ -17,7 +17,9 @@ namespace Webshop.Pages
 
         public void OnGet()
         {
-           
+            Products = Products.Where(product => product.chosen).ToList();
+            Data.CartManager.RequestCookie(Request.Cookies["cart"]);
+
         }
 
     }

@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -34,7 +36,12 @@ namespace Webshop.Pages
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
 
-
+            // Skapar cookie
+            string fullCart = JsonSerializer.Serialize(Cart);
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddDays(2);
+            Response.Cookies.Append("cart", fullCart, options);
+            var cart = Request.Cookies["cart"];
         }
 
         public void AddToCart()

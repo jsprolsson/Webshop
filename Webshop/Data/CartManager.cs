@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Webshop.Data
@@ -40,6 +42,16 @@ namespace Webshop.Data
 
             return CartGroups;
         }
+
+
+        public static void RequestCookie(string cookie)
+        {
+            if (cookie != null)
+            {
+                Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(cookie).ToList();
+            }
+        }
+
 
         public static string EmptyCart()
         {
