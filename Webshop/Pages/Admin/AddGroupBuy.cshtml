@@ -2,24 +2,26 @@
 @model Webshop.Pages.Admin.AddGroupBuyModel
 @{
 }
-<form method="post">
-    <input type="text" asp-for="@Model.Product.id" placeholder="id" />
-    <input type="text" asp-for="@Model.Product.title" placeholder="title" />
-    <input type="text" asp-for="@Model.Product.price" placeholder="price" />
-    <input type="text" asp-for="@Model.Product.description" placeholder="description" />
-    <input type="text" asp-for="@Model.Product.category" placeholder="category" />
-    <input type="text" asp-for="@Model.Product.image" placeholder="image" />
-    <input type="text" asp-for="@Model.Product.chosen" placeholder="chosen" />
-    <input type="text" asp-for="@Model.Product.stock" placeholder="stock" />
-    <input type="text" asp-for="@Model.Product.combined" placeholder="combined" />
-    <button type="submit">Submit</button>
-</form>
+@*<form method="post">
+        <input type="text" asp-for="@Model.Product.id" placeholder="id" />
+        <input type="text" asp-for="@Model.Product.title" placeholder="title" />
+        <input type="text" asp-for="@Model.Product.price" placeholder="price" />
+        <input type="text" asp-for="@Model.Product.description" placeholder="description" />
+        <input type="text" asp-for="@Model.Product.category" placeholder="category" />
+        <input type="text" asp-for="@Model.Product.image" placeholder="image" />
+        <input type="text" asp-for="@Model.Product.chosen" placeholder="chosen" />
+        <input type="text" asp-for="@Model.Product.stock" placeholder="stock" />
+        <input type="text" asp-for="@Model.Product.combined" placeholder="combined" />
+        <button type="submit">Submit</button>
+    </form>*@
 
 
+<form method="post" asp-page-handler="ToGroup">
 
 <table class="table .table-sm">
     <thead>
         <tr>
+            <th scope="col">Group</th>
             <th scope="col">#</th>
             <th scope="col">Title</th>
             <th scope="col">Price</th>
@@ -31,24 +33,31 @@
             <th scope="col">Combined</th>
         </tr>
     </thead>
-    <tbody>
 
+    <tbody>
         @foreach (var product in Model.Products)
         {
-        <tr>
-            <th scope="row">@product.id</th>
-            <td>@product.title</td>
-            <td>@product.price</td>
-            <td>@product.description</td>
-            <td>@product.category</td>
-            <td>@product.image</td>
-            <td>@product.chosen</td>
-            <td>@product.stock</td>
-            @if (product is Models.GroupBuy)
-            {
-                <td>@(((Models.GroupBuy)product).combined)</td>
-            }
-        </tr>
+            <tr>
+                <th scope="row">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" asp-for="ProductID" value="@product.id">
+                    </div>
+                </th>
+                <td>@product.id</td>
+                <td>@product.title</td>
+                <td>@product.price</td>
+                <td>@product.description</td>
+                <td>@product.category</td>
+                <td>@product.image</td>
+                <td>@product.chosen</td>
+                <td>@product.stock</td>
+                @if (product is Models.GroupBuy)
+                {
+                    <td>@(((Models.GroupBuy)product).combined)</td>
+                }
+            </tr>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+  <input type="submit" value="Submit product" />
+ </form>
