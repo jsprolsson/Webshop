@@ -35,7 +35,7 @@
 - [x] Klickbara produkter för mer info
 - [x] Addera till **varukorg**
 - [x] Kort text om produkten, pris och bild
-- [ ] Lagersaldo (som räknas ner när varan köps)
+- [x] Lagersaldo (som räknas ner när varan köps)
 
 # Varukorg
 
