@@ -14,6 +14,24 @@ namespace Webshop.Models
         
         public int stock = Data.ProductManager.GetRandomStock();
 
+        public Product()
+        {
+
+        }
+        
+        public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
+        {
+            this.id = id;
+            this.title = title;
+            this.price = price;
+            this.description = description;
+            this.category = category;
+            this.image = image;
+            this.chosen = chosen;
+            this.stock = stock;
+
+        }
+
         
         public string Category
         {
@@ -73,10 +91,9 @@ namespace Webshop.Models
             this.category = category;
             this.image = image;
             this.chosen = chosen;
-            this.stock = stock / 5;
+            this.stock = stock / 4;
             this.groupSize = groupSize;
             originalPriceForGroup = price * groupSize;
-            // groupPrice = (price * groupSize) * salePercentage;
 
         }
 

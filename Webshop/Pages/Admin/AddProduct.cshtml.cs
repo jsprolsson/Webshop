@@ -21,13 +21,9 @@ namespace Webshop.Pages.Admin
 
         public IActionResult OnPost()
         {
-            if (ModelState.IsValid == false)
-            {
-                return Page();
-            }
 
             // Customer kommer från prop
-            Products.Add(Product);
+            Data.ProductManager.Products.Add(Product);
             return RedirectToPage("/Admin/AddProduct");
         }
     }

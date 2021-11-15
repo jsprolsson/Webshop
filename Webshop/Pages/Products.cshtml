@@ -83,6 +83,7 @@
 
 }
 
+
 @foreach (var item in Model.GroupSale)
 {
     <div class="card" style="width: 18rem;">
@@ -92,7 +93,7 @@
                 <h5 class="card-title">
                     @item.title
                 </h5>
-                <p class="card-text text-right">Original price for 3: <del>@item.originalPriceForGroup</del></p>
+                <p class="card-text text-right">Original price for @item.groupSize: <del>@item.originalPriceForGroup</del></p>
                 <p class="card-text text-right">When purchased together: @item.price</p>
             <div class="row">
                 <div class="col">

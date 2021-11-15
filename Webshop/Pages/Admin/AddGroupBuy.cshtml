@@ -2,19 +2,6 @@
 @model Webshop.Pages.Admin.AddGroupBuyModel
 @{
 }
-@*<form method="post">
-        <input type="text" asp-for="@Model.Product.id" placeholder="id" />
-        <input type="text" asp-for="@Model.Product.title" placeholder="title" />
-        <input type="text" asp-for="@Model.Product.price" placeholder="price" />
-        <input type="text" asp-for="@Model.Product.description" placeholder="description" />
-        <input type="text" asp-for="@Model.Product.category" placeholder="category" />
-        <input type="text" asp-for="@Model.Product.image" placeholder="image" />
-        <input type="text" asp-for="@Model.Product.chosen" placeholder="chosen" />
-        <input type="text" asp-for="@Model.Product.stock" placeholder="stock" />
-        <input type="text" asp-for="@Model.Product.combined" placeholder="combined" />
-        <button type="submit">Submit</button>
-    </form>*@
-
 
 <form method="post" asp-page-handler="ToGroup">
 
@@ -35,7 +22,7 @@
     </thead>
 
     <tbody>
-        @foreach (var product in Model.Products)
+        @foreach (var product in Model.Products.Where(product => product is not Models.GroupBuy))
         {
             <tr>
                 <th scope="row">
@@ -59,6 +46,7 @@
         }
         </tbody>
     </table>
-    <input type="number" min="2" max="5" asp-for="GroupSize"/>
+<label for="size">Number in group: </label>
+    <input id="size" type="number" min="2" max="5" asp-for="GroupSize"/>
   <input type="submit" value="Submit product" />
  </form>

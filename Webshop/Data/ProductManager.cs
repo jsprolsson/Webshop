@@ -35,7 +35,7 @@ namespace Webshop.Data
         public static int GetRandomStock()
         {
             Random rand = new Random();
-           return rand.Next(1, 100);
+           return rand.Next(10, 100);
         }
 
         public static void RemoveFromStock()
@@ -60,10 +60,24 @@ namespace Webshop.Data
         }
 
         public static List<Models.Product> Categories(string category)
+                {
+                    List<Models.Product> products = new List<Models.Product>();
+                    return products = Products.Where(product => product.category == category).ToList();
+                }
+
+        public static List<Models.GroupBuy> SearchForGroupProduct(string search)
         {
-            List<Models.Product> products = new List<Models.Product>();
-            return products = Products.Where(product => product.category == category).ToList();
-            
+            List<Models.GroupBuy> products = new List<Models.GroupBuy>();
+
+            search = search.ToLower();
+            return products = GroupBuyItems.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+        }
+
+        public static List<Models.GroupBuy> GroupCategories(string category)
+        {
+            List<Models.GroupBuy> products = new List<Models.GroupBuy>();
+            return products = GroupBuyItems.Where(product => product.category == category).ToList();
+
         }
 
 
@@ -75,7 +89,13 @@ namespace Webshop.Data
             Products.AddRange(GroupBuyItems);
         }
 
-        
+        public static void AddProduct(Models.Product product)
+        {
+            int nextId = Products.Count + 1;
+            Products.Add(new Models.Product(nextId, product.title, product.price, product.description, product.category, product.image, product.chosen, product.stock));
+        }
+
+
 
 
 

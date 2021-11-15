@@ -25,6 +25,7 @@ namespace Webshop.Pages
             if (Category != null)
             {
                 Products = Data.ProductManager.Categories(Category);
+                GroupSale = Data.ProductManager.GroupCategories(Category);
             }
 
         }
@@ -33,6 +34,7 @@ namespace Webshop.Pages
         public void OnPostSearch()
         {
             Products = Data.ProductManager.SearchForProduct(SearchMessage);
+            GroupSale = Data.ProductManager.SearchForGroupProduct(SearchMessage);
         }
 
     }
