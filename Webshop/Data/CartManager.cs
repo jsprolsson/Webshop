@@ -46,9 +46,14 @@ namespace Webshop.Data
 
         public static void RequestCookie(string cookie)
         {
-            if (cookie != null)
+            try
             {
                 Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(cookie).ToList();
+            }
+            catch (Exception)
+            {
+
+                
             }
         }
 

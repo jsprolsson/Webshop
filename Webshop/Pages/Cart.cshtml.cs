@@ -42,6 +42,11 @@ namespace Webshop.Pages
             options.Expires = DateTime.Now.AddDays(2);
             Response.Cookies.Append("cart", fullCart, options);
             var cart = Request.Cookies["cart"];
+
+            // Session cookie
+            //HttpContext.Session.SetString("Cart", fullCart);
+            //var sessionCookie = HttpContext.Session.GetString("Cart");
+            //Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(HttpContext.Session.GetString("Cart")).ToList();
         }
 
         public void AddToCart()
