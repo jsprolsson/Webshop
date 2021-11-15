@@ -16,6 +16,7 @@ namespace Webshop
             Data.ProductManager.APICall();
             Data.ProductManager.ThreeChosen();
             Data.ProductManager.TestGroupBuy();  //enbart för test
+            Pages.IndexModel.ReadCookie = true;
             CreateHostBuilder(args).Build().Run();
 
         }

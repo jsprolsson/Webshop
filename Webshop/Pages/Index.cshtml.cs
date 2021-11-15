@@ -14,12 +14,18 @@ namespace Webshop.Pages
         
         public List<Models.Product> Products = Data.ProductManager.Products
             .Where(product => product.chosen).ToList();
-
+        public int i = 0;
+        public static bool ReadCookie { get; set; }
         public void OnGet()
         {
+            Console.WriteLine(ReadCookie);
             Products = Products.Where(product => product.chosen).ToList();
-            Data.CartManager.RequestCookie(Request.Cookies["cart"]);
-
+            
+            if (ReadCookie == true)
+            {
+                Data.CartManager.RequestCookie(Request.Cookies["cart"]);
+                ReadCookie = false;
+            }
         }
 
     }
