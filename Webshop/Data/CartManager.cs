@@ -43,18 +43,12 @@ namespace Webshop.Data
             return CartGroups;
         }
 
-        public static void MakeCookie(string cookie)
-        {
-            
-        }
-
         public static void RequestCookie(string cookie)
         {
             if (cookie != null)
             {
                 Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(cookie).ToList();
             }
-            
         }
 
 

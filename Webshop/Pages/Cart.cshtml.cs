@@ -14,7 +14,6 @@ namespace Webshop.Pages
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
 
         public List<Models.OrderItem> Cart = Data.CartManager.Cart;
-        //public List<Models.OrderItem> Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(Cookie).ToList();
 
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
 
@@ -24,7 +23,6 @@ namespace Webshop.Pages
         public double VAT { get; set; }
         [BindProperty]
         public string GroupKey { get; set; }
-        //public static string Cookie { get; set; }
 
         public void OnGet(int id)
         {
@@ -37,20 +35,13 @@ namespace Webshop.Pages
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
-            
-            // Läser in cookie
-            //Data.CartManager.Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(Request.Cookies["cart"]).ToList();
-            //CartGroups = Data.CartManager.GroupCartByProducts();
 
             // Skapar cookie
             string fullCart = JsonSerializer.Serialize(Cart);
-            //string fullCartGroups = JsonSerializer.Serialize(CartGroups);
             CookieOptions options = new CookieOptions();
             options.Expires = DateTime.Now.AddDays(2);
             Response.Cookies.Append("cart", fullCart, options);
             var cart = Request.Cookies["cart"];
-            //Cookie = Request.Cookies["cart"];
-            //Data.CartManager.MakeCookie(cart);
         }
 
         public IActionResult OnPostAdd()
