@@ -10,6 +10,7 @@ namespace Webshop.Pages.Admin
     public class AddGroupBuyModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
+        public List<Models.GroupBuy> GroupBuyItems = Data.ProductManager.GroupBuyItems;
 
         [BindProperty]
         public int ProductID { get; set; }

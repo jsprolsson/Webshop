@@ -40,13 +40,13 @@ namespace Webshop.Data
 
         public static void RemoveFromStock()
         {
-            IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = CartManager.GroupCartByProducts();
+            IEnumerable<IGrouping<string, Models.Product>> CartGroups = CartManager.GroupCartByProducts();
 
             foreach (var group in CartGroups)
             {
                 foreach (var item in group)
                 {
-                        item.Product.stock -= 1;
+                        item.stock -= 1;
                 }
             }
         }
@@ -85,7 +85,7 @@ namespace Webshop.Data
         {
             int nextId = Products.Count + 1;
             List<Models.Product> products = Products.Where(product => product.id == productID).ToList();
-           GroupBuyItems.Add(new Models.GroupBuy(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
+            GroupBuyItems.Add(new Models.GroupBuy(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
             Products.AddRange(GroupBuyItems);
         }
 
