@@ -10,7 +10,7 @@ namespace Webshop.Pages.Admin
     public class ChangeProductModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
-
+        
         [BindProperty]
         public Models.Product Product { get; set; }
         public void OnGet()
