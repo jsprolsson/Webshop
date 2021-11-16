@@ -25,9 +25,18 @@
             {
                 <tr>
                     <th scope="row">
+                        @if (product.stock == 0)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" />
+                            </div>
+                        }
+                        else
+                        {
                         <div class="form-check">
                             <input class="form-check-input" type="radio" asp-for="ProductID" value="@product.id">
                         </div>
+                        }
                     </th>
                     <td>@product.id</td>
                     <td>@product.title</td>
@@ -45,6 +54,8 @@
     <input id="size" type="number" min="2" max="5" asp-for="GroupSize" />
     <input type="submit" value="Submit product" />
 </form>
+
+<h2 class="text-center display-4">@Model.Message</h2>
 
 
 <h3>Group sales</h3>

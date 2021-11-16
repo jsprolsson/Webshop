@@ -10,12 +10,13 @@ namespace Webshop.Pages.Admin
     public class AddGroupBuyModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
-        public List<Models.GroupBuy> GroupBuyItems = Data.ProductManager.GroupBuyItems;
 
         [BindProperty]
         public int ProductID { get; set; }
         [BindProperty]
         public int GroupSize { get; set; }
+        [BindProperty]
+        public string Message { get; set; }
 
         public void OnGet()
         {
@@ -23,7 +24,14 @@ namespace Webshop.Pages.Admin
 
         public void OnPostToGroup()
         {
-            Data.ProductManager.ProductToGroup(ProductID, GroupSize);
+            if (ProductID != 0)
+            {
+                Data.ProductManager.ProductToGroup(ProductID, GroupSize);
+            }
+            else
+            {
+                Message = "Item is not in stock!";
+            }
         }
     }
 }
