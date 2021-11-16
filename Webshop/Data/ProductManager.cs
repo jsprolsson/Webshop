@@ -94,6 +94,13 @@ namespace Webshop.Data
             Products.Add(new Models.Product(nextId, product.title, product.price, product.description, product.category, product.image, product.chosen, product.stock));
         }
 
+        public static void ChangeProduct(Models.Product Product)
+        {
+            int index = Products.FindIndex(product => product.id == Product.id);
+            Products.RemoveAt(index);
+            Products.Insert(index, Product);
+        }
+
 
 
 

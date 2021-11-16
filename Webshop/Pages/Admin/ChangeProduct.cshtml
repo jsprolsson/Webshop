@@ -2,8 +2,7 @@
 @model Webshop.Pages.Admin.ChangeProductModel
 @{
 }
-<form method="post">
-    <input type="text" asp-for="@Model.Product.id" placeholder="id" />
+<form method="post" asp-page-handler="Change">
     <input type="text" asp-for="@Model.Product.title" placeholder="title" />
     <input type="text" asp-for="@Model.Product.price" placeholder="price" />
     <input type="text" asp-for="@Model.Product.description" placeholder="description" />
@@ -11,36 +10,42 @@
     <input type="text" asp-for="@Model.Product.image" placeholder="image" />
     <input type="text" asp-for="@Model.Product.chosen" placeholder="chosen" />
     <input type="text" asp-for="@Model.Product.stock" placeholder="stock" />
-    <button type="submit">Submit</button>
-</form>
+    <button type="submit">Change Product</button>
 
-<table class="table .table-sm">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Price</th>
-            <th scope="col">Description</th>
-            <th scope="col">Category</th>
-            <th scope="col">Image</th>
-            <th scope="col">Chosen</th>
-            <th scope="col">Stock</th>
-        </tr>
-    </thead>
-    <tbody>
 
-        @foreach (var product in Model.Products.Where(product => product is not Models.GroupSale))
-        {
+    <table class="table .table-sm">
+        <thead>
             <tr>
-                <th scope="row">@product.id</th>
-                <td>@product.title</td>
-                <td>@product.price</td>
-                <td><i>@product.description</i></td>
-                <td>@product.category</td>
-                <td>@product.image</td>
-                <td>@product.chosen</td>
-                <td>@product.stock</td>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col">Chosen</th>
+                <th scope="col">Stock</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+
+            @foreach (var product in Model.Products.Where(product => product is not Models.GroupSale))
+            {
+                <tr>
+                    <th scope="row">
+                        <div class="form-check">
+                            @product.id<input class="form-check-input" type="radio" asp-for="@Model.Product.id" value="@product.id">
+                        </div>
+                    </th>
+                    <td>@product.title</td>
+                    <td>@product.price</td>
+                    <td><i>@product.description</i></td>
+                    <td>@product.category</td>
+                    <td>@product.image</td>
+                    <td>@product.chosen</td>
+                    <td>@product.stock</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+</form>
