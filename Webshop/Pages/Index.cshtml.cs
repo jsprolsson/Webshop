@@ -13,49 +13,40 @@ namespace Webshop.Pages
 
     public class IndexModel : PageModel
     {
-        
         public List<Models.Product> Products = Data.ProductManager.Products.Where(product => product.chosen).ToList();
-
-        public int i = 0;
         public static bool ReadCookie { get; set; }
-        [BindProperty]
         public string WelcomeText { get; set; }
-        [BindProperty(SupportsGet =true)]
-        public bool Svenska { get; set; }
+        public bool SwedishAsLanguage { get; set; }
         public void OnGet()
         {
+            Products = Products.Where(product => product.chosen).ToList();
+
+            // Hämtar språk-cookie ifall det finns någon sparad och ställer användarens språk
             try
             {
-                var language = JsonSerializer.Deserialize<string>(Request.Cookies["language"]);
-                Svenska = Convert.ToBoolean(language);
+                var swedish = JsonSerializer.Deserialize<string>(Request.Cookies["swedish"]);
+                SwedishAsLanguage = Convert.ToBoolean(swedish);
             }
             catch (Exception)
             {
-
             }
-            
-            Products = Products.Where(product => product.chosen).ToList();
+            WelcomeText = SwedishAsLanguage ? "Välkommen" : "Welcome";
+
+            // Hämtar cart-cookie första gången sidan öppnas för att fylla Cart med sparade artiklar
             if (ReadCookie == true)
             {
                 Data.CartManager.RequestCookie(Request.Cookies["cart"]);
-                //Data.CartManager.RequestCookie(HttpContext.Session.GetString("Cart"));
                 ReadCookie = false;
-
-                
             }
-            WelcomeText = Svenska ? "Välkommen" : "Welcome";
         }
 
-        public IActionResult OnPostLanguage(bool language)
+        public IActionResult OnPostLanguage(bool swedish)
         {
-            // Skapar cookie
-            string chosenLanguage = JsonSerializer.Serialize(Convert.ToString(language));
+            // Skapar språk-cookie
             CookieOptions options = new CookieOptions();
             options.Expires = DateTime.Now.AddDays(2);
-            Response.Cookies.Append("language", chosenLanguage, options);
-            var cart = Request.Cookies["language"];
+            Response.Cookies.Append("swedish", JsonSerializer.Serialize(Convert.ToString(swedish)), options);
             return RedirectToPage("/Index");
         }
-
     }
 }
