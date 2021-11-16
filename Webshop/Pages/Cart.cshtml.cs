@@ -13,9 +13,9 @@ namespace Webshop.Pages
     {
         public List<Models.Product> AllProducts = Data.ProductManager.Products;
 
-        public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        public List<Models.Product> Cart = Data.CartManager.Cart;
 
-        public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
+        public IEnumerable<IGrouping<string, Models.Product>> CartGroups = Data.CartManager.GroupCartByProducts();
         [BindProperty(SupportsGet = true)]
         public int ItemID { get; set; }
 
@@ -62,16 +62,16 @@ namespace Webshop.Pages
 
         public IActionResult OnPostAdd()
         {
-            var addProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
-            Data.CartManager.AddToCart(addProduct[0].Product);
+            var addProduct = Cart.Where(product => product.title == GroupKey).ToList();
+            Data.CartManager.AddToCart(addProduct[0]);
             return RedirectToPage("/Cart");
             
         }
 
         public IActionResult OnPostRemove()
         {
-            var removeProduct = Cart.Where(product => product.Product.title == GroupKey).ToList();
-            Data.CartManager.RemoveFromCart(removeProduct[0].Product);
+            var removeProduct = Cart.Where(product => product.title == GroupKey).ToList();
+            Data.CartManager.RemoveFromCart(removeProduct[0]);
             return RedirectToPage("/Cart");
         }
 

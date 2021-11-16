@@ -9,16 +9,16 @@ namespace Webshop.Data
 {
     public class CartManager
     {
-        public static List<Models.OrderItem> Cart = new List<Models.OrderItem>();
+        public static List<Models.Product> Cart = new List<Models.Product>();
 
         public static void AddToCart(Models.Product product)
         {
-            Cart.Add(new Models.OrderItem(product, 1));
+            Cart.Add(product);
         }
 
         public static void RemoveFromCart(Models.Product product)
         {
-            int index = Cart.FindIndex(Product => Product.Product.id == product.id);
+            int index = Cart.FindIndex(Product => Product.id == product.id);
             Cart.RemoveAt(index);
         }
 
@@ -28,17 +28,17 @@ namespace Webshop.Data
 
             foreach (var product in Cart)
             {
-                sum += product.Product.price;
+                sum += product.price;
             }
 
             return Math.Round(sum, 2);
         }
 
-        public static IEnumerable<IGrouping<string, Models.OrderItem>> GroupCartByProducts()
+        public static IEnumerable<IGrouping<string, Models.Product>> GroupCartByProducts()
         {
-            IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups;
+            IEnumerable<IGrouping<string, Models.Product>> CartGroups;
 
-            CartGroups = Cart.GroupBy(product => product.Product.title);
+            CartGroups = Cart.GroupBy(product => product.title);
 
             return CartGroups;
         }
@@ -67,7 +67,7 @@ namespace Webshop.Data
     }
     public enum ShippingAlternatives
     {
-        Postnord = 69,
-        DHL = 99
+        Postnord = 6,
+        DHL = 9
     }
 }

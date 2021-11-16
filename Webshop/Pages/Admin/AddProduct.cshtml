@@ -3,7 +3,7 @@
 @{
 }
 <form method="post">
-    <input type="text" asp-for="@Model.Product.id" placeholder="id" />
+    <input type="text" asp-for="@Model.Product.id" placeholder="id" value="@(Model.Products.Count() + 1)" readonly/>
     <input type="text" asp-for="@Model.Product.title" placeholder="title" />
     <input type="text" asp-for="@Model.Product.price" placeholder="price" />
     <input type="text" asp-for="@Model.Product.description" placeholder="description" />
@@ -29,7 +29,7 @@
     </thead>
     <tbody>
 
-        @foreach (var product in Model.Products)
+        @foreach (var product in Model.Products.Where(product => product is not Models.GroupBuy))
         {
             <tr>
                 <th scope="row">@product.id</th>

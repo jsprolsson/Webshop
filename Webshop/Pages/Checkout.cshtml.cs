@@ -12,8 +12,8 @@ namespace Webshop.Pages
     public class CheckoutModel : PageModel
     {
         public List<Models.Order> orders = Models.Order.orders;
-        public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
-        public List<Models.OrderItem> Cart = Data.CartManager.Cart;
+        public IEnumerable<IGrouping<string, Models.Product>> CartGroups = Data.CartManager.GroupCartByProducts();
+        public List<Models.Product> Cart = Data.CartManager.Cart;
         public double Sum { get; set; }
         public double VAT { get; set; }
         public int Postage { get; set; }

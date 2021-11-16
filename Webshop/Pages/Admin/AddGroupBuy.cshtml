@@ -2,53 +2,91 @@
 @model Webshop.Pages.Admin.AddGroupBuyModel
 @{
 }
-<form method="post">
-    <input type="text" asp-for="@Model.Product.id" placeholder="id" />
-    <input type="text" asp-for="@Model.Product.title" placeholder="title" />
-    <input type="text" asp-for="@Model.Product.price" placeholder="price" />
-    <input type="text" asp-for="@Model.Product.description" placeholder="description" />
-    <input type="text" asp-for="@Model.Product.category" placeholder="category" />
-    <input type="text" asp-for="@Model.Product.image" placeholder="image" />
-    <input type="text" asp-for="@Model.Product.chosen" placeholder="chosen" />
-    <input type="text" asp-for="@Model.Product.stock" placeholder="stock" />
-    <input type="text" asp-for="@Model.Product.combined" placeholder="combined" />
-    <button type="submit">Submit</button>
+
+<form method="post" asp-page-handler="ToGroup">
+
+    <table class="table .table-sm">
+        <thead>
+            <tr>
+                <th scope="col">Group?</th>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col">Chosen</th>
+                <th scope="col">Stock</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var product in Model.Products.Where(product => product is not Models.GroupBuy))
+            {
+                <tr>
+                    <th scope="row">
+                        @if (product.stock == 0)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" />
+                            </div>
+                        }
+                        else
+                        {
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" asp-for="ProductID" value="@product.id">
+                        </div>
+                        }
+                    </th>
+                    <td>@product.id</td>
+                    <td>@product.title</td>
+                    <td>@product.price</td>
+                    <td><i>@((product.description).Substring(0, 40)) ...</i></td>
+                    <td>@product.category</td>
+                    <td>@product.image</td>
+                    <td>@product.chosen</td>
+                    <td>@product.stock</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <label for="size">Number in group: </label>
+    <input id="size" type="number" min="2" max="5" asp-for="GroupSize" />
+    <input type="submit" value="Submit product" />
 </form>
 
+<h2 class="text-center display-4">@Model.Message</h2>
 
 
-<table class="table .table-sm">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Price</th>
-            <th scope="col">Description</th>
-            <th scope="col">Category</th>
-            <th scope="col">Image</th>
-            <th scope="col">Chosen</th>
-            <th scope="col">Stock</th>
-            <th scope="col">Combined</th>
-        </tr>
-    </thead>
-    <tbody>
-
-        @foreach (var product in Model.Products)
-        {
-        <tr>
-            <th scope="row">@product.id</th>
-            <td>@product.title</td>
-            <td>@product.price</td>
-            <td>@product.description</td>
-            <td>@product.category</td>
-            <td>@product.image</td>
-            <td>@product.chosen</td>
-            <td>@product.stock</td>
-            @if (product is Models.GroupBuy)
+<h3>Group sales</h3>
+    <table class="table .table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Category</th>
+                <th scope="col">Image</th>
+                <th scope="col">Chosen</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Group Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products.Where(product => product is Models.GroupBuy))
             {
-                <td>@(((Models.GroupBuy)product).combined)</td>
+                <tr>
+                    <th scope="row">@product.id</th>
+                    <td>@product.title</td>
+                    <td>@product.price</td>
+                    <td><i>@((product.description).Substring(0, 40)) ...</i></td>
+                    <td>@product.category</td>
+                    <td>@product.image</td>
+                    <td>@product.chosen</td>
+                    <td>@product.stock</td>
+                    <td>@(((Models.GroupBuy)product).groupSize)</td>
+                </tr>
             }
-        </tr>
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>

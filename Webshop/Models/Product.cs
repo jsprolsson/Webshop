@@ -14,17 +14,25 @@ namespace Webshop.Models
         
         public int stock = Data.ProductManager.GetRandomStock();
 
-        //public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
-        //{
-        //    this.id = id;
-        //    this.title = title;
-        //    this.price = price;
-        //    this.description = description;
-        //    this.category = category;
-        //    this.image = image;
-        //    this.chosen = chosen;
-        //    this.stock = 100;
-        //}
+        public Product()
+        {
+
+        }
+        
+        public Product(int id, string title, double price, string description, string category, string image, bool chosen, int stock)
+        {
+            this.id = id;
+            this.title = title;
+            this.price = price;
+            this.description = description;
+            this.category = category;
+            this.image = image;
+            this.chosen = chosen;
+            this.stock = stock;
+
+        }
+
+        
         public string Category
         {
             get { return category; }
@@ -51,28 +59,31 @@ namespace Webshop.Models
             }
 
         }
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                //if (true)
-                //{
-                //    //if value already exists within Products-list.item.id = Set first available id-number or default.
-                //}
-                id = value;
-            }
-        }
-
-
     }
+
+
     public class GroupBuy : Product
     {
-        public int combined { get; set; }
-        public string groupPrice { get; set; }
+        public int groupSize { get; set; }
+        public double originalPriceForGroup { get; set; }
+        public double salePercentage = 0.75;
 
+        public GroupBuy(int id, string title, double price, string description, string category, string image, bool chosen, int stock, int groupSize)
+        {
 
-        // lägg till metod för att räkna ut pris. 
+            this.id = id;
+            this.title = title;
+            this.price = Math.Round((price * groupSize) * salePercentage, 2);
+            this.description = description;
+            this.category = category;
+            this.image = image;
+            this.chosen = chosen;
+            this.stock = 5;
+            this.groupSize = groupSize;
+            originalPriceForGroup = price * groupSize;
+
+        }
+
     }
 
 }

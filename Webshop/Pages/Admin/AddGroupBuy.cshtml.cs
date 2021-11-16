@@ -9,26 +9,29 @@ namespace Webshop.Pages.Admin
 {
     public class AddGroupBuyModel : PageModel
     {
-        // listan som ska visas på view
         public List<Models.Product> Products = Data.ProductManager.Products;
 
-        // prop som får data från OnPost
         [BindProperty]
-        public Models.GroupBuy Product { get; set; }
+        public int ProductID { get; set; }
+        [BindProperty]
+        public int GroupSize { get; set; }
+        [BindProperty]
+        public string Message { get; set; }
+
         public void OnGet()
         {
         }
 
-        public IActionResult OnPost()
+        public void OnPostToGroup()
         {
-            if (ModelState.IsValid == false)
+            if (ProductID != 0)
             {
-                return Page();
+                Data.ProductManager.ProductToGroup(ProductID, GroupSize);
             }
-
-            // Customer kommer från prop
-            Products.Add(Product);
-            return RedirectToPage("/Admin/AddGroupBuy");
+            else
+            {
+                Message = "Item is not in stock!";
+            }
         }
     }
 }

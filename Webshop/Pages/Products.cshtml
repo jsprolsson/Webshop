@@ -17,7 +17,7 @@
             <h3>@(Model.Category != null ? char.ToUpper(Model.Category[0]) + Model.Category.Substring(1) : "")</h3>
         </div>
         <div class="col pt-4 pl-4">
-            <form class="d-flex" method="post" asp-page-handler="Search" >
+            <form class="d-flex" method="post" asp-page-handler="Search">
                 <input class="form-control-lg" id="fritext" placeholder="Search items" type="text" asp-for="@Model.SearchMessage" />
                 <input type="submit" value="Search" />
             </form>
@@ -29,12 +29,27 @@
 </div>
 
 @{int i = 0; }
-@foreach (var item in Model.Products)
+@foreach (var item in Model.Products.Where(product => product is not Models.GroupBuy))
 {
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="@item.image" alt="Card image cap">
         <div class="card-body">
-            <h5 class="card-title">@item.title</h5>
+            @if (item is Models.GroupBuy)
+            {
+
+                <h4><u>GROUP SALE</u></h4>
+                <h5 class="card-title">
+                    @item.title
+                </h5>
+                <p class="card-text text-right">Original price for 3: <del></del></p>
+                <p class="card-text text-right">When purchased together: </p>
+            }
+            else
+            {
+                <h5 class="card-title">
+                    @item.title
+                </h5>
+            }
             <p class="card-text text-right">Price: @item.price USD</p>
             <div class="row">
                 <div class="col">
@@ -65,6 +80,51 @@
     </div>
 
     i++;
-    
+
 }
+
+
+@foreach (var item in Model.Products.Where(product => product is Models.GroupBuy))
+{
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="@item.image" alt="Card image cap">
+        <div class="card-body">
+                <h4><u>GROUP SALE</u></h4>
+                <h5 class="card-title">
+                    @item.title
+                </h5>
+                <p class="card-text text-right">Original price for @(((Models.GroupBuy)item).groupSize) : <del>@(((Models.GroupBuy)item).originalPriceForGroup) $</del></p>
+                <p class="card-text text-right">When purchased together: @item.price $</p>
+            <div class="row">
+                <div class="col">
+                    @if (item.stock <= 0)
+                    {
+                        <a class="btn btn-danger">SOLD OUT</a>
+                    }
+                    else
+                    {
+                        <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                    }
+                </div>
+                <div class="col">
+                    <p>
+                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_@i" role="button">
+                            More Info
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="collapse" id="collapseExample_@i">
+                <div class="card card-body">
+                    <p>@item.description</p>
+                    <p><b>Lagersaldo: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    i++;
+
+}
+
 
