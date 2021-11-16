@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -11,6 +13,7 @@ namespace Webshop.Pages
     {
         public List<Models.Order> orders = Models.Order.orders;
         public IEnumerable<IGrouping<string, Models.OrderItem>> CartGroups = Data.CartManager.GroupCartByProducts();
+        public List<Models.OrderItem> Cart = Data.CartManager.Cart;
         public double Sum { get; set; }
         public double VAT { get; set; }
         public int Postage { get; set; }
@@ -31,6 +34,12 @@ namespace Webshop.Pages
         {
             string message = Data.CartManager.EmptyCart();
             Message = message;
+
+            // uppdaterar cart cookien så att den inte innehåller något
+            string fullCart = JsonSerializer.Serialize(Cart);
+            CookieOptions options = new CookieOptions();
+            options.Expires = DateTime.Now.AddDays(2);
+            Response.Cookies.Append("cart", fullCart, options);
         }
     }
 }

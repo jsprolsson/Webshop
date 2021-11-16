@@ -4,7 +4,23 @@
     ViewData["Title"] = "Home page";
 }
 
-<h1 class="jumbotron text-center">Välkomst-text</h1>
+<div class="row">
+    <div class="col-lg-1">
+        <form asp-page-handler="language" method="post">
+            <button class="btn btn-default">Svenska</button>
+            <input type="hidden" name="swedish" value=true />
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="language" method="post">
+            <button class="btn btn-default">English</button>
+            <input type="hidden" name="swedish" value=false />
+        </form>
+    </div>
+</div>
+
+
+<h1 class="jumbotron text-center">@Model.WelcomeText</h1>
 
 <style>
     .card {

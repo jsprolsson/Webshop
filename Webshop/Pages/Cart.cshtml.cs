@@ -31,17 +31,25 @@ namespace Webshop.Pages
         public void OnGet()
         {
             if (ItemID != 0) AddToCart();
-            
+
+            CreateCookie();
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
+        }
 
-            // Skapar cookie
+        public void CreateCookie()
+        {
+            // Skapar cart-cookie
             string fullCart = JsonSerializer.Serialize(Cart);
             CookieOptions options = new CookieOptions();
             options.Expires = DateTime.Now.AddDays(2);
             Response.Cookies.Append("cart", fullCart, options);
-            var cart = Request.Cookies["cart"];
+
+            // Session cookie
+            //HttpContext.Session.SetString("Cart", fullCart);
+            //var sessionCookie = HttpContext.Session.GetString("Cart");
+            //Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(HttpContext.Session.GetString("Cart")).ToList();
         }
 
         public void AddToCart()

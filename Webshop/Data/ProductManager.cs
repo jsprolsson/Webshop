@@ -22,7 +22,7 @@ namespace Webshop.Data
             Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
         }
 
-        public static void ThreeChosen()
+        public static void ThreeChosen()    // väljer ut tre produkter som ska visas på startsidan
         {
             List<Models.Product> ChosenProducts = Products;
 
@@ -35,7 +35,7 @@ namespace Webshop.Data
         public static int GetRandomStock()
         {
             Random rand = new Random();
-           return rand.Next(1, 100);
+            return rand.Next(1, 100);
         }
 
         public static void RemoveFromStock()
@@ -63,13 +63,6 @@ namespace Webshop.Data
         {
             List<Models.Product> products = new List<Models.Product>();
             return products = Products.Where(product => product.category == category).ToList();
-            
-        }
-
-
-        public static void TestGroupBuy() //enbart för test
-        {
-            //Products.Add(new Models.GroupBuy(Products.Count + 1, "GroupBuy", 299, "3 groups", "Jeans", "https://media.campadre.com/3F1DE1FC29E88D65C0E4BB8A83A6F64C.jpg/w580/h725/r1.25/?optimizer=image", false, 10, 3));
         }
 
         //public static void CreateSalesItems()
