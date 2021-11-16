@@ -72,7 +72,7 @@ namespace Webshop.Models
         {
 
             this.id = id;
-            this.title = title;
+            this.title = $"GROUP {title}";
             this.price = Math.Round((price * groupSize) * salePercentage, 2);
             this.description = description;
             this.category = category;

@@ -32,7 +32,7 @@ namespace Webshop.Pages
         {
             if (ItemID != 0) AddToCart();
 
-            CreateCookie();
+            //CreateCookie();
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);

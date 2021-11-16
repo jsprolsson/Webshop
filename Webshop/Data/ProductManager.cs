@@ -80,8 +80,7 @@ namespace Webshop.Data
 
         }
 
-
-        public static void ProductToGroup(int productID, int groupSize)
+        public static void ProductToGroupSale(int productID, int groupSize)
         {
             int nextId = Products.Count + 1;
             List<Models.Product> products = Products.Where(product => product.id == productID).ToList();
