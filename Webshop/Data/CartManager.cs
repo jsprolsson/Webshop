@@ -48,7 +48,7 @@ namespace Webshop.Data
         {
             try
             {
-                Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(cartCookie).ToList();
+                Cart = JsonSerializer.Deserialize<Models.Product[]>(cartCookie).ToList();
             }
             catch (Exception)
             { 
