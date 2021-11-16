@@ -8,7 +8,7 @@
     <table class="table .table-sm">
         <thead>
             <tr>
-                <th scope="col">Group</th>
+                <th scope="col">Group?</th>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Price</th>
@@ -32,7 +32,7 @@
                     <td>@product.id</td>
                     <td>@product.title</td>
                     <td>@product.price</td>
-                    <td>@product.description</td>
+                    <td><i>@((product.description).Substring(0, 40)) ...</i></td>
                     <td>@product.category</td>
                     <td>@product.image</td>
                     <td>@product.chosen</td>
@@ -46,12 +46,11 @@
     <input type="submit" value="Submit product" />
 </form>
 
-@if (Model.GroupBuyItems.Count != 0)
-{
+
+<h3>Group sales</h3>
     <table class="table .table-sm">
         <thead>
             <tr>
-                <th scope="col">Group</th>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Price</th>
@@ -63,20 +62,14 @@
                 <th scope="col">Group Size</th>
             </tr>
         </thead>
-
         <tbody>
-            @foreach (var product in Model.GroupBuyItems)
+            @foreach (var product in Model.Products.Where(product => product is Models.GroupBuy))
             {
                 <tr>
-                    <th scope="row">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" asp-for="ProductID" value="@product.id">
-                        </div>
-                    </th>
-                    <td>@product.id</td>
+                    <th scope="row">@product.id</th>
                     <td>@product.title</td>
                     <td>@product.price</td>
-                    <td>@product.description</td>
+                    <td><i>@((product.description).Substring(0, 40)) ...</i></td>
                     <td>@product.category</td>
                     <td>@product.image</td>
                     <td>@product.chosen</td>
@@ -86,4 +79,3 @@
             }
         </tbody>
     </table>
-}

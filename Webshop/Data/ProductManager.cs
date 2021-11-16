@@ -85,8 +85,8 @@ namespace Webshop.Data
         {
             int nextId = Products.Count + 1;
             List<Models.Product> products = Products.Where(product => product.id == productID).ToList();
-            GroupBuyItems.Add(new Models.GroupBuy(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
-            Products.AddRange(GroupBuyItems);
+            Products.Add(new Models.GroupBuy(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
+           // Products.AddRange(GroupBuyItems);
         }
 
         public static void AddProduct(Models.Product product)
