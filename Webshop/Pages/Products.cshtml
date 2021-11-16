@@ -50,7 +50,7 @@
                     @item.title
                 </h5>
             }
-            <p class="card-text text-right">Price: @item.price USD</p>
+            <p class="card-text text-right">Price: @item.price:-</p>
             <div class="row">
                 <div class="col">
                     @if (item.stock <= 0)
@@ -73,7 +73,7 @@
             <div class="collapse" id="collapseExample_@i">
                 <div class="card card-body">
                     <p>@item.description</p>
-                    <p><b>Lagersaldo: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                    <p><b>Stock: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
                 </div>
             </div>
         </div>
@@ -93,8 +93,8 @@
                 <h5 class="card-title">
                     @item.title
                 </h5>
-                <p class="card-text text-right">Original price for @(((Models.GroupBuy)item).groupSize) : <del>@(((Models.GroupBuy)item).originalPriceForGroup) $</del></p>
-                <p class="card-text text-right">When purchased together: @item.price $</p>
+                <p class="card-text text-right">Original price for @(((Models.GroupBuy)item).groupSize) : <del>@(((Models.GroupBuy)item).originalPriceForGroup):-</del></p>
+                <p class="card-text text-right">When purchased together: @item.price:-</p>
             <div class="row">
                 <div class="col">
                     @if (item.stock <= 0)
@@ -117,7 +117,7 @@
             <div class="collapse" id="collapseExample_@i">
                 <div class="card card-body">
                     <p>@item.description</p>
-                    <p><b>Lagersaldo: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                    <p><b>Stock: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
                 </div>
             </div>
         </div>
