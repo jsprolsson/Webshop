@@ -62,13 +62,13 @@ namespace Webshop.Models
     }
 
 
-    public class GroupBuy : Product
+    public class GroupSale : Product
     {
         public int groupSize { get; set; }
         public double originalPriceForGroup { get; set; }
         public double salePercentage = 0.75;
 
-        public GroupBuy(int id, string title, double price, string description, string category, string image, bool chosen, int stock, int groupSize)
+        public GroupSale(int id, string title, double price, string description, string category, string image, bool chosen, int stock, int groupSize)
         {
 
             this.id = id;

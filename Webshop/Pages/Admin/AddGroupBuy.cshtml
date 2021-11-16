@@ -21,7 +21,7 @@
         </thead>
 
         <tbody>
-            @foreach (var product in Model.Products.Where(product => product is not Models.GroupBuy))
+            @foreach (var product in Model.Products.Where(product => product is not Models.GroupSale))
             {
                 <tr>
                     <th scope="row">
@@ -74,7 +74,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var product in Model.Products.Where(product => product is Models.GroupBuy))
+            @foreach (var product in Model.Products.Where(product => product is Models.GroupSale))
             {
                 <tr>
                     <th scope="row">@product.id</th>
@@ -85,7 +85,7 @@
                     <td>@product.image</td>
                     <td>@product.chosen</td>
                     <td>@product.stock</td>
-                    <td>@(((Models.GroupBuy)product).groupSize)</td>
+                    <td>@(((Models.GroupSale)product).groupSize)</td>
                 </tr>
             }
         </tbody>

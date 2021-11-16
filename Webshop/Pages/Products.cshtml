@@ -29,12 +29,12 @@
 </div>
 
 @{int i = 0; }
-@foreach (var item in Model.Products.Where(product => product is not Models.GroupBuy))
+@foreach (var item in Model.Products.Where(product => product is not Models.GroupSale))
 {
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="@item.image" alt="Card image cap">
         <div class="card-body">
-            @if (item is Models.GroupBuy)
+            @if (item is Models.GroupSale)
             {
 
                 <h4><u>GROUP SALE</u></h4>
@@ -84,7 +84,7 @@
 }
 
 
-@foreach (var item in Model.Products.Where(product => product is Models.GroupBuy))
+@foreach (var item in Model.Products.Where(product => product is Models.GroupSale))
 {
     <div class="card" style="width: 18rem;">
         <img class="card-img-top" src="@item.image" alt="Card image cap">
@@ -93,8 +93,8 @@
                 <h5 class="card-title">
                     @item.title
                 </h5>
-                <p class="card-text text-right">Original price for @(((Models.GroupBuy)item).groupSize) : <del>@(((Models.GroupBuy)item).originalPriceForGroup):-</del></p>
-                <p class="card-text text-right">When purchased together: @item.price:-</p>
+                <p class="card-text text-right">Original price for @(((Models.GroupSale)item).groupSize) : <del>@(((Models.GroupSale)item).originalPriceForGroup) $</del></p>
+                <p class="card-text text-right">When purchased together: @item.price $</p>
             <div class="row">
                 <div class="col">
                     @if (item.stock <= 0)
