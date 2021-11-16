@@ -29,7 +29,7 @@
     </thead>
     <tbody>
 
-        @foreach (var product in Model.Products.Where(product => product is not Models.GroupBuy))
+        @foreach (var product in Model.Products.Where(product => product is not Models.GroupSale))
         {
             <tr>
                 <th scope="row">@product.id</th>
