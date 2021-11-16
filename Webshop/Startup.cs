@@ -24,12 +24,13 @@ namespace Webshop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSession();
 
-            services.AddSession(options =>
-            {
-                options.Cookie.Name = "Cart";
-                options.Cookie.MaxAge = TimeSpan.FromDays(7);
-            });
+            //services.AddSession(options =>
+            //{
+            //    options.Cookie.Name = "Cart";
+            //    options.Cookie.MaxAge = TimeSpan.FromDays(7);
+            //});
 
         }
 
