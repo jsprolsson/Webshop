@@ -16,7 +16,7 @@
 
     <h2>Item: @group.Key</h2>
     <h3>Amount: @group.Count()</h3>
-    <h3>Price for one:@priceOfOne</h3>
+    <h3>Price for one:@priceOfOne:-</h3>
 
     @if (group.Count() >= inStock)
      {
@@ -54,10 +54,10 @@
         <p>Select Payment method: </p>
         <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna" checked="checked" />Klarna</label>
         <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" />Creditcard</label>
-        <input type="submit" name="name" value="Submit info" />
+        <input type="submit" name="name" value="Submit to checkout" />
     </form>
 </div>
 
 
 
-<h2>Total sum: @Model.TotalSum USD</h2>
+<h2>Total sum: @Model.TotalSum:-</h2>
