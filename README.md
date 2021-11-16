@@ -1,35 +1,30 @@
 # Webshop
 
+Hej! Här är vår webshop - **MEGABÖRS**. Vi bestämde oss för att implementera det externa APIet först för att utnyttja ett redan definierat produktutbud. För att använda oss av Arv så skapade vi en klass för Group buy där köparen kan köpa x antal produkter för ett nedsatt pris.
+
+När vi adderade cookies för att spara innehållet i varukorgen så märkte vi att cookiens maximala filstorlek stoppade oss från att spara mer än ~6 produkter. Vi tänkte om och la till två knappar för Svenska och English på startsidan. Den ändrar bara Välkoms-texten.
+
 # Förklaringar
 
-- [ ] Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
-- [ ] Cookies: Språk - rimlig men ändrar bara språk på ett ställe / Cart - Går bara att spara 4kb, fylls upp snabbt
-
-# Frågor
-
-
-- [x] ~~Kan Admin Ändra/Lägg till vara på två olika sidor eller måste dom vara på samma sida?~~ Kan vara på flera sidor om det behövs
-- [ ] Har vi möjlighet att få G eller VG om vi får ordning på nuvarande logik? Eller är vi tvugna att göra om logiken så att ProductManager innehåller alla metoder?
-- [ ] Har du tips på var vi kan läsa om persistence? Är det detta vi ska göra: https://www.learnrazorpages.com/razor-pages/cookies
+- Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
 
 # TODO
 
-- [ ] Göra README läsbar för lärare
-- [ ] Räkna ut korrekt pris för GroupBuy i Product klassen
-- [x] Gör search till case insensitive - tex ToLower
-- [x] **Try-catch** istället för **!= null**
-- [ ] Inheritance - ~~kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris~~ - Fråga Albin om vi behöver mer arv?
 - [ ] ~~Söka inom en kategori~~
 - [ ] Admin Ändra/Lägg till - Funktion för att ej skapa dubbletter
-- [ ] Kan Product.id vara lika med List<Index>?
+- [ ] Kanske Product.id vara lika med List<Index>?
 - [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
+- [x] Räkna ut korrekt pris för GroupBuy i Product klassen
+- [x] Gör search till case insensitive - tex ToLower
+- [x] **Try-catch** istället för **!= null**
+- [x] Inheritance - kanske Sales product med EndDate som prop och metod? % för sale, metod som räknar ut och en sträng som kan användas för att visa normal pris och sales pris
 - [x] Få in metoder i **Manager.x**
-- [ ] Göra så att GroupBuy inte går att göra mnauellt - utvalda produkter som görs till en GroupBuy
+- [x] Göra så att GroupBuy inte går att göra mnauellt - utvalda produkter som görs till en GroupBuy
 - [x] Se till så att det bara kan ligga 1 order i orders listan
-- [ ] Ändra OrderItem till Product?
+- [x] Ändra OrderItem till Product?
 
-# Beståndsdelar                                                               
-                                                                
+# Beståndsdelar
+  
 ## Startsida
 
 - [x] Välkomst-text
