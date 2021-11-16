@@ -28,13 +28,15 @@
 - [x] Se till så att det bara kan ligga 1 order i orders listan
 - [ ] Ändra OrderItem till Product?
 
-# Startsida
+# Beståndsdelar                                                               
+                                                                
+## Startsida
 
 - [x] Välkomst-text
 - [x] Bild
 - [x] Tre **utvalda** produkter
 
-# Shopsida
+## Shopsida
 
 - [x] Minst tre kategorier
 - [x] Fritextsöka
@@ -43,21 +45,21 @@
 - [x] Kort text om produkten, pris och bild
 - [x] Lagersaldo (som räknas ner när varan köps)
 
-# Varukorg
+## Varukorg
 
-## Valda produkter visas i lista
+### Valda produkter visas i lista
 
 - [x] Ändra antal
 - [x] Ta bort
 - [x] Pris per produkt
 - [x] Summa
 
-## Frakt
+### Frakt
 
 - [x] Formulär med namn, adress osv
 - [x] Val av frakt, minst två med olika pris
 
-## Betala
+### Betala
 
 - [x] Visa produkter med pris
 - [x] Pris med frakt
@@ -65,9 +67,7 @@
 - [x] Betalningsmetod, minst två
 - [x] När varan är betald så töms varukorgen
 
-# Admin
+## Admin
 
 - [x] Ändra produkter
 - [x] Lägg till nya produkter
-
-# Style
