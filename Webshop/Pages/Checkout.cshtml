@@ -29,9 +29,13 @@
 <h3>VAT: @Model.VAT</h3>
 <h1>Total Order Cost: @(Math.Round(Model.Sum + Model.Postage, 2))</h1>
 
+@if (Model.Message == null)
+{
 <form method="post" asp-page-handler="Finalize">
     <input type="submit" value="Finalize order" />
 </form>
+}
+
 
 
 <h1 class="display-2">@Model.Message</h1>
