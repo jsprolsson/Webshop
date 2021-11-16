@@ -3,6 +3,7 @@
 # Förklaringar
 
 - [ ] Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
+- [ ] Cookies: Språk - rimlig men ändrar bara språk på ett ställe / Cart - Går bara att spara 4kb, fylls upp snabbt
 
 # Frågor
 
