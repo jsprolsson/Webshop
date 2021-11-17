@@ -32,6 +32,7 @@ namespace Webshop.Pages
         {
             if (ItemID != 0) AddToCart();
 
+            
             CreateCookie();
 
             TotalSum = Data.CartManager.GetCartSum();

@@ -42,10 +42,10 @@ namespace Webshop.Data
 
         public static IEnumerable<IGrouping<string, Models.Product>> GroupCartByProducts()
         {
-            //metoden grupperar produkterna i carten utifrån title.
+            //metoden grupperar produkterna i carten utifrån title och lägger produkterna i ordning enligt keysen.
 
             IEnumerable<IGrouping<string, Models.Product>> CartGroups;
-            CartGroups = Cart.GroupBy(product => product.title);
+            CartGroups = Cart.GroupBy(product => product.title).OrderBy(product => product.Key);
 
             return CartGroups;
         }
