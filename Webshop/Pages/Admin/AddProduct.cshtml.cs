@@ -10,6 +10,8 @@ namespace Webshop.Pages.Admin
     public class AddProductModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
+        [BindProperty(SupportsGet = true)]
+        public string Message { get; set; }
 
         [BindProperty]
         public Models.Product Product { get; set; }
@@ -21,8 +23,17 @@ namespace Webshop.Pages.Admin
         {
             Data.CartManager.EmptyCart();
 
-            Data.ProductManager.AddProduct(Product);
-            return RedirectToPage("/Admin/AddProduct");
+            if (ModelState.IsValid)
+            {
+                Data.ProductManager.AddProduct(Product);
+                return RedirectToPage("/Admin/AddProduct");
+            }
+            else
+            {
+                Message = "Fill in all product info";
+                return RedirectToPage("/Admin/AddProduct", new { Message });
+            }
+            
         }
     }
 }

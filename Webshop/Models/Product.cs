@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Webshop.Models
 {
@@ -32,13 +33,20 @@ namespace Webshop.Models
 
         }
 
-        
         public string Category
         {
             get { return category; }
             set
             {
-                category = value.ToLower();
+                if (category != null)
+                {
+                    category = value.ToLower();
+                }
+                else
+                {
+                    category = value;
+                }
+
             }
         }
         public int Stock
