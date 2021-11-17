@@ -30,7 +30,7 @@ namespace Webshop.Pages
             catch (Exception)
             {
             }
-            WelcomeText = SwedishAsLanguage ? "Välkommen" : "Welcome";
+            WelcomeText = SwedishAsLanguage ? "Välkommen till Megabörs!" : "Welcome to Megabörs!";
 
             // Hämtar cart-cookie första gången sidan öppnas för att fylla Cart med sparade artiklar
             if (ReadCookie == true)
