@@ -19,8 +19,9 @@ namespace Webshop.Pages.Admin
 
         public IActionResult OnPostChange()
         {
-            Data.ProductManager.ChangeProduct(Product);
+            Data.CartManager.EmptyCart();
 
+            Data.ProductManager.ChangeProduct(Product);
             return RedirectToPage("/Admin/ChangeProduct");
         }
     }
