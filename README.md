@@ -8,6 +8,40 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 
 - Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
 
+# Presentation
+
+## "funktionaliteten i applikationen, för att förklara hur ni tänkt"
+
+- API
+  - För att få produkter
+  - Färdigdefinierad klass
+- Main körs en gång
+  - APICall - hämtar grundutudet
+  - Threechosen - 3 första i listan till chosen=true
+  - Readcookie - bool sätts till true vid start för att lägga in cart-cookie
+  - Stopwatch - problematik med kompilering/debug-tid
+- Home
+  - Språk-cookie - cookie begränsad till 4kb - rimligt att spara språkinställning
+  - Utvalda produkter - från Threechosen
+- Products
+  - Mer info + lagersaldo - random stock
+  - Kategorier - OnPost sorterar listan enligt kategorinamn
+  - Söka - använder contains med linq söker i produkternas properties
+  - Purchase - Skickar item.Id till Cart lista
+- Cart
+  - Lägg in en produkt
+  - Stäng ner sidan
+  - Öppna - visa att den ligger kvar
+- Cart/Checkout
+  - Enums - val av frakt, fördefinierade värden
+  - Kräver att fälten är ifyllda - modelstate checkar om den får vad den vill ha, annars meddelande till skärm
+  - Finalize - rensar och ändrar stock, printar meddelande.
+- Admin
+  - Rensar cart - Blir fel i cart om produkten ändras
+  - Add
+  - Change
+  - Group sale - arv som skapar flera av grund-item till en sammanslagen produkt. inte optimalt pga produkterna från api:t fanns bara som product. någon annan som gjort som oss?
+
 # TODO
 
 - [ ] Sidan kraschar om det saknas text i alla fält på Add product. Lägg in fördefinierade kategorier eller kräva alla fält ifyllda
