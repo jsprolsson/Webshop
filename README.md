@@ -10,6 +10,7 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 
 # TODO
 
+- [ ] Sidan kraschar om det saknas text i alla fält på Add product. Lägg in fördefinierade kategorier eller kräva alla fält ifyllda
 - [ ] ~~Söka inom en kategori~~
 - [ ] Admin Ändra/Lägg till - Funktion för att ej skapa dubbletter
 - [ ] Kanske Product.id vara lika med List<Index>?
