@@ -33,6 +33,7 @@ namespace Webshop.Pages
 
         public void OnPostSearch()
         {
+
             Products = Data.ProductManager.SearchForProduct(SearchMessage);
             GroupSale = Data.ProductManager.SearchForGroupProduct(SearchMessage);
         }
