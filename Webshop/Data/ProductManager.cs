@@ -12,7 +12,7 @@ namespace Webshop.Data
         
         public static List<Models.Product> Products = new List<Models.Product>();
         public static List<Models.Product> ChosenProducts = new List<Models.Product>();
-        public static List<Models.GroupSale> GroupBuyItems = new List<Models.GroupSale>();
+        public static List<Models.GroupSale> GroupSales = new List<Models.GroupSale>();
 
         public static void APICall()
         {
@@ -58,6 +58,17 @@ namespace Webshop.Data
                 }
             }
         }
+        public static List<Models.Product> GetCategory(string category)
+        {
+            List<Models.Product> products = new List<Models.Product>();
+            return products = Products.Where(product => product.category == category).ToList();
+        }
+        public static List<Models.Product> GetGroupCategory(string category)
+        {
+            List<Models.Product> products = new List<Models.Product>();
+            return products = Products.Where(product => product.title.Contains("GROUP DISCOUNT")).Select(product => product).ToList();
+        }
+
 
         public static List<Models.Product> SearchForProduct(string search)
         {
@@ -87,9 +98,9 @@ namespace Webshop.Data
             {
                 List<Models.GroupSale> products = new List<Models.GroupSale>();
                 search = search.ToLower();
-                return products = GroupBuyItems.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+                return products = GroupSales.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
             }
-            else return GroupBuyItems;
+            else return GroupSales;
         }
 
         public static List<Models.GroupSale> GroupCategories(string category)
@@ -97,7 +108,7 @@ namespace Webshop.Data
             //när användaren klickar på en kategori i navbaren så filtreras groupbuyitems-listan utifrån vad den får in.
 
             List<Models.GroupSale> products = new List<Models.GroupSale>();
-            return products = GroupBuyItems.Where(product => product.category == category).ToList();
+            return products = GroupSales.Where(product => product.category == category).ToList();
         }
 
         public static void ProductToGroupSale(int productID, int groupSize)

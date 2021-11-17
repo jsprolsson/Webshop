@@ -12,7 +12,7 @@ namespace Webshop.Pages
     public class ProductsModel : PageModel
     {
         public List<Models.Product> Products = Data.ProductManager.Products;
-        public List<Models.GroupSale> GroupSale = Data.ProductManager.GroupBuyItems;
+        public List<Models.GroupSale> GroupSale = Data.ProductManager.GroupSales;
         public string SearchMessage { get; set; }
 
         [BindProperty(SupportsGet = true)]
@@ -22,11 +22,11 @@ namespace Webshop.Pages
         public void OnGet()
         {
             //Displays category from navbar.
-            if (Category != null)
-            {
-                Products = Data.ProductManager.Categories(Category);
-                GroupSale = Data.ProductManager.GroupCategories(Category);
-            }
+            //if (Category != null)
+            //{
+            //    Products = Data.ProductManager.Categories(Category);
+            //    GroupSale = Data.ProductManager.GroupCategories(Category);
+            //}
 
         }
 
@@ -36,6 +36,20 @@ namespace Webshop.Pages
 
             Products = Data.ProductManager.SearchForProduct(SearchMessage);
             GroupSale = Data.ProductManager.SearchForGroupProduct(SearchMessage);
+        }
+
+        public void OnPostCategory(string category)
+        {
+            if (category == "group")
+            {
+                //Products = Data.ProductManager.GetCategory("null");
+                Products = Data.ProductManager.GetGroupCategory(category);
+            }
+            else
+            {
+                Products = Data.ProductManager.GetCategory(category);
+                //GroupSale = Data.ProductManager.GetGroupCategory(category);
+            }
         }
 
     }

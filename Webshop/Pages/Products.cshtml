@@ -9,6 +9,38 @@
     }
 </style>
 
+<div class="row">
+    <div class="col-lg-1">
+        <form asp-page-handler="category" method="post">
+            <button class="btn btn-default">Electronics</button>
+            <input type="hidden" name="category" value="electronics" />
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="category" method="post">
+            <button class="btn btn-default">Men's clothing</button>
+            <input type="hidden" name="category" value="men's clothing" />
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="category" method="post">
+            <button class="btn btn-default">Women's clothing</button>
+            <input type="hidden" name="category" value="women's clothing" />
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="category" method="post">
+            <button class="btn btn-default">Jewelery</button>
+            <input type="hidden" name="category" value="jewelery" />
+        </form>
+    </div>
+    <div class="col-lg-1">
+        <form asp-page-handler="category" method="post">
+            <button class="btn btn-default">Group sales</button>
+            <input type="hidden" name="category" value="group" />
+        </form>
+    </div>
+</div>
 
 <div class="container p-2">
     <div class="row justify-content-center">
@@ -98,8 +130,8 @@
                 <h5 class="card-title">
                     @item.title
                 </h5>
-                <h6 class="card-text text-right">Original price for @(((Models.GroupSale)item).groupSize) : <del>@(((Models.GroupSale)item).originalPriceForGroup) $</del></h6>
-                <h6 class="card-text text-right">When purchased together: @item.price $</h6>
+                <h6 class="card-text text-right">Original price for @(((Models.GroupSale)item).groupSize) : <del>@(((Models.GroupSale)item).originalPriceForGroup):-</del></h6>
+                <h6 class="card-text text-right">When purchased together: @item.price:-</h6>
                 <div class="row">
                     <div class="col">
                         @if (item.stock <= 0)
