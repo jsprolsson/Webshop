@@ -9,30 +9,17 @@ namespace Webshop.Pages.Admin
 {
     public class ChangeProductModel : PageModel
     {
-
-        // listan som ska visas på view
         public List<Models.Product> Products = Data.ProductManager.Products;
-
-        // prop som får data från OnPost
+        
         [BindProperty]
         public Models.Product Product { get; set; }
         public void OnGet()
         {
         }
 
-        public IActionResult OnPost()
+        public IActionResult OnPostChange()
         {
-            if (ModelState.IsValid == false)
-            {
-                return Page();
-            }
-
-            
-
-                int index = Products.FindIndex(product => product.id == Product.id);
-                Products.RemoveAt(index);
-            
-            Products.Add(Product);
+            Data.ProductManager.ChangeProduct(Product);
 
             return RedirectToPage("/Admin/ChangeProduct");
         }

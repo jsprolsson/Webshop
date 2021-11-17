@@ -29,99 +29,120 @@
 </div>
 
 @{int i = 0; }
-@foreach (var item in Model.Products.Where(product => product is not Models.GroupBuy))
+@foreach (var item in Model.Products.Where(product => product is not Models.GroupSale))
 {
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@item.image" alt="Card image cap">
-        <div class="card-body">
-            @if (item is Models.GroupBuy)
-            {
-
-                <h4><u>GROUP SALE</u></h4>
+            <div class="embed-responsive embed-responsive-1by1">
+                <img alt="Card image cap" class="card-img-top embed-responsive-item" src="@item.image" />
+            </div>
+            <div class="card-body">
                 <h5 class="card-title">
                     @item.title
                 </h5>
-                <p class="card-text text-right">Original price for 3: <del></del></p>
-                <p class="card-text text-right">When purchased together: </p>
-            }
-            else
-            {
-                <h5 class="card-title">
-                    @item.title
-                </h5>
-            }
-            <p class="card-text text-right">Price: @item.price:-</p>
-            <div class="row">
-                <div class="col">
-                    @if (item.stock <= 0)
-                    {
-                        <a class="btn btn-danger">SOLD OUT</a>
-                    }
-                    else
-                    {
-                        <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
-                    }
-                </div>
-                <div class="col">
-                    <p>
-                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_@i" role="button">
+                <h6 class="card-text text-right">Price: @item.price:-</h6>
+                <div class="row">
+                    <div class="col">
+                        @if (item.stock <= 0)
+                        {
+                            <a class="btn btn-danger">SOLD OUT</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                        }
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample_@i" role="button" aria-controls="offcanvasExample">
                             More Info
                         </a>
-                    </p>
-                </div>
-            </div>
-            <div class="collapse" id="collapseExample_@i">
-                <div class="card card-body">
-                    <p>@item.description</p>
-                    <p><b>Stock: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample_@i" aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    <img style="max-width: 100%; height: auto;" src="@item.image" class="img-fluid" />
+                                </div>
+                                <h4 class="m-3">@item.title</h4>
+                                <p><i>@item.description</i></p>
+                                <h5 class="text-right">Price: @item.price:-</h5>
+                                <p><b>Stock: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                                @if (item.stock <= 0)
+                                {
+                                    <a class="btn btn-danger">SOLD OUT</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     i++;
+ }
 
-}
 
-
-@foreach (var item in Model.Products.Where(product => product is Models.GroupBuy))
+@foreach (var item in Model.Products.Where(product => product is Models.GroupSale))
 {
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="@item.image" alt="Card image cap">
+        <div class="embed-responsive embed-responsive-1by1">
+            <img alt="Card image cap" class="card-img-top embed-responsive-item" src="@item.image" />
+        </div>
         <div class="card-body">
                 <h4><u>GROUP SALE</u></h4>
                 <h5 class="card-title">
                     @item.title
                 </h5>
-                <p class="card-text text-right">Original price for @(((Models.GroupBuy)item).groupSize) : <del>@(((Models.GroupBuy)item).originalPriceForGroup):-</del></p>
-                <p class="card-text text-right">When purchased together: @item.price:-</p>
-            <div class="row">
-                <div class="col">
-                    @if (item.stock <= 0)
-                    {
-                        <a class="btn btn-danger">SOLD OUT</a>
-                    }
-                    else
-                    {
-                        <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
-                    }
-                </div>
-                <div class="col">
-                    <p>
-                        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample_@i" role="button">
+                <h6 class="card-text text-right">Original price for @(((Models.GroupSale)item).groupSize) : <del>@(((Models.GroupSale)item).originalPriceForGroup) $</del></h6>
+                <h6 class="card-text text-right">When purchased together: @item.price $</h6>
+                <div class="row">
+                    <div class="col">
+                        @if (item.stock <= 0)
+                        {
+                            <a class="btn btn-danger">SOLD OUT</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                        }
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample_@i" role="button" aria-controls="offcanvasExample">
                             More Info
                         </a>
-                    </p>
-                </div>
-            </div>
-            <div class="collapse" id="collapseExample_@i">
-                <div class="card card-body">
-                    <p>@item.description</p>
-                    <p><b>Stock: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample_@i" aria-labelledby="offcanvasExampleLabel">
+                            <div class="offcanvas-header">
+                                <h5 class="offcanvas-title" id="offcanvasExampleLabel"></h5>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <div>
+                                    <img style="max-width: 100%; height: auto;" src="@item.image" class="img-fluid"/>
+                                </div>
+                                <h4 class="m-3">@item.title</h4>
+                                <p><i>@item.description</i></p>
+                                <h6 class="text-right">Original price for @(((Models.GroupSale)item).groupSize) : <del>@(((Models.GroupSale)item).originalPriceForGroup) :-</del></h6>
+                                <h5 class="text-right">New price: @item.price:-</h5>
+                                <p><b>Stock: @(item.stock > 0 ? item.stock : "SOLD OUT")</b></p>
+                                @if (item.stock <= 0)
+                                {
+                                    <a class="btn btn-danger">SOLD OUT</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     i++;
 

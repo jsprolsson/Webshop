@@ -26,7 +26,7 @@ namespace Webshop.Pages.Admin
         {
             if (ProductID != 0)
             {
-                Data.ProductManager.ProductToGroup(ProductID, GroupSize);
+                Data.ProductManager.ProductToGroupSale(ProductID, GroupSize);
             }
             else
             {

@@ -51,7 +51,7 @@ namespace Webshop.Data
                 Cart = JsonSerializer.Deserialize<Models.Product[]>(cartCookie).ToList();
             }
             catch (Exception)
-            { 
+            {
             }
         }
 
@@ -67,7 +67,7 @@ namespace Webshop.Data
     }
     public enum ShippingAlternatives
     {
-        Postnord = 6,
-        DHL = 9
+        Postnord = 69,
+        DHL = 99
     }
 }

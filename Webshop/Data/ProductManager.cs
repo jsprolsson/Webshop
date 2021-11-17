@@ -12,7 +12,7 @@ namespace Webshop.Data
         
         public static List<Models.Product> Products = new List<Models.Product>();
         public static List<Models.Product> ChosenProducts = new List<Models.Product>();
-        public static List<Models.GroupBuy> GroupBuyItems = new List<Models.GroupBuy>();
+        public static List<Models.GroupSale> GroupBuyItems = new List<Models.GroupSale>();
 
         public static void APICall()
         {
@@ -69,8 +69,10 @@ namespace Webshop.Data
                     return products = Products.Where(product => product.category == category).ToList();
                 }
 
-        public static List<Models.GroupBuy> SearchForGroupProduct(string search)
+        public static List<Models.GroupSale> SearchForGroupProduct(string search)
         {
+          
+            List<Models.GroupSale> products = new List<Models.GroupSale>();
 
             if (search != null)
             {
@@ -81,25 +83,30 @@ namespace Webshop.Data
             else return GroupBuyItems;
         }
 
-        public static List<Models.GroupBuy> GroupCategories(string category)
+        public static List<Models.GroupSale> GroupCategories(string category)
         {
-            List<Models.GroupBuy> products = new List<Models.GroupBuy>();
+            List<Models.GroupSale> products = new List<Models.GroupSale>();
             return products = GroupBuyItems.Where(product => product.category == category).ToList();
         }
 
-
-        public static void ProductToGroup(int productID, int groupSize)
+        public static void ProductToGroupSale(int productID, int groupSize)
         {
             int nextId = Products.Count + 1;
             List<Models.Product> products = Products.Where(product => product.id == productID).ToList();
-            Products.Add(new Models.GroupBuy(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
-           // Products.AddRange(GroupBuyItems);
+            Products.Add(new Models.GroupSale(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
         }
 
         public static void AddProduct(Models.Product product)
         {
             int nextId = Products.Count + 1;
             Products.Add(new Models.Product(nextId, product.title, product.price, product.description, product.category, product.image, product.chosen, product.stock));
+        }
+
+        public static void ChangeProduct(Models.Product Product)
+        {
+            int index = Products.FindIndex(product => product.id == Product.id);
+            Products.RemoveAt(index);
+            Products.Insert(index, Product);
         }
     }
 }

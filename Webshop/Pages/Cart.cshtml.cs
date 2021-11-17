@@ -79,6 +79,8 @@ namespace Webshop.Pages
         {
             if (ModelState.IsValid)
             {
+                Models.Order.orders.Clear();
+
                 Models.Order.orders.Add(Order);
                 return RedirectToPage("/Checkout");
             }

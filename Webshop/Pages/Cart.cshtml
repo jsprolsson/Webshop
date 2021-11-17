@@ -6,58 +6,115 @@
 }
 
 
-@foreach (var group in Model.CartGroups)
-{
-    foreach (var item in group)
-    {
-        priceOfOne = item.price;
-        inStock = item.stock;
-    }
-
-    <h2>Item: @group.Key</h2>
-    <h3>Amount: @group.Count()</h3>
-    <h3>Price for one:@priceOfOne:-</h3>
-
-    @if (group.Count() >= inStock)
-     {
-        <button class="btn btn-danger">+</button>
-     }
-     else
-     {
-        <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Add">
-        <input type="submit" class="btn btn-danger" value="+" />
-        </form>
-     }
-
-    <form method="post" asp-route-GroupKey="@group.Key" asp-page-handler="Remove">
-        <input type="submit" class="btn btn-danger" value="-"/>
-    </form>
 
 
-}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Price</th>
+            <th scope="col">Add/Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var group in Model.CartGroups)
+        {
+            foreach (var item in group)
+            {
+                priceOfOne = item.price;
+                inStock = item.stock;
+            }
+        <tr>
+            <th scope="row">@group.Key</th>
+            <td>@group.Count()</td>
+            <td>@priceOfOne</td>
+            <td>
+                @if (group.Count() >= inStock)
+                {
+                    <button style="display: inline-block;">+</button>
+                }
+                else
+                {
+                    <form method="post" style="display: inline-block;" asp-route-GroupKey="@group.Key" asp-page-handler="Add">
+                        <input type="submit" value="+" />
+                    </form>
+                }
 
-<h2 class="display-4">@Model.UserMessage</h2>
+                <form method="post" style="display: inline-block;" asp-route-GroupKey="@group.Key" asp-page-handler="Remove">
+                    <input type="submit" value="-" />
+                </form>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
 
-<div class="container">
-    <form method="post" asp-page-handler="User">
-        <label for="name">Name: </label>
-        <input id="name" type="text" asp-for="Order.name" />
-        <label for="email">Email: </label>
-        <input id="email" type="text" asp-for="Order.email" />
-        <label for="address">Address: </label>
-        <input id="address" type="text" asp-for="Order.address" />
-
-        <p>Select postage: </p>
-        <label><input asp-for="@Model.Order.postage" type="radio" value=@Convert.ToInt32(Data.ShippingAlternatives.Postnord) checked="checked" />@Data.ShippingAlternatives.Postnord</label>
-        <label><input asp-for="@Model.Order.postage" type="radio" value=@Convert.ToInt32(Data.ShippingAlternatives.DHL) />@Data.ShippingAlternatives.DHL</label>
-
-        <p>Select Payment method: </p>
-        <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna" checked="checked" />Klarna</label>
-        <label><input asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" />Creditcard</label>
-        <input type="submit" name="name" value="Submit to checkout" />
-    </form>
-</div>
+<h3 class="text-md-right m-4">Total sum: @Model.TotalSum:-</h3>
 
 
 
-<h2>Total sum: @Model.TotalSum:-</h2>
+
+<h3><b>@Model.UserMessage</b></h3>
+
+<form method="post" asp-page-handler="User">
+    <div class="row mb-3">
+        <label for="Name" class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="Name" asp-for="Order.name">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="Address" class="col-sm-2 col-form-label">Address</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" asp-for="Order.address" id="Address">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label for="Email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="Email" asp-for="Order.email">
+        </div>
+    </div>
+    <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Postage method:</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" asp-for="@Model.Order.postage" type="radio"value="@Convert.ToInt32(Data.ShippingAlternatives.Postnord)" checked>
+                <label class="form-check-label" >
+                    @Data.ShippingAlternatives.Postnord
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" asp-for="@Model.Order.postage" type="radio" value="@Convert.ToInt32(Data.ShippingAlternatives.DHL)">
+                <label class="form-check-label" >
+                    @Data.ShippingAlternatives.DHL
+                </label>
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="row mb-3">
+        <legend class="col-form-label col-sm-2 pt-0">Payment method:</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" asp-for="@Model.Order.paymentMethod" type="radio" value="Creditcard" checked>
+                <label class="form-check-label">
+                    Creditcard
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" asp-for="@Model.Order.paymentMethod" type="radio" value="Klarna">
+                <label class="form-check-label">
+                    Klarna
+                </label>
+            </div>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">Continue to checkout</button>
+</form>
+
+
+
+
