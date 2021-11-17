@@ -53,10 +53,14 @@ namespace Webshop.Data
 
         public static List<Models.Product> SearchForProduct(string search)
         {
-            List<Models.Product> products = new List<Models.Product>();
-
-            search = search.ToLower();
-            return products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+            if (search != null)
+            {
+                List<Models.Product> products = new List<Models.Product>();
+                search = search.ToLower();
+                return products = Products.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+            }
+            else return Products;
+            
         }
 
         public static List<Models.Product> Categories(string category)
@@ -67,17 +71,20 @@ namespace Webshop.Data
 
         public static List<Models.GroupBuy> SearchForGroupProduct(string search)
         {
-            List<Models.GroupBuy> products = new List<Models.GroupBuy>();
 
-            search = search.ToLower();
-            return products = GroupBuyItems.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+            if (search != null)
+            {
+                List<Models.GroupBuy> products = new List<Models.GroupBuy>();
+                search = search.ToLower();
+                return products = GroupBuyItems.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
+            }
+            else return GroupBuyItems;
         }
 
         public static List<Models.GroupBuy> GroupCategories(string category)
         {
             List<Models.GroupBuy> products = new List<Models.GroupBuy>();
             return products = GroupBuyItems.Where(product => product.category == category).ToList();
-
         }
 
 
@@ -94,10 +101,5 @@ namespace Webshop.Data
             int nextId = Products.Count + 1;
             Products.Add(new Models.Product(nextId, product.title, product.price, product.description, product.category, product.image, product.chosen, product.stock));
         }
-
-
-
-
-
     }
 }
