@@ -24,8 +24,10 @@ namespace Webshop.Data
             Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
         }
 
-        public static void ThreeChosen()    // väljer ut tre produkter som ska visas på startsidan
+        public static void ThreeChosen()    
         {
+            // väljer ut tre produkter som ska visas på startsidan
+
             List<Models.Product> ChosenProducts = Products;
 
             for (int i = 0; i < 3; i++)

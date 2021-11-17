@@ -62,6 +62,8 @@ namespace Webshop.Pages
 
         public IActionResult OnPostAdd()
         {
+            //lägger till items i cart med plus-knappen.
+
             var addProduct = Cart.Where(product => product.title == GroupKey).ToList();
             Data.CartManager.AddToCart(addProduct[0]);
             return RedirectToPage("/Cart");
@@ -70,6 +72,8 @@ namespace Webshop.Pages
 
         public IActionResult OnPostRemove()
         {
+            //lägger till items i cart med minus-knappen.
+
             var removeProduct = Cart.Where(product => product.title == GroupKey).ToList();
             Data.CartManager.RemoveFromCart(removeProduct[0]);
             return RedirectToPage("/Cart");
@@ -77,6 +81,10 @@ namespace Webshop.Pages
 
         public IActionResult OnPostUser()
         {
+            //kollar om all orderinfo är korrekt ifylld. om inte returneras en sträng. annars skickas man till checkout-sidan.
+            //orders.clear körs för att inte det ska bli dubbelt med order-info om man inte köper, sen kommer tillbaks och fyller i info igen.
+            //hemsidan tillåter bara en kund i nuläget, tyvärr.
+
             if (ModelState.IsValid)
             {
                 Models.Order.orders.Clear();

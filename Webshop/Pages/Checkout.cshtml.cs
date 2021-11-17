@@ -32,6 +32,8 @@ namespace Webshop.Pages
 
         public void OnPostFinalize()
         {
+            //vid köp så töms varukorgen.
+
             string message = Data.CartManager.EmptyCart();
             Message = message;
 
