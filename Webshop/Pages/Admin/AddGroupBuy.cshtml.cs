@@ -24,6 +24,7 @@ namespace Webshop.Pages.Admin
 
         public void OnPostToGroup()
         {
+            Data.CartManager.EmptyCart();
             if (ProductID != 0)
             {
                 Data.ProductManager.ProductToGroupSale(ProductID, GroupSize);

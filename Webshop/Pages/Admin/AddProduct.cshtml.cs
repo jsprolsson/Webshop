@@ -21,8 +21,8 @@ namespace Webshop.Pages.Admin
 
         public IActionResult OnPost()
         {
-
-            // Customer kommer från prop
+            Data.CartManager.EmptyCart();
+            // Product kommer från prop
             Data.ProductManager.Products.Add(Product);
             return RedirectToPage("/Admin/AddProduct");
         }
