@@ -46,7 +46,7 @@ namespace Webshop.Pages
             options.Expires = DateTime.Now.AddDays(2);
             Response.Cookies.Append("cart", fullCart, options);
 
-            // Session cookie
+            // Session cookie, fungerade inte med den nuvarande uppbyggnaden av hemsidan.
             //HttpContext.Session.SetString("Cart", fullCart);
             //var sessionCookie = HttpContext.Session.GetString("Cart");
             //Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(HttpContext.Session.GetString("Cart")).ToList();
@@ -54,7 +54,7 @@ namespace Webshop.Pages
 
         public void AddToCart()
         {
-            //Tanken �r h�r att man kan skicka in Index 0 i metoden f�r att det alltid bara k�ps en grej �t g�ngen.
+            //Tanken är här att man kan skicka in Index 0 i metoden för att det alltid bara köps en grej åt gången.
             var purchasedProduct = AllProducts.Where(product => product.id == ItemID).ToList();
             Data.CartManager.AddToCart(purchasedProduct[0]);
         }
@@ -80,7 +80,6 @@ namespace Webshop.Pages
             if (ModelState.IsValid)
             {
                 Models.Order.orders.Clear();
-
                 Models.Order.orders.Add(Order);
                 return RedirectToPage("/Checkout");
             }

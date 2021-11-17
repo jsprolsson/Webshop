@@ -13,17 +13,23 @@ namespace Webshop.Data
 
         public static void AddToCart(Models.Product product)
         {
+            //lägger till i cart.
+
             Cart.Add(product);
         }
 
         public static void RemoveFromCart(Models.Product product)
         {
+            //tar bort produkten utifrån index.
+
             int index = Cart.FindIndex(Product => Product.id == product.id);
             Cart.RemoveAt(index);
         }
 
         public static double GetCartSum()
         {
+            //räknar ihop summan av alla produkter i cart. rundar siffran till två decimaler innan den returneras.
+
             double sum = 0;
 
             foreach (var product in Cart)
@@ -36,8 +42,9 @@ namespace Webshop.Data
 
         public static IEnumerable<IGrouping<string, Models.Product>> GroupCartByProducts()
         {
-            IEnumerable<IGrouping<string, Models.Product>> CartGroups;
+            //metoden grupperar produkterna i carten utifrån title.
 
+            IEnumerable<IGrouping<string, Models.Product>> CartGroups;
             CartGroups = Cart.GroupBy(product => product.title);
 
             return CartGroups;
@@ -58,6 +65,8 @@ namespace Webshop.Data
 
         public static string EmptyCart()
         {
+            //tömmer varukorgen och listan med order-info när någon köper. returnerar en sträng.
+
             ProductManager.RemoveFromStock();
             Cart.Clear();
             Models.Order.orders.Clear();
@@ -67,6 +76,8 @@ namespace Webshop.Data
     }
     public enum ShippingAlternatives
     {
+        //fraktalternativ med int kopplade för att bestämma priset för dem.
+
         Postnord = 69,
         DHL = 99
     }

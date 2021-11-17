@@ -16,6 +16,8 @@ namespace Webshop.Data
 
         public static void APICall()
         {
+            //kallar in produkterna från fake store-api:t och lägger till i products-listan.
+
             var httpClient = new HttpClient();
             var response = httpClient.GetAsync("https://fakestoreapi.com/products").GetAwaiter().GetResult();
             var apiResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
@@ -32,14 +34,18 @@ namespace Webshop.Data
             }
 
         }
-        public static int GetRandomStock()
+        public static int GetRandomStock() 
         {
+            //returnerar en slumpmässigt siffra till produkternas lagersaldo när dem kallas in från API:t.
+
             Random rand = new Random();
            return rand.Next(10, 100);
         }
 
         public static void RemoveFromStock()
         {
+            //Beroende på antalet som köps av produkten i Cart vid checkout, så tas samma antal bort från lagersaldot.
+
             IEnumerable<IGrouping<string, Models.Product>> CartGroups = CartManager.GroupCartByProducts();
 
             foreach (var group in CartGroups)
@@ -53,6 +59,8 @@ namespace Webshop.Data
 
         public static List<Models.Product> SearchForProduct(string search)
         {
+            //metod som kallas när användaren söker. sökmeddelandet går igenom category, title och description.
+
             if (search != null)
             {
                 List<Models.Product> products = new List<Models.Product>();
@@ -64,13 +72,15 @@ namespace Webshop.Data
         }
 
         public static List<Models.Product> Categories(string category)
-                {
-                    List<Models.Product> products = new List<Models.Product>();
-                    return products = Products.Where(product => product.category == category).ToList();
-                }
+        {
+            List<Models.Product> products = new List<Models.Product>();
+            return products = Products.Where(product => product.category == category).ToList();
+        }
 
         public static List<Models.GroupSale> SearchForGroupProduct(string search)
         {
+            //söker igenom group sale-produkterna efter parametern search i category, title och description.
+
             if (search != null)
             {
                 List<Models.GroupSale> products = new List<Models.GroupSale>();
@@ -82,12 +92,16 @@ namespace Webshop.Data
 
         public static List<Models.GroupSale> GroupCategories(string category)
         {
+            //när användaren klickar på en kategori i navbaren så filtreras groupbuyitems-listan utifrån vad den får in.
+
             List<Models.GroupSale> products = new List<Models.GroupSale>();
             return products = GroupBuyItems.Where(product => product.category == category).ToList();
         }
 
         public static void ProductToGroupSale(int productID, int groupSize)
         {
+            //hittar nästa tillgängliga id, hittar produkten som ska göras till group sale med linq. produkten läggs till som groupsale i Products-listan.
+
             int nextId = Products.Count + 1;
             List<Models.Product> products = Products.Where(product => product.id == productID).ToList();
             Products.Add(new Models.GroupSale(nextId, products[0].title, products[0].price, products[0].description, products[0].category, products[0].image, products[0].chosen, products[0].stock, groupSize));
@@ -95,12 +109,17 @@ namespace Webshop.Data
 
         public static void AddProduct(Models.Product product)
         {
+            //nextId räknar hur många produkter som finns och hittar nästa tillgängliga id.
+            //lägger sedan till produkten som den får in som ny i Products-listan.
+
             int nextId = Products.Count + 1;
             Products.Add(new Models.Product(nextId, product.title, product.price, product.description, product.category, product.image, product.chosen, product.stock));
         }
 
         public static void ChangeProduct(Models.Product Product)
         {
+            //tar in en product med properties, hittar indexet produkten som ändras låg på, ersätter den och lägger till den nya produkten.
+
             int index = Products.FindIndex(product => product.id == Product.id);
             Products.RemoveAt(index);
             Products.Insert(index, Product);
