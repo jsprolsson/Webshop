@@ -71,12 +71,9 @@ namespace Webshop.Data
 
         public static List<Models.GroupSale> SearchForGroupProduct(string search)
         {
-          
-            List<Models.GroupSale> products = new List<Models.GroupSale>();
-
             if (search != null)
             {
-                List<Models.GroupBuy> products = new List<Models.GroupBuy>();
+                List<Models.GroupSale> products = new List<Models.GroupSale>();
                 search = search.ToLower();
                 return products = GroupBuyItems.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
             }
