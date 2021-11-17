@@ -9,10 +9,8 @@ namespace Webshop.Pages.Admin
 {
     public class AddProductModel : PageModel
     {
-        // listan som ska visas på view
         public List<Models.Product> Products = Data.ProductManager.Products;
 
-        // prop som får data från OnPost
         [BindProperty]
         public Models.Product Product { get; set; }
         public void OnGet()
@@ -22,8 +20,8 @@ namespace Webshop.Pages.Admin
         public IActionResult OnPost()
         {
             Data.CartManager.EmptyCart();
-            // Product kommer från prop
-            Data.ProductManager.Products.Add(Product);
+
+            Data.ProductManager.AddProduct(Product);
             return RedirectToPage("/Admin/AddProduct");
         }
     }
