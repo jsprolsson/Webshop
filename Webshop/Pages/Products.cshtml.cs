@@ -21,13 +21,7 @@ namespace Webshop.Pages
 
         public void OnGet()
         {
-            //Displays category from navbar.
-            //if (Category != null)
-            //{
-            //    Products = Data.ProductManager.Categories(Category);
-            //    GroupSale = Data.ProductManager.GroupCategories(Category);
-            //}
-
+           
         }
 
 
