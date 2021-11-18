@@ -5,7 +5,7 @@
 <form method="post">
     <input type="text" asp-for="@Model.Product.id" placeholder="id" value="@(Model.Products.Count() + 1)" readonly/>
     <input type="text" asp-for="@Model.Product.title" placeholder="title" />
-    <input type="text" asp-for="@Model.Product.price" placeholder="price" />
+    <input type="number" min="1" max="@double.MaxValue" asp-for="@Model.Product.price" placeholder="price" />
     <input type="text" asp-for="@Model.Product.description" placeholder="description" />
     <input type="text" asp-for="@Model.Product.category" placeholder="category" />
     <input type="text" asp-for="@Model.Product.image" placeholder="image" />
