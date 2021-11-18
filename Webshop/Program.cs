@@ -29,7 +29,7 @@ namespace Webshop
             stopwatchThree.Stop();
             Console.WriteLine("Stopwatch for Three chosen-method: " + stopwatchThree.Elapsed);
             stopwatchCookie.Start();
-            Pages.IndexModel.ReadCookie = true;     // används för att läsa in cookie en gång vid uppstart
+            //Pages.IndexModel.ReadCookie = true;     // användes för att läsa in cart-cookie vid uppstart men vi upptäckte att cookie-filen snabbt blev 4kb stor vilket är gränsen så vi valde att ta bort detta
             stopwatchCookie.Stop();
             Console.WriteLine("Stopwatch for Cookie-method: " + stopwatchCookie.Elapsed);
             CreateHostBuilder(args).Build().Run();

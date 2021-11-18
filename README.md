@@ -18,7 +18,7 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 - Main körs en gång
   - APICall - hämtar grundutudet
   - Threechosen - 3 första i listan till chosen=true
-  - Readcookie - bool sätts till true vid start för att lägga in cart-cookie
+  - ~~Readcookie - bool sätts till true vid start för att lägga in cart-cookie~~
   - Stopwatch - problematik med kompilering/debug-tid
 - Home
   - Språk-cookie - cookie begränsad till 4kb - rimligt att spara språkinställning
@@ -30,8 +30,7 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
   - Purchase - Skickar item.Id till Cart lista
 - Cart
   - Lägg in en produkt
-  - Stäng ner sidan
-  - Öppna - visa att den ligger kvar
+  - Cartcookie - begränsad till 4kb och funkar dåligt
 - Cart/Checkout
   - Enums - val av frakt, fördefinierade värden
   - Kräver att fälten är ifyllda - modelstate checkar om den får vad den vill ha, annars meddelande till skärm
