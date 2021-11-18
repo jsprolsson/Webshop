@@ -33,7 +33,7 @@ namespace Webshop.Pages
             if (ItemID != 0) AddToCart();
 
             
-            CreateCookie();
+           //CreateCookie();
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
@@ -59,7 +59,6 @@ namespace Webshop.Pages
             var purchasedProduct = AllProducts.Where(product => product.id == ItemID).ToList();
             Data.CartManager.AddToCart(purchasedProduct[0]);
         }
-
 
         public IActionResult OnPostAdd()
         {
