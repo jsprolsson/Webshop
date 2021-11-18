@@ -21,6 +21,9 @@ namespace Webshop.Pages.Admin
 
         public IActionResult OnPost()
         {
+            //rensar carten för att inte skapa problem med existerande produkter i carten vid ändringar.
+            //modelstate kollar så den får in med product det metoden vill, annars returnerar den en sträng som ber om mer info.
+
             Data.CartManager.EmptyCart();
 
             if (ModelState.IsValid)
