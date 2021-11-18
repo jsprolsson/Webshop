@@ -33,10 +33,9 @@ namespace Webshop.Pages
         public void OnPostFinalize()
         {
             //vid köp så töms varukorgen.
-
             string message = Data.CartManager.EmptyCart();
             Message = message;
-
+            
             // uppdaterar cart cookien så att den inte innehåller något
             string fullCart = JsonSerializer.Serialize(Cart);
             CookieOptions options = new CookieOptions();

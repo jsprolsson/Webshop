@@ -34,6 +34,7 @@ namespace Webshop.Pages
 
             // CreateCookie(); metod för att skapa en cookie med cartens innehåll varje gång sidan laddas. Detta funkar men vi har valt att kommentera bort då cookiefilen snabbt blir för stor för att spara
 
+
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
         }
@@ -58,7 +59,6 @@ namespace Webshop.Pages
             var purchasedProduct = AllProducts.Where(product => product.id == ItemID).ToList();
             Data.CartManager.AddToCart(purchasedProduct[0]);
         }
-
 
         public IActionResult OnPostAdd()
         {

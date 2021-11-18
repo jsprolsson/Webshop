@@ -9,34 +9,34 @@
     }
 </style>
 
-<div class="row">
-    <div class="col-lg-1">
+<div class="row justify-content-start m-3">
+    <div class="col-md-auto">
         <form asp-page-handler="category" method="post">
-            <button class="btn btn-default">Electronics</button>
+            <button class="btn btn-outline-secondary btn-lg">Electronics</button>
             <input type="hidden" name="category" value="electronics" />
         </form>
     </div>
-    <div class="col-lg-1">
+    <div class="col-md-auto">
         <form asp-page-handler="category" method="post">
-            <button class="btn btn-default">Men's clothing</button>
+            <button class="btn btn-outline-secondary btn-lg">Men's clothing</button>
             <input type="hidden" name="category" value="men's clothing" />
         </form>
     </div>
-    <div class="col-lg-1">
+    <div class="col-md-auto">
         <form asp-page-handler="category" method="post">
-            <button class="btn btn-default">Women's clothing</button>
+            <button class="btn btn-outline-secondary btn-lg">Women's clothing</button>
             <input type="hidden" name="category" value="women's clothing" />
         </form>
     </div>
-    <div class="col-lg-1">
+    <div class="col-md-auto">
         <form asp-page-handler="category" method="post">
-            <button class="btn btn-default">Jewelery</button>
+            <button class="btn btn-outline-secondary btn-lg">Jewelery</button>
             <input type="hidden" name="category" value="jewelery" />
         </form>
     </div>
-    <div class="col-lg-1">
+    <div class="col-md-auto">
         <form asp-page-handler="category" method="post">
-            <button class="btn btn-default">Group sales</button>
+            <button class="btn btn-outline-secondary btn-lg">Group sales</button>
             <input type="hidden" name="category" value="group" />
         </form>
     </div>
@@ -126,7 +126,6 @@
             <img alt="Card image cap" class="card-img-top embed-responsive-item" src="@item.image" />
         </div>
         <div class="card-body">
-                <h4><u>GROUP SALE</u></h4>
                 <h5 class="card-title">
                     @item.title
                 </h5>

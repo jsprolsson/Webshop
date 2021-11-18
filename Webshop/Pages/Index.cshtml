@@ -74,8 +74,8 @@
                         {
                             <a class="btn btn-primary" asp-page="/cart" asp-route-ItemID="@item.id">Purchase</a>
                         }
-                        <p class="card-text text-right">Price: @item.price:-</p>
-                        <p class="card-text"><small class="text-muted">Last bought @(item.stock <= 0 ? 0 : 4) minutes ago</small></p>
+                        <h6 class="card-text text-right">Price: @item.price:-</h6>
+                        <p class="card-text"><small class="text-muted">Last bought @(item.stock <= 0 ? 0 : Data.ProductManager.GetRandomStock()) minutes ago</small></p>
                     </div>
                 </div>
             </div>
