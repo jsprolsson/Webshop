@@ -18,12 +18,9 @@ namespace Webshop.Pages
         [BindProperty(SupportsGet = true)]
         public string Category { get; set; }
 
-
         public void OnGet()
         {
-           
         }
-
 
         public void OnPostSearch()
         {

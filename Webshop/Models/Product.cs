@@ -33,6 +33,7 @@ namespace Webshop.Models
 
         }
 
+
         public string Category
         {
             get { return category; }
@@ -81,7 +82,7 @@ namespace Webshop.Models
 
             this.id = id;
             this.title = $"GROUP DISCOUNT {title}";
-            this.price = Math.Round((price * groupSize) * salePercentage, 1);
+            this.price = Math.Round((price * groupSize) * salePercentage, 0);
             this.description = description;
             this.category = category;
             this.image = image;

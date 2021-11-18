@@ -17,20 +17,16 @@ namespace Webshop.Data
         public static void APICall()
         {
             //kallar in produkterna från fake store-api:t och lägger till i products-listan.
-            List<Models.Product> products = new List<Models.Product>();
 
             var httpClient = new HttpClient();
             var response = httpClient.GetAsync("https://fakestoreapi.com/products").GetAwaiter().GetResult();
             var apiResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
-            products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
+            Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
 
-            foreach (var item in products)
+            foreach (var item in Products)
             {
-               item.price = Math.Round(item.price, 0);
+                item.price = Math.Round(item.price, 0);
             }
-
-            Products = products;
-
         }
 
         public static void ThreeChosen()    
