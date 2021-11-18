@@ -51,8 +51,10 @@ namespace Webshop.Data
         }
 
 
-        public static void RequestCookie(string cartCookie)
+        /*public static void RequestCookie(string cartCookie)
         {
+            //metod som hämtar cart-cookien.
+
             try
             {
                 Cart = JsonSerializer.Deserialize<Models.Product[]>(cartCookie).ToList();
@@ -60,7 +62,7 @@ namespace Webshop.Data
             catch (Exception)
             {
             }
-        }
+        } */
 
 
         public static string EmptyCart()
