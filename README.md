@@ -7,6 +7,7 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 # Förklaringar
 
 - Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
+- Vi diskuterade vilka sätt man kan hantera decimaler i priset och kom fram till att en enkel och smidig lösning är att göra en math.round på det inkommande apianropet. På så vis så vet vi att det inte finns några decimaler (förutom efter vissa uträkningar där vi gör en till math.round) genom hela shopens flöde. Man kan argumentera för att en modern shop inte behöver ören, eller att man i dialog med kund kan reda ut vad man vill uppnå med decimalerna och skriva koden i den riktningen.
 
 # Presentation 18/11 @Teams
 
