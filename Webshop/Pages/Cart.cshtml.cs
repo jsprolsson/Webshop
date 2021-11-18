@@ -32,7 +32,7 @@ namespace Webshop.Pages
         {
             if (ItemID != 0) AddToCart();
 
-            CreateCookie();
+            // CreateCookie(); metod för att skapa en cookie med cartens innehåll varje gång sidan laddas. Detta funkar men vi har valt att kommentera bort då cookiefilen snabbt blir för stor för att spara
 
             TotalSum = Data.CartManager.GetCartSum();
             VAT = Math.Round(TotalSum * 0.25, 2);
@@ -46,7 +46,7 @@ namespace Webshop.Pages
             options.Expires = DateTime.Now.AddDays(2);
             Response.Cookies.Append("cart", fullCart, options);
 
-            // Session cookie, fungerade inte med den nuvarande uppbyggnaden av hemsidan.
+            // Session cookie, fungerade inte med den nuvarande uppbyggnaden av hemsidan då vi bara har en "session"
             //HttpContext.Session.SetString("Cart", fullCart);
             //var sessionCookie = HttpContext.Session.GetString("Cart");
             //Cart = JsonSerializer.Deserialize<Models.OrderItem[]>(HttpContext.Session.GetString("Cart")).ToList();

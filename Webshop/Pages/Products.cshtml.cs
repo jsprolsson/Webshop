@@ -42,13 +42,11 @@ namespace Webshop.Pages
         {
             if (category == "group")
             {
-                //Products = Data.ProductManager.GetCategory("null");
                 Products = Data.ProductManager.GetGroupCategory(category);
             }
             else
             {
                 Products = Data.ProductManager.GetCategory(category);
-                //GroupSale = Data.ProductManager.GetGroupCategory(category);
             }
         }
 

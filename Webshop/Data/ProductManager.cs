@@ -60,11 +60,13 @@ namespace Webshop.Data
         }
         public static List<Models.Product> GetCategory(string category)
         {
+            // den utvalda kategorin returneras
             List<Models.Product> products = new List<Models.Product>();
             return products = Products.Where(product => product.category == category).ToList();
         }
         public static List<Models.Product> GetGroupCategory(string category)
         {
+            // alla group sales får "GROUP DISCOUNT" tillagd i titeln. Metoden returnerar en lista 
             List<Models.Product> products = new List<Models.Product>();
             return products = Products.Where(product => product.title.Contains("GROUP DISCOUNT")).Select(product => product).ToList();
         }
@@ -84,12 +86,6 @@ namespace Webshop.Data
             
         }
 
-        public static List<Models.Product> Categories(string category)
-        {
-            List<Models.Product> products = new List<Models.Product>();
-            return products = Products.Where(product => product.category == category).ToList();
-        }
-
         public static List<Models.GroupSale> SearchForGroupProduct(string search)
         {
             //söker igenom group sale-produkterna efter parametern search i category, title och description.
@@ -101,14 +97,6 @@ namespace Webshop.Data
                 return products = GroupSales.Where(product => product.category.ToLower().Contains(search) || product.title.ToLower().Contains(search) || product.description.ToLower().Contains(search)).Select(product => product).ToList();
             }
             else return GroupSales;
-        }
-
-        public static List<Models.GroupSale> GroupCategories(string category)
-        {
-            //när användaren klickar på en kategori i navbaren så filtreras groupbuyitems-listan utifrån vad den får in.
-
-            List<Models.GroupSale> products = new List<Models.GroupSale>();
-            return products = GroupSales.Where(product => product.category == category).ToList();
         }
 
         public static void ProductToGroupSale(int productID, int groupSize)

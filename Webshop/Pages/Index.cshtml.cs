@@ -32,12 +32,12 @@ namespace Webshop.Pages
             }
             WelcomeText = SwedishAsLanguage ? "Välkommen till Megabörs!" : "Welcome to Megabörs!";
 
-            // Hämtar cart-cookie första gången sidan öppnas för att fylla Cart med sparade artiklar
-            if (ReadCookie == true)
-            {
-                Data.CartManager.RequestCookie(Request.Cookies["cart"]);
-                ReadCookie = false;
-            }
+            // Hämtar cart-cookie första gången sidan öppnas för att fylla Cart med sparade artiklar - borttagen för att cookien blev större än 4kb
+            //if (ReadCookie == true)
+            //{
+            //    Data.CartManager.RequestCookie(Request.Cookies["cart"]);
+            //    ReadCookie = false;
+            //}
         }
 
         public IActionResult OnPostLanguage(bool swedish)
