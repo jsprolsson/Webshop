@@ -22,6 +22,11 @@ namespace Webshop.Data
             var response = httpClient.GetAsync("https://fakestoreapi.com/products").GetAwaiter().GetResult();
             var apiResponse = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
             Products = JsonSerializer.Deserialize<Models.Product[]>(apiResponse).ToList();
+
+            foreach (var item in Products)
+            {
+                item.price = Math.Round(item.price, 0);
+            }
         }
 
         public static void ThreeChosen()    

@@ -18,18 +18,9 @@ namespace Webshop.Pages
         [BindProperty(SupportsGet = true)]
         public string Category { get; set; }
 
-
         public void OnGet()
         {
-            //Displays category from navbar.
-            //if (Category != null)
-            //{
-            //    Products = Data.ProductManager.Categories(Category);
-            //    GroupSale = Data.ProductManager.GroupCategories(Category);
-            //}
-
         }
-
 
         public void OnPostSearch()
         {

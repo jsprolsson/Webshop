@@ -27,7 +27,7 @@ namespace Webshop.Pages
             }
 
             Sum = Data.CartManager.GetCartSum();
-            VAT = Math.Round(Sum * 0.25, 2);
+            VAT = Math.Round(Sum * 0.25, 0);
         }
 
         public void OnPostFinalize()

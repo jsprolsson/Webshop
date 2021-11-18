@@ -41,7 +41,7 @@ namespace Webshop.Pages
 
             //beräknar summa och moms.
             TotalSum = Data.CartManager.GetCartSum();
-            VAT = Math.Round(TotalSum * 0.25, 2);
+            VAT = Math.Round(TotalSum * 0.25, 0);
         }
 
         public void CreateCookie()
