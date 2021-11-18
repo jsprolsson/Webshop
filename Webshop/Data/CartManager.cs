@@ -37,7 +37,7 @@ namespace Webshop.Data
                 sum += product.price;
             }
 
-            return Math.Round(sum, 2);
+            return Math.Round(sum, 1);
         }
 
         public static IEnumerable<IGrouping<string, Models.Product>> GroupCartByProducts()
