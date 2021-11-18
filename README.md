@@ -1,20 +1,21 @@
 # Webshop
 
-Hej! Här är vår webshop - **MEGABÖRS**. Vi bestämde oss för att implementera det externa APIet först för att utnyttja ett redan definierat produktutbud. För att använda oss av Arv så skapade vi en klass för Group buy där köparen kan köpa x antal produkter för ett nedsatt pris.
+Hej! Här är vår webshop - **MEGABÖRS**. Vi bestämde oss för att implementera det externa APIet först för att utnyttja ett redan definierat produktutbud. För att använda oss av Arv så skapade vi en klass för Group sale där köparen kan köpa x antal produkter för ett nedsatt pris.
 
-När vi adderade cookies för att spara innehållet i varukorgen så märkte vi att cookiens maximala filstorlek stoppade oss från att spara mer än ~6 produkter. Vi tänkte om och la till två knappar för Svenska och English på startsidan. Den ändrar bara Välkoms-texten.
+När vi adderade cookies för att spara innehållet i varukorgen så märkte vi att cookiens maximala filstorlek stoppade oss från att spara mer än ~6 produkter. Vi tänkte om och la till två knappar för Svenska och English på startsidan. Den ändrar bara Välkoms-texten men konceptet hade även kunnat användas till andra funktioner.
 
 # Förklaringar
 
 - Valet av camelCase i Models var utifrån att det externa APIet började med liten bokstav
 
-# Presentation
+# Presentation 18/11 @Teams
 
-## "funktionaliteten i applikationen, för att förklara hur ni tänkt"
+<details>
+  <summary>Click to expand!</summary>
 
 - API
-  - För att få produkter
-  - Färdigdefinierad klass
+- För att få produkter
+- Färdigdefinierad klass
 - Main körs en gång
   - APICall - hämtar grundutudet
   - Threechosen - 3 första i listan till chosen=true
@@ -40,8 +41,12 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
   - Add
   - Change
   - Group sale - arv som skapar flera av grund-item till en sammanslagen produkt. inte optimalt pga produkterna från api:t fanns bara som product. någon annan som gjort som oss?
+  </details>
 
-# TODO
+# TODO (or forget)
+
+<details>
+  <summary>Click to expand!</summary>
 
 - [ ] Sidan kraschar om det saknas text i alla fält på Add product. Lägg in fördefinierade kategorier eller kräva alla fält ifyllda
 - [ ] ~~Söka inom en kategori~~
@@ -57,9 +62,14 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 - [x] Se till så att det bara kan ligga 1 order i orders listan
 - [x] Ändra OrderItem till Product?
 
-# Beståndsdelar
+</details>
 
-## Startsida
+# Beståndsdelar och speckrav
+
+<details>
+   <summary>Click to expand!</summary>
+  
+  ## Startsida
 
 - [x] Välkomst-text
 - [x] Bild
@@ -100,3 +110,5 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 
 - [x] Ändra produkter
 - [x] Lägg till nya produkter
+
+</details>
