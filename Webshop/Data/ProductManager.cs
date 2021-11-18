@@ -60,17 +60,17 @@ namespace Webshop.Data
         }
         public static List<Models.Product> GetCategory(string category)
         {
-            // den utvalda kategorin returneras
+            // den utvalda kategorins produkter returneras
+
             List<Models.Product> products = new List<Models.Product>();
             return products = Products.Where(product => product.category == category).ToList();
         }
         public static List<Models.Product> GetGroupCategory(string category)
         {
-            // alla group sales får "GROUP DISCOUNT" tillagd i titeln. Metoden returnerar en lista 
+            // alla group sales har "GROUP DISCOUNT" tillagd i titeln. Metoden returnerar en lista
             List<Models.Product> products = new List<Models.Product>();
             return products = Products.Where(product => product.title.Contains("GROUP DISCOUNT")).Select(product => product).ToList();
         }
-
 
         public static List<Models.Product> SearchForProduct(string search)
         {

@@ -15,6 +15,9 @@ namespace Webshop
     {
         public static void Main(string[] args)
         {
+            //vi upplevde att sidan tog lång tid på sig att ladda. Kollade tiderna med stopwatches, en för var metod vi kallade på.
+            //märkte inga större skillnader mellan gångerna. kan ha varit när vi laddade in api:n gång på gång att den tog längre tid på sig att svara.
+
             Stopwatch stopwatchAPI = new Stopwatch();
             Stopwatch stopwatchThree = new Stopwatch();
             Stopwatch stopwatchCookie = new Stopwatch();
@@ -23,14 +26,17 @@ namespace Webshop
             stopwatchAPI.Start();
             Data.ProductManager.APICall();          // anropar API en gång vid start för att fylla utbudet
             stopwatchAPI.Stop();
+
             stopwatchThree.Start();
             Console.WriteLine("Stopwatch for API-method: " + stopwatchAPI.Elapsed);
             Data.ProductManager.ThreeChosen();      // sätter tre produkter som utvalda
             stopwatchThree.Stop();
+
             Console.WriteLine("Stopwatch for Three chosen-method: " + stopwatchThree.Elapsed);
             stopwatchCookie.Start();
             //Pages.IndexModel.ReadCookie = true;     // användes för att läsa in cart-cookie vid uppstart men vi upptäckte att cookie-filen snabbt blev 4kb stor vilket är gränsen så vi valde att ta bort detta
             stopwatchCookie.Stop();
+
             Console.WriteLine("Stopwatch for Cookie-method: " + stopwatchCookie.Elapsed);
             CreateHostBuilder(args).Build().Run();
 
