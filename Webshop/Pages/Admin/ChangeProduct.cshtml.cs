@@ -21,6 +21,10 @@ namespace Webshop.Pages.Admin
 
         public IActionResult OnPostChange()
         {
+
+            //rensar carten för att inte skapa problem med existerande produkter i carten vid ändringar.
+            //kollar så att ChangeProduct får in all info den vill ha med Product. Annars returneras meddelande.
+
             Data.CartManager.EmptyCart();
 
             if (ModelState.IsValid)
