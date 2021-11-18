@@ -53,7 +53,7 @@ När vi adderade cookies för att spara innehållet i varukorgen så märkte vi 
 - [ ] ~~Söka inom en kategori~~
 - [ ] Admin Ändra/Lägg till - Funktion för att ej skapa dubbletter
 - [ ] Kanske Product.id vara lika med List<Index>?
-- [ ] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
+- [x] Använd Get/Set - tex så att lagersaldo aldrig kan vara < 0
 - [x] Räkna ut korrekt pris för GroupBuy i Product klassen
 - [x] Gör search till case insensitive - tex ToLower
 - [x] **Try-catch** istället för **!= null**
